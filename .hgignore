@@ -1,1 +1,4 @@
 glob:Thumbs.db
+glob:bin
+glob:obj
+glob:*.orig

@@ -56,7 +56,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="nunit.framework">
-      <HintPath>..\..\References\nunit.framework.dll</HintPath>
+      <HintPath>..\libs\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -108,7 +108,7 @@
     <Folder Include="Rows" />
     <Folder Include="Selection" />
     <Folder Include="Performance" />
-    <ProjectReference Include="..\..\SourceGrid.csproj">
+    <ProjectReference Include="..\SourceGrid\SourceGrid.csproj">
       <Project>{2A5A1657-DBA8-4117-8E2A-9F1236ACE9E2}</Project>
       <Name>SourceGrid</Name>
     </ProjectReference>

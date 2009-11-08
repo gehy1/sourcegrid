@@ -63,17 +63,14 @@ namespace DevAge.IO
 		{
 			WriteBytes(p_Stream, BitConverter.GetBytes(p_Value));
 		}
-		[CLSCompliant(false)]
 		public static void Write(Stream p_Stream, UInt16 p_Value)
 		{
 			WriteBytes(p_Stream, BitConverter.GetBytes(p_Value));
 		}
-		[CLSCompliant(false)]
 		public static void Write(Stream p_Stream, UInt32 p_Value)
 		{
 			WriteBytes(p_Stream, BitConverter.GetBytes(p_Value));
 		}
-		[CLSCompliant(false)]
 		public static void Write(Stream p_Stream, UInt64 p_Value)
 		{
 			WriteBytes(p_Stream, BitConverter.GetBytes(p_Value));
@@ -191,7 +188,6 @@ namespace DevAge.IO
 			return val;
 		}
 
-		[CLSCompliant(false)]
 		public static UInt16 ReadUInt16(Stream p_Stream)
 		{
 			System.UInt16 val;
@@ -200,7 +196,6 @@ namespace DevAge.IO
 			val = BitConverter.ToUInt16(l_tmp,0);
 			return val;
 		}
-		[CLSCompliant(false)]
 		public static UInt32 ReadUInt32(Stream p_Stream)
 		{
 			System.UInt32 val;
@@ -209,7 +204,6 @@ namespace DevAge.IO
 			val = BitConverter.ToUInt32(l_tmp,0);
 			return val;
 		}
-		[CLSCompliant(false)]
 		public static UInt64 ReadUInt64(Stream p_Stream)
 		{
 			System.UInt64 val;

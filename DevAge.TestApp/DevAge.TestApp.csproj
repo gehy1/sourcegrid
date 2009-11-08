@@ -222,7 +222,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SourceGrid.csproj">
+    <ProjectReference Include="..\SourceGrid\SourceGrid.csproj">
       <Project>{2A5A1657-DBA8-4117-8E2A-9F1236ACE9E2}</Project>
       <Name>SourceGrid</Name>
     </ProjectReference>
