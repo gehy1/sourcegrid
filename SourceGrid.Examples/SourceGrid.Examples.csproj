@@ -348,7 +348,6 @@
     <Folder Include="GridSamples\GenericSamples" />
     <Folder Include="GridSamples\Performance" />
     <Folder Include="GridSamples\StandardFeatures" />
-    <Folder Include="GridSamples\Spanning" />
     <ProjectReference Include="..\SourceGrid\SourceGrid.csproj">
       <Project>{2A5A1657-DBA8-4117-8E2A-9F1236ACE9E2}</Project>
       <Name>SourceGrid</Name>

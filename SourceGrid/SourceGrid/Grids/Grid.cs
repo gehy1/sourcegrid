@@ -346,7 +346,7 @@ namespace SourceGrid
 		}
 		
 		/// <summary>
-		/// Check 
+		/// Check
 		/// </summary>
 		private void EnsureNoOtherCellsExist(int row, int col, Cells.ICell p_cell)
 		{
@@ -470,6 +470,12 @@ namespace SourceGrid
 
 			if (p_cell != null)
 				EnsureDestinationSpannedAreaisCompletelyEmpty(row, col, p_cell.RowSpan, p_cell.ColumnSpan);
+			
+			if (p_cell != null)
+			{
+				p_cell.BindToGrid(this,new Position(row, col));
+			}
+			
 			if ((p_cell != null) && ((p_cell.RowSpan > 1) || (p_cell.ColumnSpan > 1)))
 			{
 				// occupy space if it is spanned cell
@@ -477,11 +483,6 @@ namespace SourceGrid
 			}
 			
 			DirectSetCell(new Position(row, col), p_cell);
-
-			if (p_cell != null)
-			{
-				p_cell.BindToGrid(this,new Position(row, col));
-			}
 		}
 		#endregion
 

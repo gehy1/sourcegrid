@@ -21,6 +21,8 @@ namespace SourceGrid
 		/// <param name="newRange"></param>
 		public void UpdateOrAdd(Range newRange)
 		{
+			if (newRange.Equals(Range.Empty))
+				throw new ArgumentException("Range can not be empty");
 			Range? index = this.SpannedRangesCollection.FindRangeWithStart(newRange.Start);
 			if (index == null)
 				this.SpannedRangesCollection.Add(newRange);
