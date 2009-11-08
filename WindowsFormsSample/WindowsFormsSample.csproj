@@ -1,0 +1,366 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6A077A72-7CEF-4198-96CB-1DE418F575F2}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>WindowsFormsSample</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WindowsFormsSample</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <SourceAnalysisOverrideSettingsFile>C:\Documents and Settings\ltdda\Application Data\ICSharpCode/SharpDevelop3.0\Settings.SourceAnalysis</SourceAnalysisOverrideSettingsFile>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>Full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>WindowsFormsSample</AssemblyName>
+    <RootNamespace>WindowsFormsSample</RootNamespace>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>WindowsFormsSample</AssemblyName>
+    <RootNamespace>WindowsFormsSample</RootNamespace>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Design">
+      <Name>System.Design</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App.ico" />
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GridSamples\AdvancedFeatures\frmSample42.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridSamples\AdvancedFeatures\frmSample44.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridSamples\AdvancedFeatures\frmSample45.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridSamples\AdvancedFeatures\frmSample45.Designer.cs">
+      <DependentUpon>frmSample45.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridSamples\AdvancedFeatures\frmSample46.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridSamples\AdvancedFeatures\frmSample47.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridSamples\AdvancedFeatures\frmSample47.Designer.cs">
+      <DependentUpon>frmSample47.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridSamples\AdvancedFeatures\frmSample50.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridSamples\AdvancedFeatures\frmSample50.Designer.cs">
+      <DependentUpon>frmSample50.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridSamples\AdvancedFeatures\frmSample51.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridSamples\AdvancedFeatures\frmSample51.Designer.cs">
+      <DependentUpon>frmSample51.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridSamples\AdvancedFeatures\frmSample52.cs" />
+    <Compile Include="GridSamples\BasicConcepts\frmSample14.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridSamples\BasicConcepts\frmSample28.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridSamples\BasicConcepts\frmSample48.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridSamples\BasicConcepts\frmSample48.Designer.cs">
+      <DependentUpon>frmSample48.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridSamples\BasicConcepts\frmSample54.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridSamples\Extensions\frmSample18.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridSamples\Extensions\frmSample27.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridSamples\Extensions\frmSample29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridSamples\Extensions\frmSample41.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridSamples\Extensions\frmSample43.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridSamples\Extensions\frmSample49.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridSamples\Extensions\frmSample49.Designer.cs">
+      <DependentUpon>frmSample49.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridSamples\Extensions\frmSample9.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridSamples\GenericSamples\frmSample01.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridSamples\GenericSamples\frmSample04.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridSamples\GenericSamples\frmSample25.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridSamples\Performance\frmSample53.cs" />
+    <Compile Include="GridSamples\StandardFeatures\frmSample03.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridSamples\StandardFeatures\frmSample17.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridSamples\StandardFeatures\frmSample19.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridSamples\StandardFeatures\frmSample21.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridSamples\StandardFeatures\FrmSample21Events.cs" />
+    <Compile Include="GridSamples\StandardFeatures\frmSample24.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridSamples\StandardFeatures\frmSample26.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SampleAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <None Include="Resources\BackGround.bmp" />
+    <None Include="Resources\CalcioSmall.bmp" />
+    <EmbeddedResource Include="GridSamples\AdvancedFeatures\frmSample42.resx">
+      <DependentUpon>frmSample42.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\AdvancedFeatures\frmSample44.resx">
+      <DependentUpon>frmSample44.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\AdvancedFeatures\frmSample45.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmSample45.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\AdvancedFeatures\frmSample46.resx">
+      <DependentUpon>frmSample46.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\AdvancedFeatures\frmSample47.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmSample47.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\AdvancedFeatures\frmSample50.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmSample50.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\AdvancedFeatures\frmSample51.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmSample51.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\AdvancedFeatures\frmSample52.resx">
+      <DependentUpon>frmSample52.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\BasicConcepts\frmSample14.resx">
+      <DependentUpon>frmSample14.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\BasicConcepts\frmSample28.resx">
+      <DependentUpon>frmSample28.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\BasicConcepts\frmSample48.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmSample48.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Resources\FACE00.ICO" />
+    <None Include="Resources\FACE01.ICO" />
+    <None Include="Resources\FACE02.ICO" />
+    <None Include="Resources\FACE04.ICO" />
+    <EmbeddedResource Include="GridSamples\BasicConcepts\frmSample54.resx">
+      <DependentUpon>frmSample54.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\Extensions\frmSample18.resx">
+      <DependentUpon>frmSample18.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\Extensions\frmSample27.resx">
+      <DependentUpon>frmSample27.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\Extensions\frmSample29.resx">
+      <DependentUpon>frmSample29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\Extensions\frmSample41.resx">
+      <DependentUpon>frmSample41.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\Extensions\frmSample43.resx">
+      <DependentUpon>frmSample43.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\Extensions\frmSample49.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmSample49.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\Extensions\frmSample9.resx">
+      <DependentUpon>frmSample9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\GenericSamples\frmSample01.resx">
+      <DependentUpon>frmSample01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\GenericSamples\frmSample04.resx">
+      <DependentUpon>frmSample04.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\GenericSamples\frmSample25.resx">
+      <DependentUpon>frmSample25.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\Performance\frmSample53.resx">
+      <DependentUpon>frmSample53.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\SampleData.xml" />
+    <EmbeddedResource Include="GridSamples\SampleData2.xml" />
+    <None Include="Resources\Star.ico" />
+    <None Include="Resources\StarOff.gif" />
+    <None Include="Resources\trash.ico" />
+    <EmbeddedResource Include="GridSamples\StandardFeatures\frmSample03.resx">
+      <DependentUpon>frmSample03.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\StandardFeatures\frmSample17.resx">
+      <DependentUpon>frmSample17.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\StandardFeatures\frmSample19.resx">
+      <DependentUpon>frmSample19.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\StandardFeatures\frmSample21.resx">
+      <DependentUpon>frmSample21.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\StandardFeatures\frmSample24.resx">
+      <DependentUpon>frmSample24.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\StandardFeatures\frmSample26.resx">
+      <DependentUpon>frmSample26.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StartForm.resx">
+      <DependentUpon>StartForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GridSamples\BasicConcepts" />
+    <Folder Include="GridSamples\AdvancedFeatures" />
+    <Folder Include="GridSamples\Extensions" />
+    <Folder Include="GridSamples\GenericSamples" />
+    <Folder Include="GridSamples\Performance" />
+    <Folder Include="GridSamples\StandardFeatures" />
+    <Folder Include="GridSamples\Spanning" />
+    <ProjectReference Include="..\SourceGrid.csproj">
+      <Project>{2A5A1657-DBA8-4117-8E2A-9F1236ACE9E2}</Project>
+      <Name>SourceGrid</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <ProjectGuid>{6A077A72-7CEF-4198-96CB-1DE418F575F2}</ProjectGuid>
+    <RootNamespace>WindowsFormsSample</RootNamespace>
+  </PropertyGroup>
+</Project>

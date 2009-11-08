@@ -1,0 +1,466 @@
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{2A5A1657-DBA8-4117-8E2A-9F1236ACE9E2}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>SourceGrid</RootNamespace>
+    <AssemblyName>SourceGrid</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SourceAnalysisOverrideSettingsFile>C:\Documents and Settings\User.YOUR-2F73F42422\Application Data\ICSharpCode/SharpDevelop3.0\Settings.SourceAnalysis</SourceAnalysisOverrideSettingsFile>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>SourceGrid4\SourceGrid\SourceGrid.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>False</DelaySign>
+    <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <BaseAddress>4194304</BaseAddress>
+    <PlatformTarget>x86</PlatformTarget>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DevAgeSourcePack4" />
+    <Folder Include="DevAgeSourcePack4\DevAge.Core" />
+    <Folder Include="DevAgeSourcePack4\DevAge.Core\Collections" />
+    <Folder Include="DevAgeSourcePack4\DevAge.Core\ComponentModel" />
+    <Folder Include="DevAgeSourcePack4\DevAge.Core\ComponentModel\Converter" />
+    <Folder Include="DevAgeSourcePack4\DevAge.Core\ComponentModel\Validator" />
+    <Folder Include="DevAgeSourcePack4\DevAge.Core\Configuration" />
+    <Folder Include="DevAgeSourcePack4\DevAge.Core\Data" />
+    <Folder Include="DevAgeSourcePack4\DevAge.Core\Data\SqlClient" />
+    <Folder Include="DevAgeSourcePack4\DevAge.Core\Exceptions" />
+    <Folder Include="DevAgeSourcePack4\DevAge.Core\IO" />
+    <Folder Include="DevAgeSourcePack4\DevAge.Core\IO\IsolatedStorage" />
+    <Folder Include="DevAgeSourcePack4\DevAge.Core\Patterns" />
+    <Folder Include="DevAgeSourcePack4\DevAge.Core\Runtime" />
+    <Folder Include="DevAgeSourcePack4\DevAge.Core\Runtime\Serialization" />
+    <Folder Include="DevAgeSourcePack4\DevAge.Core\Security" />
+    <Folder Include="DevAgeSourcePack4\DevAge.Core\Security\Cryptography" />
+    <Folder Include="DevAgeSourcePack4\DevAge.Core\Shell" />
+    <Folder Include="DevAgeSourcePack4\DevAge.Core\Text" />
+    <Folder Include="DevAgeSourcePack4\DevAge.Core\Text\FixedLength" />
+    <Folder Include="DevAgeSourcePack4\DevAge.Windows.Forms" />
+    <Folder Include="DevAgeSourcePack4\DevAge.Windows.Forms\ComponentModel" />
+    <Folder Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing" />
+    <Folder Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements" />
+    <Folder Include="DevAgeSourcePack4\DevAge.Windows.Forms\Properties" />
+    <Folder Include="DevAgeSourcePack4\DevAge.Windows.Forms\Res" />
+    <Folder Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows" />
+    <Folder Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms" />
+    <Folder Include="DevAgeSourcePack4\Documents" />
+    <Folder Include="SourceGrid4" />
+    <Folder Include="SourceGrid4\SourceGrid" />
+    <Folder Include="SourceGrid4\SourceGrid.Extensions" />
+    <Folder Include="SourceGrid4\SourceGrid.Extensions\Cells" />
+    <Folder Include="SourceGrid4\SourceGrid.Extensions\Conditions" />
+    <Folder Include="SourceGrid4\SourceGrid\Cells" />
+    <Folder Include="SourceGrid4\SourceGrid\Cells\Controllers" />
+    <Folder Include="SourceGrid4\SourceGrid\Cells\Editors" />
+    <Folder Include="SourceGrid4\SourceGrid\Cells\Models" />
+    <Folder Include="SourceGrid4\SourceGrid\Cells\Models\Real" />
+    <Folder Include="SourceGrid4\SourceGrid\Cells\Views" />
+    <Folder Include="SourceGrid4\SourceGrid\Common" />
+    <Folder Include="SourceGrid4\SourceGrid\Decorators" />
+    <Folder Include="SourceGrid4\SourceGrid\Exporter" />
+    <Folder Include="SourceGrid4\SourceGrid\Grids" />
+    <Folder Include="SourceGrid4\SourceGrid\QuadTree" />
+    <Folder Include="SourceGrid4\SourceGrid\Utils" />
+    <Folder Include="SourceGrid4\SourceGrid\Selection" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\Collections\ListByType.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\ComponentModel\ComponentLight.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\ComponentModel\Converter\CurrencyTypeConverter.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\ComponentModel\Converter\DateTimeTypeConverter.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\ComponentModel\Converter\NumberTypeConverter.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\ComponentModel\Converter\PercentTypeConverter.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\ComponentModel\TypeDescriptorContext.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\ComponentModel\ValidatingEvent.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\ComponentModel\Validator\IValidator.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\ComponentModel\Validator\ValidatorBase.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\ComponentModel\Validator\ValidatorTypeConverter.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\ComponentModel\Validator\ValueMapping.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\Configuration\CommandLineArgs.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\Configuration\ConfigurationException.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\Configuration\PersistableItem.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\Configuration\PersistableItemDictionary.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\Configuration\PersistableSettings.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\Data\DataSetHelper.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\Data\FileDataSet.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\Data\SqlClient\SqlCommandBuilder.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\Data\StreamDataSet.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\DateTimeHelper.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\Exceptions\Exceptions.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\IO\IsolatedStorage\IsolatedStorageSettingBase.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\IO\IsolatedStorage\IsolatedStorageSettingVersionBase.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\IO\StreamPersistence.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\IO\StringPersistence.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\Patterns\Activity.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\Patterns\ActivityCollection.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\Patterns\ActivityEvents.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\Patterns\AsyncActivity.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\Patterns\Exceptions.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\Runtime\Serialization\Utilities.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\Security\Cryptography\Utilities.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\Shell\MailToProtocol.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\Shell\Utilities.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\Text\FixedLength\Attributes.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\Text\FixedLength\Exceptions.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\Text\FixedLength\Field.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\Text\FixedLength\FieldList.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\Text\FixedLength\LineParser.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\Text\FixedLength\LineWriter.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Core\Text\FixedLength\Utilities.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\ComponentModel\BoundDataView.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\ComponentModel\BoundList.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\ComponentModel\BoundListBase.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\ComponentModel\IBoundList.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\AnchorArea.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\BorderLine.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\BrushsCache.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\EditablePanel.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\EditablePanelBase.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\EditablePanelThemed.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\Enums.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\GraphicsCache.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\IBorder.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\MeasureHelper.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\Padding.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\PensCache.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\RectangleBorder.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\RoundedRectangle.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\Utilities.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\BackgroundBase.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\BackgroundBorder.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\BackgroundBorderBase.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\BackgroundLinearGradient.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\BackgroundSolid.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\Button.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\ButtonBase.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\ButtonThemed.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\CheckBox.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\CheckBoxBase.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\CheckBoxThemed.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\ColumnHeader.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\ColumnHeaderBase.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\ColumnHeaderThemed.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\Container.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\ContainerBase.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\DropDownButton.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\DropDownButtonBase.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\DropDownButtonThemed.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\Header.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\HeaderBase.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\HeaderThemed.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\Icon.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\Image.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\RowHeader.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\RowHeaderBase.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\RowHeaderThemed.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\SortIndicator.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\SortIndicatorThemed.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\Text.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\TextGDI.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\TextRenderer.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\VisualElementBase.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\VisualElementList.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Properties\Resources.Designer.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\ButtonMultiSelection.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\ColorPicker.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\CommonImages.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\ControlCursor.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\DevAgeComboBox.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\DevAgeMaskedTextBox.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\DevAgeNumericUpDown.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\DevAgeTextBox.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\DevAgeTextBoxButton.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\DropDown.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\DropDownButton.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\EditableControlBase.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\ErrorDialog.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\ErrorDialogDetails.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\FormBase.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\FormSingleton.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\HeaderGroupBox.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\ImageNavigator.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\Line.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\LinkLabel.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\PositionRecorder.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\SendCharExact.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\TextBoxUITypeEditor.cs" />
+    <Compile Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\Utilities.cs" />
+    <Compile Include="SourceGrid4\SourceGrid.Extensions\ArrayGrid.cs" />
+    <Compile Include="SourceGrid4\SourceGrid.Extensions\Cells\DataGridCells.cs" />
+    <Compile Include="SourceGrid4\SourceGrid.Extensions\Conditions\ConditionBuilder.cs" />
+    <Compile Include="SourceGrid4\SourceGrid.Extensions\Conditions\ConditionCell.cs" />
+    <Compile Include="SourceGrid4\SourceGrid.Extensions\Conditions\ConditionView.cs" />
+    <Compile Include="SourceGrid4\SourceGrid.Extensions\Conditions\ICondition.cs" />
+    <Compile Include="SourceGrid4\SourceGrid.Extensions\DataGrid.cs" />
+    <Compile Include="SourceGrid4\SourceGrid.Extensions\DataGridColumn.cs" />
+    <Compile Include="SourceGrid4\SourceGrid.Extensions\DataGridRow.cs" />
+    <Compile Include="SourceGrid4\SourceGrid.Extensions\ListEditor.cs" />
+    <Compile Include="SourceGrid4\SourceGrid.Extensions\PlanningGrid.cs" />
+    <Compile Include="SourceGrid4\SourceGridAssemblyInfo.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\AssemblyInfo.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Button.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Cell.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\CellCollection.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\CellContext.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\CellControl.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\CellVirtual.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\CheckBox.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\ColumnHeader.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Controllers\BindProperty.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Controllers\Button.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Controllers\CellEventDispatcher.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Controllers\CheckBox.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Controllers\ControllerBase.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Controllers\ControllerContainer.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Controllers\CustomEvents.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Controllers\IController.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Controllers\MouseCursor.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Controllers\MouseInvalidate.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Controllers\MouseSelection.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Controllers\Resizable.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Controllers\SortableHeader.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Controllers\StandardBehavior.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Controllers\ToolTipText.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Controllers\Unselectable.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Editors\ComboBox.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Editors\DateTimePicker.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Editors\EditorBase.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Editors\EditorControlBase.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Editors\Factory.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Editors\ImagePicker.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Editors\NumericUpDown.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Editors\TextBox.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Editors\TextBoxButton.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Editors\TextBoxCurrency.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Editors\TextBoxNumeric.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Editors\TextBoxUITypeEditor.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Editors\TimePicker.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Header.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\ICell.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\ICellVirtual.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Image.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Link.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Models\ICheckBox.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Models\IImage.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Models\IModel.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Models\ISortableHeader.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Models\IToolTipText.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Models\IValueModel.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Models\ModelContainer.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Models\Real\Models.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\RowHeader.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Views\Button.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Views\Cell.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Views\CheckBox.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Views\ColumnHeader.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Views\ComboBox.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Views\Header.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Views\IView.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Views\Link.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Views\MultiImages.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Views\RowHeader.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Cells\Views\ViewBase.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Common\ColumnInfo.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Common\ColumnInfoCollection.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Common\ColumnsBase.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Common\ColumnsSimpleBase.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Common\CustomScrollControl.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Common\Enums.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Common\Events.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Common\LinkedControlsList.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Common\Position.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Common\PositionCollection.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Common\Range.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Common\RangeCollection.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Common\RangeData.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Common\RangeRegion.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Common\RowInfo.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Common\RowInfoCollection.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Common\RowsBase.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Common\RowsSimpleBase.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Common\Utilities.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Common\ValueCellComparer.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Decorators\DecoratorBase.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Decorators\DecoratorHighlight.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Decorators\DecoratorList.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Decorators\DecoratorSelection.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Exporter\CSV.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Exporter\GridPrintDocument.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Exporter\HTML.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Exporter\Image.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Grids\Grid.Columns.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Grids\Grid.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Grids\Grid.Rows.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Grids\GridVirtual.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Grids\ISpannedCellRangesController.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Grids\ISpannedRangesCollection.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Grids\OverlappingCellException.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Grids\QuadTreeRangesList.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Grids\RangeNotFoundException.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Grids\SpannedCellRangesController.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Grids\SpannedRangesList.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\QuadTree\IHasRect.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\QuadTree\QuadTree.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\QuadTree\QuadTreeNode.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Selection\ColumnSelection.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Selection\FreeSelection.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Selection\RangeComparerByRows.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Selection\RangeMergerByRows.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Selection\RowSelection.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Selection\SelectionBase.cs" />
+    <Compile Include="SourceGrid4\SourceGrid\Utils\Class1.cs" />
+    <None Include="DevAgeSourcePack4\DevAge.Core\ComponentModel\Validator\ValidatorDiagram.cd" />
+    <None Include="DevAgeSourcePack4\DevAge.Windows.Forms\Drawing\VisualElements\VisualElements.cd" />
+    <None Include="DevAgeSourcePack4\DevAge.Windows.Forms\Res\DropDown.ico" />
+    <None Include="DevAgeSourcePack4\DevAge.Windows.Forms\Res\left.cur" />
+    <None Include="DevAgeSourcePack4\DevAge.Windows.Forms\Res\right.cur" />
+    <None Include="DevAgeSourcePack4\DevAge.Windows.Forms\Res\SortDown.ico" />
+    <None Include="DevAgeSourcePack4\DevAge.Windows.Forms\Res\SortUp.ico" />
+    <None Include="DevAgeSourcePack4\Documents\DevAgeSourcePack.License.txt" />
+    <None Include="DevAgeSourcePack4\Documents\DevAgeSourcePack_EN.html" />
+    <None Include="DevAgeSourcePack4\Documents\Diagram.vsd" />
+    <None Include="DevAgeSourcePack4\Documents\FixedLengthSample.png" />
+    <None Include="DevAgeSourcePack4\Documents\FixedLengthSample.vsd" />
+    <None Include="DevAgeSourcePack4\Documents\SampleTable.png" />
+    <None Include="DevAgeSourcePack4\Documents\StreamDataSetOutput.png" />
+    <None Include="DevAgeSourcePack4\Documents\style.css" />
+    <None Include="DevAgeSourcePack4\Documents\TODO.txt" />
+    <None Include="DevAgeSourcePack4\Documents\ValidatorClassDiagram.png" />
+    <None Include="DevAgeSourcePack4\Documents\VisualModelsClassDiagram.png" />
+    <None Include="DevAgeSourcePack4\Documents\VisualModelsClassDiagramSmall.png" />
+    <None Include="SourceGrid4\SourceGrid\Grid.bmp" />
+    <None Include="SourceGrid4\SourceGrid\GridVirtual.bmp" />
+    <None Include="SourceGrid4\SourceGrid\SourceGrid.snk" />
+    <EmbeddedResource Include="DevAgeSourcePack4\DevAge.Windows.Forms\Properties\Resources.resources">
+      <DependentUpon>Resources.Designer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevAgeSourcePack4\DevAge.Windows.Forms\Properties\Resources.resx">
+      <DependentUpon>Resources.Designer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\ButtonMultiSelection.resources">
+      <DependentUpon>ButtonMultiSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\ButtonMultiSelection.resx">
+      <DependentUpon>ButtonMultiSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\ColorPicker.resources">
+      <DependentUpon>ColorPicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\ColorPicker.resx">
+      <DependentUpon>ColorPicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\DevAgeNumericUpDown.resources">
+      <DependentUpon>DevAgeNumericUpDown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\DevAgeNumericUpDown.resx">
+      <DependentUpon>DevAgeNumericUpDown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\DevAgeTextBoxButton.resources">
+      <DependentUpon>DevAgeTextBoxButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\DevAgeTextBoxButton.resx">
+      <DependentUpon>DevAgeTextBoxButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\DropDown.resources">
+      <DependentUpon>DropDown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\DropDown.resx">
+      <DependentUpon>DropDown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\DropDownButton.resources">
+      <DependentUpon>DropDownButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\DropDownButton.resx">
+      <DependentUpon>DropDownButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\EditableControlBase.resources">
+      <DependentUpon>EditableControlBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\EditableControlBase.resx">
+      <DependentUpon>EditableControlBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\ErrorDialog.resources">
+      <DependentUpon>ErrorDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\ErrorDialog.resx">
+      <DependentUpon>ErrorDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\ErrorDialogDetails.resources">
+      <DependentUpon>ErrorDialogDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\ErrorDialogDetails.resx">
+      <DependentUpon>ErrorDialogDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\FormBase.resources">
+      <DependentUpon>FormBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\FormBase.resx">
+      <DependentUpon>FormBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\ImageNavigator.resources">
+      <DependentUpon>ImageNavigator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\ImageNavigator.resx">
+      <DependentUpon>ImageNavigator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\Line.resources">
+      <DependentUpon>Line.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\Line.resx">
+      <DependentUpon>Line.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\LinkLabel.resources">
+      <DependentUpon>LinkLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\LinkLabel.resx">
+      <DependentUpon>LinkLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\TextBoxUITypeEditor.resources">
+      <DependentUpon>TextBoxUITypeEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevAgeSourcePack4\DevAge.Windows.Forms\Windows\Forms\TextBoxUITypeEditor.resx">
+      <DependentUpon>TextBoxUITypeEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SourceGrid4\SourceGrid.Extensions\ListEditor.resx">
+      <DependentUpon>ListEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SourceGrid4\SourceGrid.Extensions\PlanningGrid.resx">
+      <DependentUpon>PlanningGrid.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
