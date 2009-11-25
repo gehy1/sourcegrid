@@ -1,13 +1,7 @@
 ﻿using System;
 
-namespace SourceGrid.SourceGrid4.SourceGrid.Utils
+namespace SourceGrid.Utils
 {
-	public interface IPerformanceCounter : IDisposable
-	{
-		double GetSeconds();
-		double GetMilisec();
-	}
-	
 	public class PerformanceCounter : IDisposable, IPerformanceCounter
 	{
 		private DateTime m_start = DateTime.MinValue;

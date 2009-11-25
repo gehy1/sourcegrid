@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SourceGrid.Cells.Views
 {
-    public class ComboBox : SourceGrid.Cells.Views.Cell
+    public class ComboBox : Cell
     {
         /// <summary>
         /// Represents a default CheckBox with the CheckBox image align to the Middle Center of the cell. You must use this VisualModel with a Cell of type ICellCheckBox.

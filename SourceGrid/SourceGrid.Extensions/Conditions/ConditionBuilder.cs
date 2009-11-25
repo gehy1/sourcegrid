@@ -1,3 +1,4 @@
+using SourceGrid.Cells.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -6,8 +7,8 @@ namespace SourceGrid.Conditions
 {
     public static class ConditionBuilder
     {
-        public static SourceGrid.Conditions.ICondition AlternateView(
-                                            SourceGrid.Cells.Views.IView view,
+        public static ICondition AlternateView(
+                                            IView view,
                                             System.Drawing.Color alternateBackcolor,
                                             System.Drawing.Color alternateForecolor)
         {

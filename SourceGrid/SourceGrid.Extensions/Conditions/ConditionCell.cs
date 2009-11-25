@@ -1,3 +1,4 @@
+using SourceGrid.Cells;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -6,7 +7,7 @@ namespace SourceGrid.Conditions
 {
     public class ConditionCell : ICondition
     {
-        public ConditionCell(SourceGrid.Cells.ICellVirtual cell)
+        public ConditionCell(ICellVirtual cell)
         {
             mCell = cell;
         }
@@ -15,8 +16,8 @@ namespace SourceGrid.Conditions
 
         public EvaluateFunctionDelegate EvaluateFunction;
 
-        private SourceGrid.Cells.ICellVirtual mCell;
-        public SourceGrid.Cells.ICellVirtual Cell
+        private ICellVirtual mCell;
+        public ICellVirtual Cell
         {
             get { return mCell; }
         }
@@ -30,7 +31,7 @@ namespace SourceGrid.Conditions
             return EvaluateFunction(column, gridRow, itemRow);
         }
 
-        public SourceGrid.Cells.ICellVirtual ApplyCondition(SourceGrid.Cells.ICellVirtual cell)
+        public ICellVirtual ApplyCondition(ICellVirtual cell)
         {
             return Cell;
         }

@@ -15,7 +15,7 @@ namespace SourceGrid
 			{
 			}
 
-			private Dictionary<GridRow, Cells.ICell> mCells = new Dictionary<GridRow, SourceGrid.Cells.ICell>();
+			private Dictionary<GridRow, Cells.ICell> mCells = new Dictionary<GridRow, Cells.ICell>();
 
 			public Cells.ICell this[GridRow row]
 			{

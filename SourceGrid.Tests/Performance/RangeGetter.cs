@@ -1,7 +1,7 @@
-﻿using System;
+﻿using SourceGrid.Utils;
+using System;
 using System.Collections.Generic;
 using QuadTreeLib;
-using SourceGrid.SourceGrid4.SourceGrid.Utils;
 
 namespace SourceGrid.Tests.Performance
 {

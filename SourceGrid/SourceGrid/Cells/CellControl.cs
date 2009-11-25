@@ -13,7 +13,7 @@ namespace SourceGrid.Cells
     /// Finally a cell of type CellControl cannot be moved, for example you cannot use sort, move the columns, ... when using a CellControl.
 	/// </summary>
     [Obsolete("I will soon remove this class. If you need to add a user control to the grid I suggest to manually add or remove it using the Grid.LinkedControls collection.")]
-	public class CellControl : SourceGrid.Cells.Cell
+	public class CellControl : Cell
 	{
 		private Control mControl;
 		/// <summary>

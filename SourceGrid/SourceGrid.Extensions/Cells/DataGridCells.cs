@@ -3,7 +3,7 @@ using System.Data;
 
 namespace SourceGrid.Cells.DataGrid
 {
-	public class Cell : SourceGrid.Cells.Virtual.CellVirtual
+	public class Cell : Cells.Virtual.CellVirtual
 	{
         public Cell()
 		{
@@ -33,7 +33,7 @@ namespace SourceGrid.Cells.DataGrid
         }
 	}
 
-	public class CheckBox : SourceGrid.Cells.Virtual.CheckBox
+	public class CheckBox : Cells.Virtual.CheckBox
 	{
         public CheckBox()
 		{
@@ -41,7 +41,7 @@ namespace SourceGrid.Cells.DataGrid
 		}
 	}
 
-	public class Image : SourceGrid.Cells.Virtual.Image
+	public class Image : Cells.Virtual.Image
 	{
         public Image()
 		{
@@ -49,7 +49,7 @@ namespace SourceGrid.Cells.DataGrid
 		}
 	}
 
-	public class Link : SourceGrid.Cells.Virtual.Link
+	public class Link : Cells.Virtual.Link
 	{
         public Link()
 		{
@@ -86,7 +86,7 @@ namespace SourceGrid.Cells.DataGrid
     {
         public Header()
         {
-            Model.AddModel(new SourceGrid.Cells.Models.NullValueModel());
+            Model.AddModel(new Cells.Models.NullValueModel());
         }
     }
 }

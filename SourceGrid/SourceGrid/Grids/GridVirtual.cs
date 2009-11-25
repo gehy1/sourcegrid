@@ -1,4 +1,4 @@
-using SourceGrid.Cells;
+using SourceGrid.Selection;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using SourceGrid.Cells;
 
 namespace SourceGrid
 {
@@ -964,14 +965,14 @@ namespace SourceGrid
 			}
 		}
 
-		private Selection.SelectionBase mSelection;
+		private IGridSelection mSelection;
 		/// <summary>
 		/// Gets or sets the Selection object that represents the selected cells and the active cell.
 		/// Use the SelectionMode property to set the type of selection (free, by row, by column).
 		/// Override the CreateSelectionObject method to create a custom Selection class for special needs.
 		/// </summary>
 		[Browsable(false),DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public Selection.SelectionBase Selection
+		public IGridSelection Selection
 		{
 			get{return mSelection;}
 			protected set

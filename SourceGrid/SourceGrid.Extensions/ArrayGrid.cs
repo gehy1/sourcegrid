@@ -1,4 +1,6 @@
+using SourceGrid.Cells.Models;
 using System;
+using SourceGrid.Cells;
 
 namespace SourceGrid
 {
@@ -25,7 +27,7 @@ namespace SourceGrid
 			return new ArrayColumns(this);
 		}
 
-		public override SourceGrid.Cells.ICellVirtual GetCell(int p_iRow, int p_iCol)
+		public override ICellVirtual GetCell(int p_iRow, int p_iCol)
 		{
 			if (p_iRow < FixedRows &&
 				p_iCol < FixedColumns)
@@ -85,46 +87,46 @@ namespace SourceGrid
 			Columns.ColumnsChanged();
 		}
 
-		private SourceGrid.Cells.ICellVirtual mColumnHeader = new ArrayColumnHeader();
+		private ICellVirtual mColumnHeader = new ArrayColumnHeader();
 		/// <summary>
 		/// Gets or sets the cell used for the column headers.  Only used when FixedRows is greater than 0.
 		/// </summary>
 		[System.ComponentModel.Browsable(false)]
 		[System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-		public SourceGrid.Cells.ICellVirtual ColumnHeader
+		public ICellVirtual ColumnHeader
 		{
 			get{return mColumnHeader;}
 			set{mColumnHeader = value;}
 		}
 
-		private SourceGrid.Cells.ICellVirtual mRowHeader = new ArrayRowHeader();
+		private ICellVirtual mRowHeader = new ArrayRowHeader();
 		/// <summary>
 		/// Gets or sets the cell used for the row headers. Only used when FixedColumns is greater than 0.
 		/// </summary>
 		[System.ComponentModel.Browsable(false)]
 		[System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-		public SourceGrid.Cells.ICellVirtual RowHeader
+		public ICellVirtual RowHeader
 		{
 			get{return mRowHeader;}
 			set{mRowHeader = value;}
 		}
 
-		private SourceGrid.Cells.ICellVirtual mHeader = new ArrayHeader();
+		private ICellVirtual mHeader = new ArrayHeader();
 		/// <summary>
 		/// Gets or sets the cell used for the left top position header. Only used when FixedRows and FixedColumns are greater than 0.
 		/// </summary>
 		[System.ComponentModel.Browsable(false)]
 		[System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-		public SourceGrid.Cells.ICellVirtual Header
+		public ICellVirtual Header
 		{
 			get{return mHeader;}
 			set{mHeader = value;}
 		}
 
-		private SourceGrid.Cells.ICellVirtual mValueCell;
+		private ICellVirtual mValueCell;
 		[System.ComponentModel.Browsable(false)]
 		[System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-		public SourceGrid.Cells.ICellVirtual ValueCell
+		public ICellVirtual ValueCell
 		{
 			get{return mValueCell;}
 			set{mValueCell = value;}
@@ -132,7 +134,7 @@ namespace SourceGrid
 	}
 
 	#region Models
-	public class ArrayValueModel : SourceGrid.Cells.Models.IValueModel
+	public class ArrayValueModel : IValueModel
 	{
 		#region IValueModel Members
 		public virtual object GetValue(CellContext cellContext)

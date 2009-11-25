@@ -13,7 +13,7 @@ namespace SourceGrid
 			{
 			}
 
-			private Dictionary<GridColumn, Cells.ICell> mCells = new Dictionary<GridColumn, SourceGrid.Cells.ICell>();
+			private Dictionary<GridColumn, Cells.ICell> mCells = new Dictionary<GridColumn, Cells.ICell>();
 
 			public Cells.ICell this[GridColumn column]
 			{

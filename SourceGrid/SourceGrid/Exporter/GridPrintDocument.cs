@@ -1,8 +1,9 @@
-using DevAge.Drawing;
+using SourceGrid.Cells;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Printing;
+using DevAge.Drawing;
 
 namespace SourceGrid.Exporter
 {
@@ -13,20 +14,20 @@ namespace SourceGrid.Exporter
 	{
 		private GridVirtual m_Grid;
 
-		private SourceGrid.Cells.Views.Cell m_CellPrintView = new SourceGrid.Cells.Views.Cell();
+		private Cells.Views.Cell m_CellPrintView = new Cells.Views.Cell();
 		/// <summary>
 		/// Cell view when printing.
 		/// </summary>
-		public SourceGrid.Cells.Views.Cell CellPrintView
+		public Cells.Views.Cell CellPrintView
 		{
 			get { return m_CellPrintView; }
 		}
 
-		private SourceGrid.Cells.Views.Cell m_HeaderCellPrintView = new SourceGrid.Cells.Views.Cell();
+		private Cells.Views.Cell m_HeaderCellPrintView = new Cells.Views.Cell();
 		/// <summary>
 		/// Header cell view when printing.
 		/// </summary>
-		public SourceGrid.Cells.Views.Cell HeaderCellPrintView
+		public Cells.Views.Cell HeaderCellPrintView
 		{
 			get { return m_HeaderCellPrintView; }
 		}
@@ -285,9 +286,9 @@ namespace SourceGrid.Exporter
 		{
 			if ( ctx.Cell == null )
 				return;
-			if ( ctx.Cell is SourceGrid.Cells.Virtual.ColumnHeader || ctx.Cell is SourceGrid.Cells.ColumnHeader
-			    || ctx.Cell is SourceGrid.Cells.Virtual.RowHeader || ctx.Cell is SourceGrid.Cells.RowHeader
-			    || ctx.Cell is SourceGrid.Cells.Virtual.Header || ctx.Cell is SourceGrid.Cells.Header )
+			if ( ctx.Cell is Cells.Virtual.ColumnHeader || ctx.Cell is Cells.ColumnHeader
+			    || ctx.Cell is Cells.Virtual.RowHeader || ctx.Cell is Cells.RowHeader
+			    || ctx.Cell is Cells.Virtual.Header || ctx.Cell is Cells.Header )
 				m_HeaderCellPrintView.DrawCell(ctx, new GraphicsCache(g), rect);
 			else
 			{
@@ -296,12 +297,12 @@ namespace SourceGrid.Exporter
 				// If cell view copy some more view options
 				if ( ctx.Cell.View is SourceGrid.Cells.Views.Cell )
 				{
-					m_CellPrintView.AnchorArea = ((SourceGrid.Cells.Views.Cell)ctx.Cell.View).AnchorArea;
-					m_CellPrintView.ImageAlignment = ((SourceGrid.Cells.Views.Cell)ctx.Cell.View).ImageAlignment;
-					m_CellPrintView.ImageStretch = ((SourceGrid.Cells.Views.Cell)ctx.Cell.View).ImageStretch;
-					m_CellPrintView.Padding = ((SourceGrid.Cells.Views.Cell)ctx.Cell.View).Padding;
-					m_CellPrintView.TrimmingMode = ((SourceGrid.Cells.Views.Cell)ctx.Cell.View).TrimmingMode;
-					m_CellPrintView.WordWrap = ((SourceGrid.Cells.Views.Cell)ctx.Cell.View).WordWrap;
+					m_CellPrintView.AnchorArea = ((Cells.Views.Cell)ctx.Cell.View).AnchorArea;
+					m_CellPrintView.ImageAlignment = ((Cells.Views.Cell)ctx.Cell.View).ImageAlignment;
+					m_CellPrintView.ImageStretch = ((Cells.Views.Cell)ctx.Cell.View).ImageStretch;
+					m_CellPrintView.Padding = ((Cells.Views.Cell)ctx.Cell.View).Padding;
+					m_CellPrintView.TrimmingMode = ((Cells.Views.Cell)ctx.Cell.View).TrimmingMode;
+					m_CellPrintView.WordWrap = ((Cells.Views.Cell)ctx.Cell.View).WordWrap;
 				}
 				m_CellPrintView.DrawCell(ctx, new GraphicsCache(g), rect);
 			}

@@ -1,9 +1,9 @@
-using QuadTreeLib;
+using SourceGrid.Utils;
 using System;
-using NUnit.Framework;
-using SourceGrid.SourceGrid4.SourceGrid.Utils;
-using SourceGrid.Tests.Selection;
 using System.Collections.Generic;
+using NUnit.Framework;
+using QuadTreeLib;
+using SourceGrid.Tests.Selection;
 
 namespace SourceGrid.Tests.Performance
 {

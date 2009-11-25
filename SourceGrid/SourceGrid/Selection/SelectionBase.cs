@@ -1,15 +1,12 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Drawing;
-using System.Windows.Forms;
 
 namespace SourceGrid.Selection
 {
 	/// <summary>
 	/// Base selection class
 	/// </summary>
-	public abstract class SelectionBase
+	public abstract class SelectionBase : IGridSelection
 	{
 		#region Constructor
 		/// <summary>

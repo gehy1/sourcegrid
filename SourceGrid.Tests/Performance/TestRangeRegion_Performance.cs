@@ -1,6 +1,6 @@
-﻿using System;
+﻿using SourceGrid.Utils;
+using System;
 using NUnit.Framework;
-using SourceGrid.SourceGrid4.SourceGrid.Utils;
 
 namespace SourceGrid.Tests.Performance
 {

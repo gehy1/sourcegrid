@@ -1,12 +1,14 @@
+using SourceGrid.Cells.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using SourceGrid.Cells;
 
 namespace SourceGrid.Conditions
 {
     public class ConditionView : ICondition
     {
-        public ConditionView(SourceGrid.Cells.Views.IView view)
+        public ConditionView(IView view)
         {
             mView = view;
         }
@@ -15,8 +17,8 @@ namespace SourceGrid.Conditions
 
         public EvaluateFunctionDelegate EvaluateFunction;
 
-        private SourceGrid.Cells.Views.IView mView;
-        public SourceGrid.Cells.Views.IView View
+        private IView mView;
+        public IView View
         {
             get { return mView; }
         }
@@ -30,7 +32,7 @@ namespace SourceGrid.Conditions
             return EvaluateFunction(column, gridRow, itemRow);
         }
 
-        public SourceGrid.Cells.ICellVirtual ApplyCondition(SourceGrid.Cells.ICellVirtual cell)
+        public ICellVirtual ApplyCondition(ICellVirtual cell)
         {
             SourceGrid.Cells.ICellVirtual copied = cell.Copy();
             copied.View = View;

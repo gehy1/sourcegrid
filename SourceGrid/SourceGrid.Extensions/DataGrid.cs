@@ -1,8 +1,9 @@
-using DevAge.ComponentModel;
+using SourceGrid.Selection;
 using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
+using DevAge.ComponentModel;
 
 namespace SourceGrid
 {
@@ -43,7 +44,7 @@ namespace SourceGrid
 			return new DataGridColumns(this);
 		}
 
-		protected override SourceGrid.Selection.SelectionBase CreateSelectionObject()
+		protected override SelectionBase CreateSelectionObject()
 		{
 			SourceGrid.Selection.SelectionBase selObj = base.CreateSelectionObject();
 

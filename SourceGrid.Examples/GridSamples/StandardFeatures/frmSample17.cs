@@ -1,7 +1,8 @@
+using SourceGrid.Selection;
 using System;
-using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace WindowsFormsSample
@@ -395,7 +396,7 @@ namespace WindowsFormsSample
 
 		private void frmSample17_Load(object sender, System.EventArgs e)
 		{
-			grid1.Redim(40,40);
+			grid1.Redim(40,5);
             grid1.FixedColumns = 1;
             grid1.FixedRows = 1;
 
@@ -412,27 +413,32 @@ namespace WindowsFormsSample
 			}
 
 			Random rnd = new Random();
-			for (int r = 1; r < grid1.RowsCount; r++)
-			{
-				grid1[r,0] = new SourceGrid.Cells.RowHeader("Header " + r.ToString());
-				for (int c = 1; c < grid1.ColumnsCount; c++)
-				{
-					if (rnd.NextDouble() > 0.20)
-					{
-						grid1[r,c] = new SourceGrid.Cells.Cell(r*c, typeof(int));
-					}
-					else
-						grid1[r,c] = null;
-				}
-			}
+            for (int r = 1; r < grid1.RowsCount/2; r++)
+            {
+                grid1[r*2,0] = new SourceGrid.Cells.RowHeader("Header " + r.ToString());
+                grid1[r*2,0].RowSpan = 2;
+                for (int c = 1; c < grid1.ColumnsCount; c++)
+                {
+                    if (rnd.NextDouble() > 0.20)
+                    {
+                        grid1[r*2,c] = new SourceGrid.Cells.Cell(r*c, typeof(int));
+                        grid1[r * 2, c].RowSpan = 2;
+                    }
+                    else
+                        grid1[r*2,c] = null;
+                    
+                }
+            }
+            
+            var selection = grid1.Selection as SelectionBase;
 
-			cPickSelBackColor.SelectedColor = Color.FromArgb(grid1.Selection.BackColor.R, grid1.Selection.BackColor.G, grid1.Selection.BackColor.B);
-			cPckBorderColor.SelectedColor = grid1.Selection.Border.Top.Color;
-			trackSelectionAlpha.Value = (int)grid1.Selection.BackColor.A;
-			trackBorderWidth.Value = (int)grid1.Selection.Border.Top.Width;
+			cPickSelBackColor.SelectedColor = Color.FromArgb(selection.BackColor.R, selection.BackColor.G, selection.BackColor.B);
+			cPckBorderColor.SelectedColor = selection.Border.Top.Color;
+			trackSelectionAlpha.Value = (int)selection.BackColor.A;
+			trackBorderWidth.Value = (int)selection.Border.Top.Width;
 
-			cPickFocusBackColor.SelectedColor = Color.FromArgb(grid1.Selection.FocusBackColor.R, grid1.Selection.FocusBackColor.G, grid1.Selection.FocusBackColor.B);
-			trackFocusBackColorTrans.Value = grid1.Selection.FocusBackColor.A;
+			cPickFocusBackColor.SelectedColor = Color.FromArgb(selection.FocusBackColor.R, selection.FocusBackColor.G, selection.FocusBackColor.B);
+			trackFocusBackColorTrans.Value = selection.FocusBackColor.A;
 
 
 			this.cPickSelBackColor.SelectedColorChanged += new System.EventHandler(this.cPickSelBackColor_SelectedColorChanged);
@@ -443,7 +449,7 @@ namespace WindowsFormsSample
 			this.cPickFocusBackColor.SelectedColorChanged += new System.EventHandler(this.cPickFocusBackColor_SelectedColorChanged);
 
 			cbDashStyle.Validator = new DevAge.ComponentModel.Validator.ValidatorTypeConverter(typeof(System.Drawing.Drawing2D.DashStyle));
-			cbDashStyle.Value = grid1.Selection.Border.Top.DashStyle;
+			cbDashStyle.Value = selection.Border.Top.DashStyle;
 		}
 
 		private void Check_Change(object sender, System.EventArgs e)
@@ -464,43 +470,51 @@ namespace WindowsFormsSample
 				grid1.Selection.EnableMultiSelection = false;
 		}
 
+		public SelectionBase Selection
+		{
+			get
+			{
+				return grid1.Selection as SelectionBase;
+			}
+		}
+		
 		private void cPickSelBackColor_SelectedColorChanged(object sender, System.EventArgs e)
 		{
-			grid1.Selection.BackColor = Color.FromArgb(trackSelectionAlpha.Value, cPickSelBackColor.SelectedColor);
+			Selection.BackColor = Color.FromArgb(trackSelectionAlpha.Value, cPickSelBackColor.SelectedColor);
 		}
 
 		private void cPckBorderColor_SelectedColorChanged(object sender, System.EventArgs e)
 		{
-			DevAge.Drawing.RectangleBorder border = grid1.Selection.Border;
+			DevAge.Drawing.RectangleBorder border = Selection.Border;
 			border.SetColor(cPckBorderColor.SelectedColor);
-			grid1.Selection.Border = border;
+			Selection.Border = border;
 		}
 
 		private void trackSelectionAlpha_ValueChanged(object sender, System.EventArgs e)
 		{
-			grid1.Selection.BackColor = Color.FromArgb(trackSelectionAlpha.Value, cPickSelBackColor.SelectedColor);
+			Selection.BackColor = Color.FromArgb(trackSelectionAlpha.Value, cPickSelBackColor.SelectedColor);
 		}
 
 		private void trackBorderWidth_ValueChanged(object sender, System.EventArgs e)
 		{
-			DevAge.Drawing.RectangleBorder b = grid1.Selection.Border;
+			DevAge.Drawing.RectangleBorder b = Selection.Border;
 			b.SetWidth(trackBorderWidth.Value);
-			grid1.Selection.Border = b;
+			Selection.Border = b;
 		}
 
 		private void trackFocusBackColorTrans_ValueChanged(object sender, System.EventArgs e)
 		{
-			grid1.Selection.FocusBackColor = Color.FromArgb(trackFocusBackColorTrans.Value, cPickFocusBackColor.SelectedColor);
+			Selection.FocusBackColor = Color.FromArgb(trackFocusBackColorTrans.Value, cPickFocusBackColor.SelectedColor);
 		}
 
 		private void cPickFocusBackColor_SelectedColorChanged(object sender, System.EventArgs e)
 		{
-			grid1.Selection.FocusBackColor = Color.FromArgb(trackFocusBackColorTrans.Value, cPickFocusBackColor.SelectedColor);
+			Selection.FocusBackColor = Color.FromArgb(trackFocusBackColorTrans.Value, cPickFocusBackColor.SelectedColor);
 		}
 
 		private void cbDashStyle_ValueChanged(object sender, System.EventArgs e)
 		{
-			grid1.Selection.Border = grid1.Selection.Border.SetDashStyle((System.Drawing.Drawing2D.DashStyle)cbDashStyle.Value);
+			Selection.Border = Selection.Border.SetDashStyle((System.Drawing.Drawing2D.DashStyle)cbDashStyle.Value);
 		}
 
 		private void chkTabStop_CheckedChanged(object sender, System.EventArgs e)
