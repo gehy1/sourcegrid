@@ -320,8 +320,9 @@ namespace SourceGrid
 		
 		private void EnsureNoSpannedCellsExist(int row, int col, Cells.ICell p_cell)
 		{
+			var spanRange = new Range(row, col, row + p_cell.RowSpan - 1, col + p_cell.ColumnSpan - 1);
 			var ranges = spannedCellReferences.SpannedRangesCollection.GetRanges(
-				new Range(row, col, row + p_cell.RowSpan, col + p_cell.ColumnSpan));
+				spanRange);
 			if (ranges.Count == 0)
 				return;
 			

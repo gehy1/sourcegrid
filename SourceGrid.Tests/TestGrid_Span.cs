@@ -113,6 +113,21 @@ namespace SourceGrid.Tests
 		}
 		
 		[Test]
+		public void Bug0003()
+		{
+			var grid = new Grid();
+			int rowCount = 10, colCount = 10;
+			grid.Redim(rowCount, colCount);
+
+			grid[0, 0] = new SourceGrid.Cells.Cell();
+			grid[0, 0].ColumnSpan = 3;
+
+			grid.Rows.Insert(0);
+			grid[0, 0] = new SourceGrid.Cells.Cell();
+			grid[0, 0].ColumnSpan = 3;
+		}
+		
+		[Test]
 		public void Bug0002()
 		{
 			// the last call to change rowspan to 3 throws
