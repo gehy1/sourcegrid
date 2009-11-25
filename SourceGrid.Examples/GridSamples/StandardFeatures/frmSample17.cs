@@ -396,7 +396,7 @@ namespace WindowsFormsSample
 
 		private void frmSample17_Load(object sender, System.EventArgs e)
 		{
-			grid1.Redim(40,5);
+			grid1.Redim(40,3);
             grid1.FixedColumns = 1;
             grid1.FixedRows = 1;
 

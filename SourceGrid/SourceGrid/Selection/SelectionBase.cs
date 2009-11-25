@@ -82,7 +82,7 @@ namespace SourceGrid.Selection
 			if (pCellToActivate.IsEmpty() == false && pResetSelection)
 				deselectOtherCells = true;
 
-			pCellToActivate = Grid.PositionToStartPosition(pCellToActivate);
+			//pCellToActivate = Grid.PositionToStartPosition(pCellToActivate);
 
 			//Check to see if the value is changed (note that I use the internal variable to see the actual stored value)
 			if (pCellToActivate != ActivePosition)

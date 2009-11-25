@@ -22,6 +22,40 @@ namespace SourceGrid.Tests.Selection
 	public class TestFreeSelection
 	{
 		[Test]
+		public void TestTabMovement_DoesLoopCorrectly_ThroughSpannedRowCells()
+		{
+			using (var form = new Form())
+			{
+				
+				Grid grid1 = new Grid();
+				grid1.Redim(40,3);
+				grid1.FixedColumns = 1;
+				grid1.FixedRows = 1;
+
+				Random rnd = new Random();
+				for (int r = 0; r < grid1.RowsCount/2; r++)
+				{
+					for (int c = 0; c < grid1.ColumnsCount; c++)
+					{
+						grid1[r * 2, c] = new SourceGrid.Cells.Cell(r*c);
+						grid1[r * 2, c].RowSpan = 2;
+					}
+				}
+				
+				form.Controls.Add(grid1);
+				form.Show();
+				
+				Assert.AreEqual(true, grid1.Selection.Focus(new Position(0, 0), true));
+				Assert.AreEqual(new Position(0, 0), grid1.Selection.ActivePosition);
+				
+				Assert.AreEqual(true, grid1.Selection.Focus(new Position(1, 0), true));
+				Assert.AreEqual(new Position(1, 0), grid1.Selection.ActivePosition);
+				
+				form.Close();
+			}
+		}
+		
+		[Test]
 		public void SelectSpannedCells_SingleCell()
 		{
 			// just select a single cell. Should select whole spanned cell
