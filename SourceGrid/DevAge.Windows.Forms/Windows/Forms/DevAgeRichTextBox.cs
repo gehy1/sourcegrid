@@ -338,11 +338,17 @@ namespace DevAge.Windows.Forms
         protected const int CFM_BOLD = 1;
         protected const int CFM_ITALIC = 2;
         protected const int CFM_UNDERLINE = 4;
+        [CLSCompliant(false)]
         protected const uint CFM_FACE = 0x20000000;
+        [CLSCompliant(false)]
         protected const uint CFM_SIZE = 0x80000000;
+        [CLSCompliant(false)]
         protected const uint CFM_SUPERSCRIPT = 0x00030000;
+        [CLSCompliant(false)]
         protected const uint CFE_SUPERSCRIPT = 0x00020000;
+        [CLSCompliant(false)]
         protected const uint CFM_SUBSCRIPT = 0x00030000;
+        [CLSCompliant(false)]
         protected const uint CFE_SUBSCRIPT = 0x00010000;
         protected const int CFM_UNDERLINETYPE = 8388608;
         protected const int EM_SETCHARFORMAT = 1092;
@@ -365,7 +371,9 @@ namespace DevAge.Windows.Forms
         protected struct CHARFORMAT
         {
             public int cbSize;
+            [CLSCompliant(false)]
             public uint dwMask;
+            [CLSCompliant(false)]
             public uint dwEffects;
             public int yHeight;
             public int yOffset;
@@ -380,6 +388,7 @@ namespace DevAge.Windows.Forms
             public short sSpacing;
             public int crBackColor;
             public int LCID;
+            [CLSCompliant(false)]
             public uint dwReserved;
             public short sStyle;
             public short wKerning;
