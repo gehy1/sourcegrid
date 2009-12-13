@@ -52,51 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DevAge.Windows.Forms" />
-    <Folder Include="DevAge.Windows.Forms\ComponentModel" />
-    <Folder Include="DevAge.Windows.Forms\Drawing" />
-    <Folder Include="DevAge.Windows.Forms\Drawing\VisualElements" />
-    <Folder Include="DevAge.Windows.Forms\Properties" />
-    <Folder Include="DevAge.Windows.Forms\Res" />
-    <Folder Include="DevAge.Windows.Forms\Windows" />
-    <Folder Include="DevAge.Windows.Forms\Windows\Forms" />
-    <Folder Include="DevAgeSourcePack4" />
-    <Folder Include="DevAgeSourcePack4\Collections" />
-    <Folder Include="DevAgeSourcePack4\ComponentModel" />
-    <Folder Include="DevAgeSourcePack4\ComponentModel\Converter" />
-    <Folder Include="DevAgeSourcePack4\ComponentModel\Validator" />
-    <Folder Include="DevAgeSourcePack4\Configuration" />
-    <Folder Include="DevAgeSourcePack4\Data" />
-    <Folder Include="DevAgeSourcePack4\Data\SqlClient" />
-    <Folder Include="DevAgeSourcePack4\Exceptions" />
-    <Folder Include="DevAgeSourcePack4\IO" />
-    <Folder Include="DevAgeSourcePack4\IO\IsolatedStorage" />
-    <Folder Include="DevAgeSourcePack4\Patterns" />
-    <Folder Include="DevAgeSourcePack4\Runtime" />
-    <Folder Include="DevAgeSourcePack4\Runtime\Serialization" />
-    <Folder Include="DevAgeSourcePack4\Security" />
-    <Folder Include="DevAgeSourcePack4\Security\Cryptography" />
-    <Folder Include="DevAgeSourcePack4\Shell" />
-    <Folder Include="DevAgeSourcePack4\Text" />
-    <Folder Include="DevAgeSourcePack4\Text\FixedLength" />
-    <Folder Include="SourceGrid" />
-    <Folder Include="SourceGrid.Extensions" />
-    <Folder Include="SourceGrid.Extensions\Cells" />
-    <Folder Include="SourceGrid.Extensions\Conditions" />
-    <Folder Include="SourceGrid.Extensions\Res" />
-    <Folder Include="SourceGrid\Cells" />
-    <Folder Include="SourceGrid\Cells\Controllers" />
-    <Folder Include="SourceGrid\Cells\Editors" />
-    <Folder Include="SourceGrid\Cells\Models" />
-    <Folder Include="SourceGrid\Cells\Models\Real" />
-    <Folder Include="SourceGrid\Cells\Views" />
-    <Folder Include="SourceGrid\Common" />
-    <Folder Include="SourceGrid\Decorators" />
-    <Folder Include="SourceGrid\Exporter" />
-    <Folder Include="SourceGrid\Grids" />
-    <Folder Include="SourceGrid\QuadTree" />
-    <Folder Include="SourceGrid\Selection" />
-    <Folder Include="SourceGrid\Utils" />
     <Compile Include="DevAge.Windows.Forms\ComponentModel\BoundDataView.cs" />
     <Compile Include="DevAge.Windows.Forms\ComponentModel\BoundList.cs" />
     <Compile Include="DevAge.Windows.Forms\ComponentModel\BoundListBase.cs" />
@@ -140,6 +95,8 @@
     <Compile Include="DevAge.Windows.Forms\Drawing\VisualElements\HeaderThemed.cs" />
     <Compile Include="DevAge.Windows.Forms\Drawing\VisualElements\Icon.cs" />
     <Compile Include="DevAge.Windows.Forms\Drawing\VisualElements\Image.cs" />
+    <Compile Include="DevAge.Windows.Forms\Drawing\VisualElements\RichText.cs" />
+    <Compile Include="DevAge.Windows.Forms\Drawing\VisualElements\RichTextGDI.cs" />
     <Compile Include="DevAge.Windows.Forms\Drawing\VisualElements\RowHeader.cs" />
     <Compile Include="DevAge.Windows.Forms\Drawing\VisualElements\RowHeaderBase.cs" />
     <Compile Include="DevAge.Windows.Forms\Drawing\VisualElements\RowHeaderThemed.cs" />
@@ -151,29 +108,68 @@
     <Compile Include="DevAge.Windows.Forms\Drawing\VisualElements\VisualElementBase.cs" />
     <Compile Include="DevAge.Windows.Forms\Drawing\VisualElements\VisualElementList.cs" />
     <Compile Include="DevAge.Windows.Forms\Properties\Resources.Designer.cs" />
-    <Compile Include="DevAge.Windows.Forms\Windows\Forms\ButtonMultiSelection.cs" />
-    <Compile Include="DevAge.Windows.Forms\Windows\Forms\ColorPicker.cs" />
+    <Compile Include="DevAge.Windows.Forms\Windows\Forms\ButtonMultiSelection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DevAge.Windows.Forms\Windows\Forms\ColorPicker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="DevAge.Windows.Forms\Windows\Forms\CommonImages.cs" />
     <Compile Include="DevAge.Windows.Forms\Windows\Forms\ControlCursor.cs" />
-    <Compile Include="DevAge.Windows.Forms\Windows\Forms\DevAgeComboBox.cs" />
-    <Compile Include="DevAge.Windows.Forms\Windows\Forms\DevAgeMaskedTextBox.cs" />
-    <Compile Include="DevAge.Windows.Forms\Windows\Forms\DevAgeNumericUpDown.cs" />
-    <Compile Include="DevAge.Windows.Forms\Windows\Forms\DevAgeTextBox.cs" />
-    <Compile Include="DevAge.Windows.Forms\Windows\Forms\DevAgeTextBoxButton.cs" />
-    <Compile Include="DevAge.Windows.Forms\Windows\Forms\DropDown.cs" />
-    <Compile Include="DevAge.Windows.Forms\Windows\Forms\DropDownButton.cs" />
-    <Compile Include="DevAge.Windows.Forms\Windows\Forms\EditableControlBase.cs" />
-    <Compile Include="DevAge.Windows.Forms\Windows\Forms\ErrorDialog.cs" />
-    <Compile Include="DevAge.Windows.Forms\Windows\Forms\ErrorDialogDetails.cs" />
-    <Compile Include="DevAge.Windows.Forms\Windows\Forms\FormBase.cs" />
+    <Compile Include="DevAge.Windows.Forms\Windows\Forms\DevAgeComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DevAge.Windows.Forms\Windows\Forms\DevAgeMaskedTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DevAge.Windows.Forms\Windows\Forms\DevAgeNumericUpDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DevAge.Windows.Forms\Windows\Forms\DevAgeRichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DevAge.Windows.Forms\Windows\Forms\DevAgeTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DevAge.Windows.Forms\Windows\Forms\DevAgeTextBoxButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DevAge.Windows.Forms\Windows\Forms\DropDown.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DevAge.Windows.Forms\Windows\Forms\DropDownButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DevAge.Windows.Forms\Windows\Forms\EditableControlBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DevAge.Windows.Forms\Windows\Forms\ErrorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DevAge.Windows.Forms\Windows\Forms\ErrorDialogDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DevAge.Windows.Forms\Windows\Forms\FormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="DevAge.Windows.Forms\Windows\Forms\FormSingleton.cs" />
-    <Compile Include="DevAge.Windows.Forms\Windows\Forms\HeaderGroupBox.cs" />
-    <Compile Include="DevAge.Windows.Forms\Windows\Forms\ImageNavigator.cs" />
-    <Compile Include="DevAge.Windows.Forms\Windows\Forms\Line.cs" />
-    <Compile Include="DevAge.Windows.Forms\Windows\Forms\LinkLabel.cs" />
+    <Compile Include="DevAge.Windows.Forms\Windows\Forms\HeaderGroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DevAge.Windows.Forms\Windows\Forms\ImageNavigator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DevAge.Windows.Forms\Windows\Forms\Line.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DevAge.Windows.Forms\Windows\Forms\LinkLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="DevAge.Windows.Forms\Windows\Forms\PositionRecorder.cs" />
     <Compile Include="DevAge.Windows.Forms\Windows\Forms\SendCharExact.cs" />
-    <Compile Include="DevAge.Windows.Forms\Windows\Forms\TextBoxUITypeEditor.cs" />
+    <Compile Include="DevAge.Windows.Forms\Windows\Forms\TextBoxUITypeEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="DevAge.Windows.Forms\Windows\Forms\Utilities.cs" />
     <Compile Include="DevAgeSourcePack4\Collections\ListByType.cs" />
     <Compile Include="DevAgeSourcePack4\ComponentModel\ComponentLight.cs" />
@@ -181,6 +177,7 @@
     <Compile Include="DevAgeSourcePack4\ComponentModel\Converter\DateTimeTypeConverter.cs" />
     <Compile Include="DevAgeSourcePack4\ComponentModel\Converter\NumberTypeConverter.cs" />
     <Compile Include="DevAgeSourcePack4\ComponentModel\Converter\PercentTypeConverter.cs" />
+    <Compile Include="DevAgeSourcePack4\ComponentModel\Converter\RichTextTypeConverter.cs" />
     <Compile Include="DevAgeSourcePack4\ComponentModel\TypeDescriptorContext.cs" />
     <Compile Include="DevAgeSourcePack4\ComponentModel\ValidatingEvent.cs" />
     <Compile Include="DevAgeSourcePack4\ComponentModel\Validator\IValidator.cs" />
@@ -218,17 +215,25 @@
     <Compile Include="DevAgeSourcePack4\Text\FixedLength\LineParser.cs" />
     <Compile Include="DevAgeSourcePack4\Text\FixedLength\LineWriter.cs" />
     <Compile Include="DevAgeSourcePack4\Text\FixedLength\Utilities.cs" />
-    <Compile Include="SourceGrid.Extensions\ArrayGrid.cs" />
+    <Compile Include="SourceGrid.Extensions\ArrayGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="SourceGrid.Extensions\Cells\DataGridCells.cs" />
     <Compile Include="SourceGrid.Extensions\Conditions\ConditionBuilder.cs" />
     <Compile Include="SourceGrid.Extensions\Conditions\ConditionCell.cs" />
     <Compile Include="SourceGrid.Extensions\Conditions\ConditionView.cs" />
     <Compile Include="SourceGrid.Extensions\Conditions\ICondition.cs" />
-    <Compile Include="SourceGrid.Extensions\DataGrid.cs" />
+    <Compile Include="SourceGrid.Extensions\DataGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="SourceGrid.Extensions\DataGridColumn.cs" />
     <Compile Include="SourceGrid.Extensions\DataGridRow.cs" />
-    <Compile Include="SourceGrid.Extensions\ListEditor.cs" />
-    <Compile Include="SourceGrid.Extensions\PlanningGrid.cs" />
+    <Compile Include="SourceGrid.Extensions\ListEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SourceGrid.Extensions\PlanningGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="SourceGridAssemblyInfo.cs" />
     <Compile Include="SourceGrid\AssemblyInfo.cs" />
     <Compile Include="SourceGrid\Cells\Button.cs" />
@@ -253,6 +258,7 @@
     <Compile Include="SourceGrid\Cells\Controllers\MouseInvalidate.cs" />
     <Compile Include="SourceGrid\Cells\Controllers\MouseSelection.cs" />
     <Compile Include="SourceGrid\Cells\Controllers\Resizable.cs" />
+    <Compile Include="SourceGrid\Cells\Controllers\RichTextBox.cs" />
     <Compile Include="SourceGrid\Cells\Controllers\RowFocus.cs" />
     <Compile Include="SourceGrid\Cells\Controllers\RowSelector.cs" />
     <Compile Include="SourceGrid\Cells\Controllers\SortableHeader.cs" />
@@ -266,6 +272,7 @@
     <Compile Include="SourceGrid\Cells\Editors\Factory.cs" />
     <Compile Include="SourceGrid\Cells\Editors\ImagePicker.cs" />
     <Compile Include="SourceGrid\Cells\Editors\NumericUpDown.cs" />
+    <Compile Include="SourceGrid\Cells\Editors\RichTextBox.cs" />
     <Compile Include="SourceGrid\Cells\Editors\TextBox.cs" />
     <Compile Include="SourceGrid\Cells\Editors\TextBoxButton.cs" />
     <Compile Include="SourceGrid\Cells\Editors\TextBoxCurrency.cs" />
@@ -280,11 +287,13 @@
     <Compile Include="SourceGrid\Cells\Models\ICheckBox.cs" />
     <Compile Include="SourceGrid\Cells\Models\IImage.cs" />
     <Compile Include="SourceGrid\Cells\Models\IModel.cs" />
+    <Compile Include="SourceGrid\Cells\Models\IRichTextBox.cs" />
     <Compile Include="SourceGrid\Cells\Models\ISortableHeader.cs" />
     <Compile Include="SourceGrid\Cells\Models\IToolTipText.cs" />
     <Compile Include="SourceGrid\Cells\Models\IValueModel.cs" />
     <Compile Include="SourceGrid\Cells\Models\ModelContainer.cs" />
     <Compile Include="SourceGrid\Cells\Models\Real\Models.cs" />
+    <Compile Include="SourceGrid\Cells\Models\Real\RichTextBox.cs" />
     <Compile Include="SourceGrid\Cells\RowHeader.cs" />
     <Compile Include="SourceGrid\Cells\Views\Button.cs" />
     <Compile Include="SourceGrid\Cells\Views\Cell.cs" />
@@ -295,13 +304,16 @@
     <Compile Include="SourceGrid\Cells\Views\IView.cs" />
     <Compile Include="SourceGrid\Cells\Views\Link.cs" />
     <Compile Include="SourceGrid\Cells\Views\MultiImages.cs" />
+    <Compile Include="SourceGrid\Cells\Views\RichTextBox.cs" />
     <Compile Include="SourceGrid\Cells\Views\RowHeader.cs" />
     <Compile Include="SourceGrid\Cells\Views\ViewBase.cs" />
     <Compile Include="SourceGrid\Common\ColumnInfo.cs" />
     <Compile Include="SourceGrid\Common\ColumnInfoCollection.cs" />
     <Compile Include="SourceGrid\Common\ColumnsBase.cs" />
     <Compile Include="SourceGrid\Common\ColumnsSimpleBase.cs" />
-    <Compile Include="SourceGrid\Common\CustomScrollControl.cs" />
+    <Compile Include="SourceGrid\Common\CustomScrollControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="SourceGrid\Common\Enums.cs" />
     <Compile Include="SourceGrid\Common\Events.cs" />
     <Compile Include="SourceGrid\Common\LinkedControlsList.cs" />
@@ -322,13 +334,23 @@
     <Compile Include="SourceGrid\Decorators\DecoratorList.cs" />
     <Compile Include="SourceGrid\Decorators\DecoratorSelection.cs" />
     <Compile Include="SourceGrid\Exporter\CSV.cs" />
-    <Compile Include="SourceGrid\Exporter\GridPrintDocument.cs" />
+    <Compile Include="SourceGrid\Exporter\GridPrintDocument.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="SourceGrid\Exporter\HTML.cs" />
     <Compile Include="SourceGrid\Exporter\Image.cs" />
-    <Compile Include="SourceGrid\Grids\Grid.Columns.cs" />
-    <Compile Include="SourceGrid\Grids\Grid.cs" />
-    <Compile Include="SourceGrid\Grids\Grid.Rows.cs" />
-    <Compile Include="SourceGrid\Grids\GridVirtual.cs" />
+    <Compile Include="SourceGrid\Grids\Grid.Columns.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SourceGrid\Grids\Grid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SourceGrid\Grids\Grid.Rows.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SourceGrid\Grids\GridVirtual.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="SourceGrid\Grids\ISpannedCellRangesController.cs" />
     <Compile Include="SourceGrid\Grids\ISpannedRangesCollection.cs" />
     <Compile Include="SourceGrid\Grids\OverlappingCellException.cs" />
