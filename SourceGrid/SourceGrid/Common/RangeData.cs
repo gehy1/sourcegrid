@@ -39,7 +39,7 @@ namespace SourceGrid
 		[Obsolete]
 		private Position mStartDragPosition;
 		private Range mSourceRange;
-		private string[,] mSourceValues;
+		private object[,] mSourceValues;
 		[NonSerialized]
 		private GridVirtual mSourceGrid;
 		[Obsolete]
@@ -59,7 +59,7 @@ namespace SourceGrid
 		/// <summary>
 		/// String array for values.
 		/// </summary>
-		public string[,] SourceValues
+		public object[,] SourceValues
 		{
 			get{return mSourceValues;}
 		}
@@ -110,7 +110,7 @@ namespace SourceGrid
 			RangeData data = new RangeData(sourceGrid);
 			//mCutMode = cutMode;
 			data.mSourceRange= sourceRange;
-			data.mSourceValues = new string[sourceRange.RowsCount, GetVisibleColumnCount(sourceGrid, sourceRange)];
+			data.mSourceValues = new object[sourceRange.RowsCount, GetVisibleColumnCount(sourceGrid, sourceRange)];
 
 			int arrayRow = 0;
 			for (int r = sourceRange.Start.Row; r <= sourceRange.End.Row; r++, arrayRow++)
@@ -123,10 +123,12 @@ namespace SourceGrid
 					Position posCell = new Position(r, c);
 					Cells.ICellVirtual cell = sourceGrid.GetCell(posCell);
 					CellContext cellContext = new CellContext(sourceGrid, posCell, cell);
-					if (cell != null && cell.Editor != null && cell.Editor.IsStringConversionSupported())
+					/*if (cell != null && cell.Editor != null && cell.Editor.IsStringConversionSupported())
 						data.mSourceValues[arrayRow, arrayCol] = cell.Editor.ValueToString( cell.Model.ValueModel.GetValue(cellContext) );
 					else if (cell != null)
-						data.mSourceValues[arrayRow, arrayCol] = cellContext.DisplayText;
+						data.mSourceValues[arrayRow, arrayCol] = cellContext.DisplayText;*/
+                    if (cell != null)
+                        data.mSourceValues[arrayRow, arrayCol] = cellContext.Value;
 					arrayCol++;
 				}
 			}
@@ -139,9 +141,8 @@ namespace SourceGrid
 
 			data.mClipboardDataObject = new System.Windows.Forms.DataObject();
 			data.mClipboardDataObject.SetData(RANGEDATA_FORMAT, data);
-			data.mClipboardDataObject.SetData(
-				typeof(string),
-				DataToString(sourceGrid, data.mSourceValues, data.mSourceRange));
+            string[,] values = DataToStringArray(sourceGrid, data.mSourceRange);
+			data.mClipboardDataObject.SetData(typeof(string), StringArrayToString(values));
 			return data;
 		}
 		
@@ -166,8 +167,7 @@ namespace SourceGrid
 
 			mClipboardDataObject = new System.Windows.Forms.DataObject();
 			mClipboardDataObject.SetData(RANGEDATA_FORMAT, this);
-			mClipboardDataObject.SetData(typeof(string),
-			                             DataToString(SourceGrid, mSourceValues, mSourceRange));
+            mClipboardDataObject.SetData(typeof(string), StringArrayToString(mSourceValues as string[,]));
 		}
 		#endregion
 
@@ -236,7 +236,7 @@ namespace SourceGrid
 		/// <param name="data"></param>
 		/// <param name="range"></param>
 		/// <param name="values"></param>
-		protected virtual void StringToData(string data, out Range range, out string[,] values)
+		protected virtual void StringToData(string data, out Range range, out object[,] values)
 		{
 			//tolgo uno dei due caratteri di a capo per usare lo split
 			data = data.Replace("\x0D\x0A","\x0A");
@@ -279,30 +279,67 @@ namespace SourceGrid
 			}
 		}
 
+        /// <summary>
+        /// Convert an array of strings into a string.
+        /// Normally using a tab delimited for columns and a LineFeed for rows.
+        /// </summary>
+        /// <param name="values"></param>
+        /// <param name="range"></param>
+        /// <returns></returns>
+        protected static string StringArrayToString(string[,] values)
+        {
+            System.Text.StringBuilder builder = new System.Text.StringBuilder();
+
+            int nr = values.GetLength(0);
+            int nc = values.GetLength(1);
+            for (int r = 0; r < nr; ++r)
+            {
+                for (int c = 0; c < nc; ++c)
+                {
+                    builder.Append(values[r, c]);
+                    if (c != nr - 1)
+                        builder.Append('\t');
+                }
+
+                if (r != nr - 1)
+                    builder.Append("\x0D\x0A");
+            }
+
+            return builder.ToString();
+        }
+
 		/// <summary>
 		/// Convert a range and an array of string into a string. Normally using a tab delimited for columns and a LineFeed for rows.
 		/// </summary>
 		/// <param name="values"></param>
 		/// <param name="range"></param>
 		/// <returns></returns>
-		protected static string DataToString(GridVirtual sourceGrid, string[,] values, Range range)
+        protected static string[,] DataToStringArray(GridVirtual sourceGrid, Range range)
 		{
-			System.Text.StringBuilder builder = new System.Text.StringBuilder();
+            int numberOfRows = range.End.Row - range.Start.Row + 1;
+            int numberOfCols = range.End.Column - range.Start.Column + 1;
+            string[,] values = new string[numberOfRows, numberOfCols];
 
-			for (int r = 0; r < range.End.Row - range.Start.Row; r++)
-			{
-				for (int c = 0; c < GetVisibleColumnCount(sourceGrid, range); c++)
-				{
-					builder.Append(values[r, c]);
-					if (c != range.End.Column)
-						builder.Append('\t');
-				}
+            int arrayRow = 0;
+            for (int r = range.Start.Row; r <= range.End.Row; r++, arrayRow++)
+            {
+                int arrayCol = 0;
+                for (int c = range.Start.Column; c <= range.End.Column; c++, arrayCol++)
+                {
+                    String val = String.Empty;
 
-				if (r != range.End.Row)
-					builder.Append("\x0D\x0A");
-			}
+                    Position posCell = new Position(r, c);
+                    Cells.ICellVirtual cell = sourceGrid.GetCell(posCell);
+                    CellContext cellContext = new CellContext(sourceGrid, posCell, cell);
 
-			return builder.ToString();
+                    if (cell != null && cell.Editor != null && cell.Editor.IsStringConversionSupported())
+                        values[arrayRow, arrayCol] = cell.Editor.ValueToString(cell.Model.ValueModel.GetValue(cellContext));
+                    else if (cell != null)
+                        values[arrayRow, arrayCol] = cellContext.DisplayText;
+                }
+            }
+
+            return values;
 		}
 
 		/// <summary>
@@ -352,15 +389,18 @@ namespace SourceGrid
 			RangeData rngData = null;
 			if (dtObj.GetDataPresent(RANGEDATA_FORMAT))
 				rngData = (RangeData)dtObj.GetData(RANGEDATA_FORMAT);
-			else
-			{
-				if (dtObj.GetDataPresent(System.Windows.Forms.DataFormats.Text, true))
-				{
-					string buffer = (string)dtObj.GetData(System.Windows.Forms.DataFormats.Text,true);
-					rngData = new RangeData();
-					rngData.LoadData(buffer);
-				}
-			}
+
+            // if RANGEDATA_FORMAT or GetData returns null use string buffer as rngData
+            if (rngData == null)
+            {
+                // get unicode text instead of text
+                if (dtObj.GetDataPresent(System.Windows.Forms.DataFormats.UnicodeText, true))
+                {
+                    string buffer = (string)dtObj.GetData(System.Windows.Forms.DataFormats.UnicodeText, true);
+                    rngData = new RangeData();
+                    rngData.LoadData(buffer);
+                }
+            }
 
 			return rngData;
 		}
