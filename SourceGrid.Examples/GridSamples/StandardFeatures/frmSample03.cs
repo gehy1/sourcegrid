@@ -83,7 +83,7 @@ namespace WindowsFormsSample
 		{
 			base.OnLoad(e);
 
-			grid.Redim(61, 3);
+			grid.Redim(62, 3);
 
 			SourceGrid.Cells.Views.Cell titleModel = new SourceGrid.Cells.Views.Cell();
 			titleModel.BackColor = Color.SteelBlue;
@@ -465,6 +465,18 @@ namespace WindowsFormsSample
 			grid[currentRow, 0].View = captionModel;
 			grid[currentRow, 1] = new SourceGrid.Cells.Cell("c:\\windows\\System32\\user32.dll", new EditorFileDialog());
 
+			currentRow++;
+
+			
+			// Richtext box
+			grid[currentRow, 0] = new SourceGrid.Cells.Cell("Rich text box. Not working yet");
+			grid[currentRow, 0].View = captionModel;
+			var richTextBox = new SourceGrid.Cells.Cell("            ");
+			//richTextBox.Controller.AddController(SourceGrid.Cells.Controllers.RichTextBox.Default);
+			richTextBox.View = new SourceGrid.Cells.Views.RichTextBox();
+			richTextBox.Editor = new SourceGrid.Cells.Editors.RichTextBox();
+			richTextBox.Model.AddModel(new SourceGrid.Cells.Models.RichTextBox());
+			grid[currentRow, 1] = richTextBox;
 			currentRow++;
 
 			#endregion
