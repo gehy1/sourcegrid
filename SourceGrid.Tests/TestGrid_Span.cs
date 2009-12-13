@@ -78,6 +78,26 @@ namespace SourceGrid.Tests
 		}
 		
 		[Test]
+		public void Bug4835()
+		{
+			// Bug report at http://sourcegrid.codeplex.com/WorkItem/View.aspx?WorkItemId=4835
+			var grid1 = new Grid();
+			grid1.Redim(1,10);
+			for (int i = 0; i < 10; i++)
+				grid1[0, i] = new SourceGrid.Cells.ColumnHeader(i.ToString());
+
+			
+			
+			grid1[0, 7] = null;
+			grid1[0, 6] = null;
+			grid1[0, 5].ColumnSpan = 3;
+
+			grid1[0, 4] = null;
+			grid1[0, 3] = null;
+			grid1[0, 2].ColumnSpan = 3;
+		}
+		
+		[Test]
 		public void Bug0002()
 		{
 			// the last call to change rowspan to 3 throws
