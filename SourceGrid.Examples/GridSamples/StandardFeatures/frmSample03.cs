@@ -4,6 +4,7 @@ using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
+using DevAge.Windows.Forms;
 
 namespace WindowsFormsSample
 {
@@ -466,17 +467,16 @@ namespace WindowsFormsSample
 			grid[currentRow, 1] = new SourceGrid.Cells.Cell("c:\\windows\\System32\\user32.dll", new EditorFileDialog());
 
 			currentRow++;
-
 			
 			// Richtext box
-			grid[currentRow, 0] = new SourceGrid.Cells.Cell("Rich text box. Not working yet");
-			grid[currentRow, 0].View = captionModel;
-			var richTextBox = new SourceGrid.Cells.Cell("            ");
-			//richTextBox.Controller.AddController(SourceGrid.Cells.Controllers.RichTextBox.Default);
-			richTextBox.View = new SourceGrid.Cells.Views.RichTextBox();
-			richTextBox.Editor = new SourceGrid.Cells.Editors.RichTextBox();
-			richTextBox.Model.AddModel(new SourceGrid.Cells.Models.RichTextBox());
+            grid[currentRow, 0] = new SourceGrid.Cells.Cell("RichTextBox editor");
+            grid[currentRow, 0].View = captionModel;
+            string rtf = "{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0" +
+                    "Microsoft Sans Serif;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs17 Only a \\b " +
+                    "Test\\b0.\\par\r\n}\r\n";
+			var richTextBox = new SourceGrid.Cells.RichTextBox(new RichText(rtf));
 			grid[currentRow, 1] = richTextBox;
+
 			currentRow++;
 
 			#endregion

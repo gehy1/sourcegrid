@@ -294,6 +294,7 @@
     <Compile Include="SourceGrid\Cells\Models\ModelContainer.cs" />
     <Compile Include="SourceGrid\Cells\Models\Real\Models.cs" />
     <Compile Include="SourceGrid\Cells\Models\Real\RichTextBox.cs" />
+    <Compile Include="SourceGrid\Cells\RichTextBox.cs" />
     <Compile Include="SourceGrid\Cells\RowHeader.cs" />
     <Compile Include="SourceGrid\Cells\Views\Button.cs" />
     <Compile Include="SourceGrid\Cells\Views\Cell.cs" />
