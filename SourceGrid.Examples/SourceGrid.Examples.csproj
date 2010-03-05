@@ -1,7 +1,7 @@
 ﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
   <PropertyGroup>
     <ProjectType>Local</ProjectType>
-    <ProductVersion>8.0.50727</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{6A077A72-7CEF-4198-96CB-1DE418F575F2}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -110,6 +110,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.ico" />
+    <None Include="Resources\font.png" />
+    <None Include="Resources\paintcan.png" />
+    <None Include="Resources\text_align_center.png" />
+    <None Include="Resources\text_align_left.png" />
+    <None Include="Resources\text_align_right.png" />
+    <None Include="Resources\text_bold.png" />
+    <None Include="Resources\text_italic.png" />
+    <None Include="Resources\text_normalscript.png" />
+    <None Include="Resources\text_subscript.png" />
+    <None Include="Resources\text_superscript.png" />
+    <None Include="Resources\text_underline.png" />
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -146,7 +157,12 @@
     <Compile Include="GridSamples\AdvancedFeatures\frmSample51.Designer.cs">
       <DependentUpon>frmSample51.cs</DependentUpon>
     </Compile>
-    <Compile Include="GridSamples\AdvancedFeatures\frmSample52.cs" />
+    <Compile Include="GridSamples\AdvancedFeatures\frmSample52.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridSamples\AdvancedFeatures\frmSample55.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GridSamples\BasicConcepts\frmSample14.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,7 +211,9 @@
     <Compile Include="GridSamples\GenericSamples\frmSample25.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GridSamples\Performance\frmSample53.cs" />
+    <Compile Include="GridSamples\Performance\frmSample53.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GridSamples\StandardFeatures\frmSample03.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -256,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GridSamples\AdvancedFeatures\frmSample52.resx">
       <DependentUpon>frmSample52.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\AdvancedFeatures\frmSample55.resx">
+      <DependentUpon>frmSample55.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GridSamples\BasicConcepts\frmSample14.resx">
       <DependentUpon>frmSample14.cs</DependentUpon>
@@ -342,12 +363,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="GridSamples\BasicConcepts" />
-    <Folder Include="GridSamples\AdvancedFeatures" />
-    <Folder Include="GridSamples\Extensions" />
-    <Folder Include="GridSamples\GenericSamples" />
-    <Folder Include="GridSamples\Performance" />
-    <Folder Include="GridSamples\StandardFeatures" />
     <ProjectReference Include="..\SourceGrid\SourceGrid.csproj">
       <Project>{2A5A1657-DBA8-4117-8E2A-9F1236ACE9E2}</Project>
       <Name>SourceGrid</Name>

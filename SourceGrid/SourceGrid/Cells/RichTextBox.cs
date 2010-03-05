@@ -163,6 +163,14 @@ namespace SourceGrid.Cells
         }
 
         /// <summary>
+        /// Change SelectionEffectType to normal.
+        /// </summary>
+        public void SelectionNormalScript()
+        {
+            RichTextBoxModel.SetSelectionEffect(GetContext(), DevAge.Windows.Forms.EffectType.Normal);
+        }
+
+        /// <summary>
         /// Change SelectionCharOffset to OFFSET respectively 0 if already set.
         /// </summary>
         public void SelectionSubScript()
