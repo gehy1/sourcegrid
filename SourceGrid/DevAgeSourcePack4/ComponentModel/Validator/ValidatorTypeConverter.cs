@@ -5,6 +5,8 @@ using System.ComponentModel.Design.Serialization;
 using System.Globalization;
 using System.Reflection;
 
+using SourceGrid.Utils;
+
 namespace DevAge.ComponentModel.Validator
 {
 	/// <summary>
@@ -60,7 +62,7 @@ namespace DevAge.ComponentModel.Validator
 		/// <param name="e"></param>
 		protected override void OnConvertingObjectToValue(ConvertingObjectEventArgs e)
 		{
-            base.OnConvertingObjectToValue(e);
+			base.OnConvertingObjectToValue(e);
 
 			if (e.ConvertingStatus == ConvertingStatus.Error)
 				throw new ApplicationException("Invalid conversion");
@@ -79,7 +81,7 @@ namespace DevAge.ComponentModel.Validator
 				{
 				}
 				else if (IsStringConversionSupported())
-                    e.Value = m_TypeConverter.ConvertFromString(EmptyTypeDescriptorContext.Empty, CultureInfo, tmp);
+					e.Value = m_TypeConverter.ConvertFromString(EmptyTypeDescriptorContext.Empty, CultureInfo, tmp);
 				else
 					throw new ApplicationException("String conversion not supported for this type of Validator.");
 			}
@@ -88,7 +90,13 @@ namespace DevAge.ComponentModel.Validator
 			}
 			else if (m_TypeConverter != null)
 			{
-                e.Value = m_TypeConverter.ConvertFrom(EmptyTypeDescriptorContext.Empty, CultureInfo, e.Value);
+				// For some reason string converter does not allow converting from
+				// double to string. So here is just override with simple if statemenet
+				if (m_TypeConverter is StringConverter)
+					e.Value = SourceGridConvert.To<string>(e.Value);
+				else
+					// otherwise just do normal conversion
+					e.Value = m_TypeConverter.ConvertFrom(EmptyTypeDescriptorContext.Empty, CultureInfo, e.Value);
 			}
 		}
 		/// <summary>
@@ -97,9 +105,9 @@ namespace DevAge.ComponentModel.Validator
 		/// <param name="e"></param>
 		protected override void OnConvertingValueToObject(ConvertingObjectEventArgs e)
 		{
-            base.OnConvertingValueToObject(e);
+			base.OnConvertingValueToObject(e);
 
-            if (e.ConvertingStatus == ConvertingStatus.Error)
+			if (e.ConvertingStatus == ConvertingStatus.Error)
 				throw new ApplicationException("Invalid conversion");
 			else if (e.ConvertingStatus == ConvertingStatus.Completed)
 				return;
@@ -116,7 +124,7 @@ namespace DevAge.ComponentModel.Validator
 			}
 			else if (m_TypeConverter != null)
 			{
-                e.Value = m_TypeConverter.ConvertTo(EmptyTypeDescriptorContext.Empty, CultureInfo, e.Value, e.DestinationType);
+				e.Value = m_TypeConverter.ConvertTo(EmptyTypeDescriptorContext.Empty, CultureInfo, e.Value, e.DestinationType);
 			}
 		}
 		#endregion
@@ -132,14 +140,14 @@ namespace DevAge.ComponentModel.Validator
 		{
 			get{return m_TypeConverter;}
 			set
-            {
-                if (m_TypeConverter != value)
-                {
-                    m_TypeConverter = value;
-                    OnLoadingTypeConverter();
-                    OnChanged(EventArgs.Empty);
-                }
-            }
+			{
+				if (m_TypeConverter != value)
+				{
+					m_TypeConverter = value;
+					OnLoadingTypeConverter();
+					OnChanged(EventArgs.Empty);
+				}
+			}
 		}
 
 		private void OnLoadingTypeConverter()

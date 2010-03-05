@@ -371,6 +371,7 @@
     <Compile Include="SourceGrid\Selection\SelectionBase.cs" />
     <Compile Include="SourceGrid\Utils\PerformanceCounter.cs" />
     <Compile Include="SourceGrid\Utils\IPerformanceCounter.cs" />
+    <Compile Include="SourceGrid\Utils\SourceGridConvert.cs" />
     <None Include="DevAge.Windows.Forms\Drawing\VisualElements\VisualElements.cd" />
     <None Include="DevAge.Windows.Forms\Res\DropDown.ico" />
     <None Include="DevAge.Windows.Forms\Res\left.cur" />
