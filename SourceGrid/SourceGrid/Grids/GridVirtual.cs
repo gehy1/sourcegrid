@@ -1403,8 +1403,8 @@ namespace SourceGrid
 			Range data = rngData.SourceRange;
 			Range destinationRange = new Range(
 				new Position(rng.Start.Row, rng.Start.Column),
-				new Position(rng.End.Row + (data.End.Row - data.Start.Row),
-				             rng.End.Column + (data.End.Column - data.Start.Column)));
+				new Position(rng.Start.Row + (data.End.Row - data.Start.Row),
+				             rng.Start.Column + (data.End.Column - data.Start.Column)));
 			
 			rngData.WriteData(this, rng.Start);
 			
