@@ -3,6 +3,7 @@
 using System;
 using NUnit.Framework;
 using SourceGrid.Cells;
+using SourceGrid.Utils;
 
 namespace SourceGrid.Tests
 {
@@ -75,6 +76,41 @@ namespace SourceGrid.Tests
 			grid.Rows.Insert(0);
 			grid[0, 0] = new SourceGrid.Cells.Cell();
 			grid[0, 0].ColumnSpan = 3;
+		}
+		
+		[Test]
+		public void Bug5239()
+		{
+			var grid1 = new Grid();
+			grid1.Redim(4, 1);
+			grid1.FixedRows = 1;
+
+			for (int r = 0; r < grid1.RowsCount; r++)
+			{
+				if (r % 2 == 0)
+				{
+					grid1[r, 0] = new SourceGrid.Cells.Cell();
+					grid1[r, 0].ColumnSpan = 2;
+				}
+			}
+			
+			// sort all cells
+			var range = new Range(0, 0, grid1.Rows.Count - 1, grid1.Columns.Count - 1);
+			grid1.SortRangeRows(range, 0, true, null);
+			
+			// loop via all cells
+			for (var i = 0; i < grid1.Rows.Count; i++)
+			{
+				for (var col = 0; col < grid1.Columns.Count; col++)
+				{
+					// here we get exception : 
+					// Grid should contain a spanned cell at position 0;0,  but apparently it does not!
+
+					var cell = grid1[i, col];
+				}
+			
+			}
+
 		}
 		
 		[Test]

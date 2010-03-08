@@ -27,6 +27,8 @@ namespace SourceGrid
 		void RemoveSpannedCellReferencesInRows(int startIndex, int count);
 		void RemoveSpannedCellReferencesInColumns(int startIndex, int count);
 		
+		
+		void Swap(int rowIndex1, int rowIndex2);
 		/// <summary>
 		/// Adds or updates given range.
 		/// Updates range only when existing range with given start position is found

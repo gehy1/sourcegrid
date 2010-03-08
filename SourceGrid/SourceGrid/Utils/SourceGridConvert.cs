@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace SourceGrid.Utils
 {
 	/// <summary>
-	/// A generic converter class used to convert values from 
+	/// A generic converter class used to convert values from
 	/// one type to another
 	/// </summary>
 	public static class SourceGridConvert

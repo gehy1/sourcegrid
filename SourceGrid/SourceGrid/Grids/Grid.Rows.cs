@@ -38,6 +38,13 @@ namespace SourceGrid
 				: base(grid)
 			{
 			}
+			
+			public override void Swap(int p_RowIndex1, int p_RowIndex2)
+			{
+				base.Swap(p_RowIndex1, p_RowIndex2);
+				this.Grid.SpannedCellReferences.Swap(p_RowIndex1, p_RowIndex2);
+			}
+			
 
 			/// <summary>
 			/// Insert a row at the specified position

@@ -133,7 +133,7 @@ namespace SourceGrid
 		/// </summary>
 		/// <param name="p_RowIndex1"></param>
 		/// <param name="p_RowIndex2"></param>
-		public void Swap(int p_RowIndex1, int p_RowIndex2)
+		public virtual void Swap(int p_RowIndex1, int p_RowIndex2)
 		{
 			if (p_RowIndex1 == p_RowIndex2)
 				return;

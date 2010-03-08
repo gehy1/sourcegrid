@@ -1,15 +1,13 @@
-using SourceGrid.Cells;
 using System;
-using System.Collections;
-using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
+
 using SourceGrid;
 using SourceGrid.Cells.Controllers;
 
 namespace WindowsFormsSample
 {
-	/// <summary>
+ 	/// <summary>
 	/// Summary description for frmSample14.
 	/// </summary>
 	[Sample("SourceGrid - Standard features", 21, "ColumnSpan and RowSpan")]
