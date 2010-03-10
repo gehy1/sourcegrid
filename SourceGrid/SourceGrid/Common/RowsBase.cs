@@ -27,6 +27,8 @@ namespace SourceGrid
 			get;
 		}
 		
+		public abstract bool IsVisible(int row);
+		
 		/// <summary>
 		/// Gets the height of the specified row.
 		/// </summary>

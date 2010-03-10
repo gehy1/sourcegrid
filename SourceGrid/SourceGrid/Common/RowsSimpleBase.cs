@@ -25,6 +25,11 @@ namespace SourceGrid
 				}
 			}
 		}
+		
+		public override bool IsVisible(int row)
+		{
+			return GetHeight(row) != 0;
+		}
 	
 		public override int GetHeight(int row)
 		{

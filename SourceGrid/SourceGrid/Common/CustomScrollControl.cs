@@ -386,11 +386,11 @@ namespace SourceGrid
 
 			PrepareScrollBars(scrollCols > 0, scrollRows > 0);
 
-			//now I recheck the area with the scrollbars
-			scrollRows = GetScrollRows(DisplayRectangle.Height);
-			scrollCols = GetScrollColumns(DisplayRectangle.Width);
+			////now I recheck the area with the scrollbars
+			//scrollRows = GetScrollRows(DisplayRectangle.Height);
+			//scrollCols = GetScrollColumns(DisplayRectangle.Width);
 
-			PrepareScrollBars(scrollCols > 0, scrollRows > 0);
+			//PrepareScrollBars(scrollCols > 0, scrollRows > 0);
 
 			//Finally I read the actual values to use (that can be changed because I have called PrepareScrollBars)
 			if (scrollRows > 0)
@@ -400,7 +400,6 @@ namespace SourceGrid
 
 			//MICK(6)
 			scrollRows = scrollRows - GetActualFixedRows();
-
 
 			RecalcVScrollBar(scrollRows);
 			RecalcHScrollBar(scrollCols);

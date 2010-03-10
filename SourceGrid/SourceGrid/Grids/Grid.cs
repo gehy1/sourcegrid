@@ -503,8 +503,10 @@ namespace SourceGrid
 		/// </summary>
 		public void Redim(int p_Rows, int p_Cols)
 		{
+			base.SuspendLayout();
 			RowsCount = p_Rows;
 			ColumnsCount = p_Cols;
+			base.ResumeLayout();
 			GrowGrid();
 		}
 

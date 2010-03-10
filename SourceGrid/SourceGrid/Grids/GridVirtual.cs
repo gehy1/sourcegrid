@@ -500,17 +500,31 @@ namespace SourceGrid
 			//Calculate the rows to be scrolled
 			for (int r = Rows.Count - 1; r >= ActualFixedRows; r--)
 			{
+				//if (Rows.IsVisible(r) == false)
+				//	continue;
 				currentHeight += Rows.GetHeight(r);
 
 				if (currentHeight > displayHeight)
-					return Rows.Count - scrollRows;
+					return Rows.Count - scrollRows - GetTotalHiddenRows(r);
 
 				scrollRows++;
 			}
 
 			return 0;
 		}
-
+		
+		private int GetTotalHiddenRows(int from)
+		{
+			var hidden = 0;
+			for (int x = from; x >= ActualFixedRows; x--)
+			{
+				if (Rows.IsVisible(x) == false)
+					hidden ++;
+			}
+			return hidden;
+		}
+		
+		
 		//MICK(13)
 		protected override int GetActualFixedRows()
 		{
@@ -1506,6 +1520,60 @@ namespace SourceGrid
 				}
 			}
 		}
+		
+		private int? GetNextVisibleRow(int startFrom)
+		{
+			var i = startFrom + 1;
+			while (i < Rows.Count)
+			{
+				if (Rows.IsVisible(i) == true)
+					return i;
+				i++;
+			}
+			return null;
+		}
+		
+		/// <summary>
+		/// Returns a sequence of row indexes which are visible only.
+		/// Correctly handles invisible rows.
+		/// </summary>
+		/// <param name="scrollBarValue">The value of the vertical scroll bar. Note that
+		/// this does not directly relate to row number. If there are no hidden rows at all,
+		/// then scroll bar value directly relates to row index number. However,
+		/// if some rows are hidden, then this value is different.
+		/// Basically, it says how many visible rows must be scrolled down</param>
+		/// <param name="numberOfRowsToProduce">How many visible rows to return</param>
+		/// <returns>Can return less rows than requested. This might occur
+		/// if you request to return visible rows in the end of the grid,
+		/// and all the rows would be hidden. In that case no indexes would be returned
+		/// at all, even though specific amount of rows was requested</returns>
+		private IEnumerable<int> LoopVisibleRows(int scrollBarValue, int numberOfRowsToProduce)
+		{
+			var producedRows = 0;
+			var currentRow = 0;
+			// lets find first visible row from scroll bar value
+			for (var i = 0; i < scrollBarValue; i++)
+			{
+				var nextRow = GetNextVisibleRow(currentRow);
+				if (nextRow == null)
+					break;
+				currentRow = nextRow.Value;
+			}
+			
+			// produce speicifc number of visible row indexes
+			while (producedRows < numberOfRowsToProduce + 3)
+			{
+				yield return currentRow;
+				producedRows++;
+				
+				var nextRow = GetNextVisibleRow(currentRow);
+				if (nextRow == null)
+					break;
+				currentRow = nextRow.Value;
+				
+			}
+			
+		}
 
 		public event RangePaintEventHandler RangePaint;
 		protected virtual void OnRangePaint(RangePaintEventArgs e)
@@ -1521,14 +1589,19 @@ namespace SourceGrid
 				int top = drawRectangle.Top;
 				int width;
 				int height;
-				for (int r = e.DrawingRange.Start.Row; r <= e.DrawingRange.End.Row; r++)
+				foreach (var r in LoopVisibleRows(e.DrawingRange.Start.Row, e.DrawingRange.End.Row - e.DrawingRange.Start.Row))
+					//for (int r = e.DrawingRange.Start.Row; r <= e.DrawingRange.End.Row; r++)
 				{
+					if (Rows.IsVisible(r) == false)
+						throw new SourceGridException("Incorrect internal state. This rows must have been visible");
 					height = Rows.GetHeight(r);
 
 					int left = drawRectangle.Left;
 					for (int c = e.DrawingRange.Start.Column; c <= e.DrawingRange.End.Column; c++)
 					{
 						width = Columns.GetWidth(c);
+						if (Columns.IsColumnVisible(c) == false)
+							continue;
 
 						Position position = new Position(r, c);
 
