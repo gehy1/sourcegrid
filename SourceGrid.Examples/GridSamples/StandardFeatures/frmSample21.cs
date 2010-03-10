@@ -141,6 +141,7 @@ namespace WindowsFormsSample
 				grid1[r, 10].RowSpan = 2;
 			}
 
+			grid1.ClipboardMode = SourceGrid.ClipboardMode.All;
 			grid1.AutoSizeCells();
 		}
 		
