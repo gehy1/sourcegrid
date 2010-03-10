@@ -48,6 +48,10 @@ namespace SourceGrid.Selection
 			Range rowRange = Grid.Rows.GetRange(row);
 			if (select && mList.IsSelectedRow(row) == false)
 			{
+				// if multi selection is false, remove all previously selected rows
+				if (this.EnableMultiSelection == false)
+					this.Grid.Selection.ResetSelection(false);
+				// continue with adding selection
 				mList.AddRange(rowRange);
 				OnSelectionChanged(new RangeRegionChangedEventArgs(rowRange, Range.Empty));
 			} else
