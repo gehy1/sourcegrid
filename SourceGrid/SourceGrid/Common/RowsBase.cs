@@ -10,17 +10,24 @@ namespace SourceGrid
 	public abstract class RowsBase
 	{
 		private GridVirtual mGrid;
-	
+		private IHiddenRowCoordinator m_HiddenRowsCoordinator = null;
+		
+		public IHiddenRowCoordinator HiddenRowsCoordinator {
+			get { return m_HiddenRowsCoordinator; }
+		}
+		
 		public RowsBase(GridVirtual grid)
 		{
 			mGrid = grid;
+			
+			m_HiddenRowsCoordinator = new StandardHiddenRowCoordinator(this);
 		}
-	
+		
 		public GridVirtual Grid
 		{
 			get{return mGrid;}
 		}
-	
+		
 		#region Abstract methods
 		public abstract int Count
 		{
@@ -41,10 +48,10 @@ namespace SourceGrid
 		/// <param name="row"></param>
 		/// <param name="height"></param>
 		public abstract void SetHeight(int row, int height);
-	
+		
 		public abstract AutoSizeMode GetAutoSizeMode(int row);
 		#endregion
-	
+		
 		/// <summary>
 		/// Gets the rows index inside the specified display area.
 		/// </summary>
@@ -52,7 +59,7 @@ namespace SourceGrid
 		{
 			return RowsInsideRegion(y, height, true, true);
 		}
-	
+		
 		/// <summary>
 		/// Gets the rows index inside the specified display area.
 		/// The list returned is ordered by the index.
@@ -64,16 +71,16 @@ namespace SourceGrid
 		public List<int> RowsInsideRegion(int y, int height, bool returnsPartial, bool returnsFixedRows)
 		{
 			int bottom = y + height;
-	
+			
 			List<int> list = new List<int>();
-	
+			
 			//Add the fixed rows
 			// Loop until the currentHeight is smaller then the requested displayRect
 			for (int fr = 0; fr < Grid.FixedRows && fr < Count; fr++)
 			{
 				int topDisplay = GetTop(fr);
 				int bottomDisplay = topDisplay + GetHeight(fr);
-	
+				
 				//If the row is inside the view
 				if (bottom >= topDisplay && y <= bottomDisplay &&
 				    (returnsPartial || (bottomDisplay <= bottom && topDisplay >= y)))
@@ -81,13 +88,13 @@ namespace SourceGrid
 					if (returnsFixedRows)
 						list.Add(fr);
 				}
-	
+				
 				if (bottomDisplay > bottom)
 					break;
 			}
-	
+			
 			int? relativeRow = FirstVisibleScrollableRow;
-	
+			
 			if (relativeRow != null)
 			{
 				//Add the standard rows
@@ -95,22 +102,22 @@ namespace SourceGrid
 				{
 					int topDisplay = GetTop(r);
 					int bottomDisplay = topDisplay + GetHeight(r);
-	
+					
 					//If the row is inside the view
 					if (bottom >= topDisplay && y <= bottomDisplay &&
 					    (returnsPartial || (bottomDisplay <= bottom && topDisplay >= y)))
 					{
 						list.Add(r);
 					}
-	
+					
 					if (bottomDisplay > bottom)
 						break;
 				}
 			}
-	
+			
 			return list;
 		}
-	
+		
 		/// <summary>
 		/// Calculate the Row that have the Top value smaller or equal than the point p_Y, or -1 if not found found.
 		/// </summary>
@@ -124,7 +131,7 @@ namespace SourceGrid
 			else
 				return list[0];
 		}
-	
+		
 		/// <summary>
 		/// Returns the first visible scrollable row.
 		/// Return null if there isn't a visible row.
@@ -134,15 +141,15 @@ namespace SourceGrid
 		{
 			get
 			{
-				int firstVisible = Grid.CustomScrollPosition.Y + Grid.FixedRows;
-	
+				int firstVisible = HiddenRowsCoordinator.ConvertScrollbarValueToRowIndex(Grid.CustomScrollPosition.Y) + Grid.FixedRows;
+				
 				if (firstVisible >= Count)
 					return null;
 				else
 					return firstVisible;
 			}
 		}
-	
+		
 		/// <summary>
 		/// Returns the last visible scrollable row.
 		/// Return null if there isn't a visible row.
@@ -155,24 +162,24 @@ namespace SourceGrid
 				int? first = FirstVisibleScrollableRow;
 				if (first == null)
 					return null;
-	
+				
 				Rectangle scrollableArea = Grid.GetScrollableArea();
-	
+				
 				int bottom = GetTop(first.Value);
 				int r = first.Value;
 				for (; r < Count; r++)
 				{
 					bottom += GetHeight(r);
-	
+					
 					if (bottom >= scrollableArea.Bottom)
 						return r;
 				}
-	
+				
 				return r - 1;
 			}
 		}
-	
-	
+		
+		
 		public void AutoSizeRow(int row)
 		{
 			int minColumn = 0;
@@ -198,7 +205,7 @@ namespace SourceGrid
 			    IsRowVisible(row) )
 				SetHeight(row, MeasureRowHeight(row, useColumnWidth, StartCol, EndCol) );
 		}
-	
+		
 		/// <summary>
 		/// Measures the current row when drawn with the specified cells.
 		/// </summary>
@@ -210,22 +217,22 @@ namespace SourceGrid
 		public int MeasureRowHeight(int row, bool useColumnWidth, int StartCol, int EndCol)
 		{
 			int min = Grid.MinimumHeight;
-	
+			
 			if ((GetAutoSizeMode(row) & AutoSizeMode.MinimumSize) == AutoSizeMode.MinimumSize)
 				return min;
-	
+			
 			for (int c = StartCol; c <= EndCol; c++)
 			{
 				Cells.ICellVirtual cell = Grid.GetCell(row, c);
 				if (cell != null)
 				{
 					Position cellPosition = new Position(row, c);
-	
+					
 					Size maxLayout = Size.Empty;
 					//Use the width of the actual cell (considering spanned cells)
 					if (useColumnWidth)
 						maxLayout.Width = Grid.RangeToSize(Grid.PositionToCellRange(cellPosition)).Width;
-	
+					
 					CellContext cellContext = new CellContext(Grid, cellPosition, cell);
 					Size cellSize = cellContext.Measure(maxLayout);
 					if (cellSize.Height > min)
@@ -234,13 +241,13 @@ namespace SourceGrid
 			}
 			return min;
 		}
-	
-	
+		
+		
 		public void AutoSize(bool useColumnWidth)
 		{
 			AutoSize(useColumnWidth, 0, Grid.Columns.Count - 1);
 		}
-	
+		
 		/// <summary>
 		/// Auto size all the rows with the max required height of all cells.
 		/// </summary>
@@ -254,20 +261,20 @@ namespace SourceGrid
 				AutoSizeRow(i, useColumnWidth, StartCol, EndCol);
 			ResumeLayout();
 		}
-	
+		
 		/// <summary>
 		/// stretch the rows height to always fit the available space when the contents of the cell is smaller.
 		/// </summary>
 		public virtual void StretchToFit()
 		{
 			SuspendLayout();
-	
+			
 			Rectangle displayRect = Grid.DisplayRectangle;
-	
+			
 			if (Count > 0 && displayRect.Height > 0)
 			{
 				List<int> visibleIndex = RowsInsideRegion(displayRect.Y, displayRect.Height);
-	
+				
 				//Continue only if the rows are all visible, otherwise this method cannot shirnk the rows
 				if (visibleIndex.Count >= Count)
 				{
@@ -282,7 +289,7 @@ namespace SourceGrid
 							    IsRowVisible(i) )
 								countToStretch++;
 						}
-	
+						
 						if (countToStretch > 0)
 						{
 							int deltaPerRow = (displayRect.Height - current.Value) / countToStretch;
@@ -296,15 +303,15 @@ namespace SourceGrid
 					}
 				}
 			}
-	
+			
 			ResumeLayout();
 		}
-	
+		
 		public Range GetRange(int row)
 		{
 			return new Range(row, 0, row, Grid.Columns.Count-1);
 		}
-	
+		
 		#region Layout
 		private int mSuspendedCount = 0;
 		public void SuspendLayout()
@@ -315,7 +322,7 @@ namespace SourceGrid
 		{
 			if (mSuspendedCount > 0)
 				mSuspendedCount--;
-	
+			
 			PerformLayout();
 		}
 		public void PerformLayout()
@@ -328,8 +335,8 @@ namespace SourceGrid
 			Grid.OnCellsAreaChanged();
 		}
 		#endregion
-	
-	
+		
+		
 		/// <summary>
 		/// Fired when the numbers of rows changed.
 		/// </summary>
@@ -337,23 +344,23 @@ namespace SourceGrid
 		{
 			PerformLayout();
 		}
-	
+		
 		#region Top/Bottom
 		public int GetAbsoluteTop(int row)
 		{
 			if (row < 0)
 				throw new ArgumentException("Must be a valid index");
-	
+			
 			int top = 0;
-	
+			
 			int index = 0;
 			while (index < row)
 			{
 				top += GetHeight(index);
-	
+				
 				index++;
 			}
-	
+			
 			return top;
 		}
 		public int GetAbsoluteBottom(int row)
@@ -361,7 +368,7 @@ namespace SourceGrid
 			int top = GetAbsoluteTop(row);
 			return top + GetHeight(row);
 		}
-	
+		
 		private int GetTopPositive(int relativeRow, int row)
 		{
 			int top = 0;
@@ -369,7 +376,7 @@ namespace SourceGrid
 			{
 				/*if (i == row)
 						return top;*/
-	
+				
 				top += GetHeight(i);
 			}
 			return top;
@@ -381,7 +388,7 @@ namespace SourceGrid
 			for (int i = relativeRow - 1; i >= row; i--)
 			{
 				top -= GetHeight(i);
-	
+				
 				/*if (i == row)
 						return top;*/
 			}
@@ -398,22 +405,22 @@ namespace SourceGrid
 			if (row < 0)
 				throw new ArgumentNullException("Row is less than 0");
 			int actualFixedRows = Math.Min(Grid.FixedRows, Count);
-	
+			
 			int top = 0;
-	
+			
 			//Calculate fixed top cells
 			for (int i = 0; i < actualFixedRows; i++)
 			{
 				if (i == row)
 					return top;
-	
+				
 				top += GetHeight(i);
 			}
-	
+			
 			int? relativeRow = FirstVisibleScrollableRow;
 			if (relativeRow == null)
 				relativeRow = Count;
-	
+			
 			if (relativeRow == row)
 				return top;
 			else if (relativeRow < row)
@@ -426,10 +433,10 @@ namespace SourceGrid
 				top += GetTopNegative(relativeRow.Value, row);
 				return top;
 			}
-	
+			
 			throw new IndexOutOfRangeException(string.Format("row value is {0}", row));
 		}
-	
+		
 		/// <summary>
 		/// Gets the row bottom position. GetTop + GetHeight.
 		/// </summary>
@@ -439,7 +446,7 @@ namespace SourceGrid
 			return top + GetHeight(row);
 		}
 		#endregion
-	
+		
 		/// <summary>
 		/// Show a row (set the height to default height)
 		/// </summary>

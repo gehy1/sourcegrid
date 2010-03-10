@@ -317,6 +317,7 @@
     </Compile>
     <Compile Include="SourceGrid\Common\Enums.cs" />
     <Compile Include="SourceGrid\Common\Events.cs" />
+    <Compile Include="SourceGrid\Common\IHiddenRowCoordinator.cs" />
     <Compile Include="SourceGrid\Common\LinkedControlsList.cs" />
     <Compile Include="SourceGrid\Common\Position.cs" />
     <Compile Include="SourceGrid\Common\PositionCollection.cs" />
@@ -328,6 +329,7 @@
     <Compile Include="SourceGrid\Common\RowInfoCollection.cs" />
     <Compile Include="SourceGrid\Common\RowsBase.cs" />
     <Compile Include="SourceGrid\Common\RowsSimpleBase.cs" />
+    <Compile Include="SourceGrid\Common\StandardHiddenRowCoordinator.cs" />
     <Compile Include="SourceGrid\Common\Utilities.cs" />
     <Compile Include="SourceGrid\Common\ValueCellComparer.cs" />
     <Compile Include="SourceGrid\Decorators\DecoratorBase.cs" />
