@@ -188,7 +188,7 @@ namespace SourceGrid.Selection
 		private void DeselectOldRangeAndSelectActiveCell()
 		{
 			//Deselect previous selected cells
-			ResetSelection(true);
+			//ResetSelection(true);
 			//Select the cell
 			SelectCell(m_ActivePosition, true);
 
