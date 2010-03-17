@@ -118,7 +118,6 @@ namespace SourceGrid.Cells.Virtual
 		/// <summary>
 		/// Find the specified controller. Returns null if not found.
 		/// </summary>
-		/// <param name="pControllerType"></param>
 		/// <returns></returns>
 		public T FindController<T>() where T: class, IController
 		{

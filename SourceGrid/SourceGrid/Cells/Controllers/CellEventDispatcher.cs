@@ -14,10 +14,6 @@ namespace SourceGrid.Cells.Controllers
 		/// </summary>
         public readonly static CellEventDispatcher Default = new CellEventDispatcher();
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="e"></param>
 		public override void OnKeyDown (CellContext sender, KeyEventArgs e)
 		{
 			base.OnKeyDown(sender, e);
@@ -26,10 +22,6 @@ namespace SourceGrid.Cells.Controllers
 				sender.Cell.Controller.OnKeyDown(sender, e);
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="e"></param>
 		public override void OnKeyPress (CellContext sender, KeyPressEventArgs e)
 		{
 			base.OnKeyPress(sender, e);
@@ -38,10 +30,6 @@ namespace SourceGrid.Cells.Controllers
 				sender.Cell.Controller.OnKeyPress(sender, e);
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="e"></param>
 		public override void OnDoubleClick (CellContext sender, EventArgs e)
 		{
 			base.OnDoubleClick(sender, e);
@@ -63,10 +51,6 @@ namespace SourceGrid.Cells.Controllers
 				sender.Cell.Controller.OnClick(sender, e);
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="e"></param>
 		public override void OnFocusEntered(CellContext sender, EventArgs e)
 		{
 			base.OnFocusEntered(sender, e);
@@ -75,10 +59,6 @@ namespace SourceGrid.Cells.Controllers
 				sender.Cell.Controller.OnFocusEntered(sender, e);
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="e"></param>
 		public override void OnFocusLeft(CellContext sender, EventArgs e)
 		{
 			base.OnFocusLeft (sender, e);
@@ -91,7 +71,6 @@ namespace SourceGrid.Cells.Controllers
 		/// <summary>
 		/// Fired when the SetValue method is called.
 		/// </summary>
-		/// <param name="e"></param>
 		public override void OnValueChanged(CellContext sender, EventArgs e)
 		{
 			base.OnValueChanged(sender, e);
@@ -103,7 +82,6 @@ namespace SourceGrid.Cells.Controllers
 		/// <summary>
 		/// Fired when editing is ended
 		/// </summary>
-		/// <param name="e"></param>
 		public override void OnEditEnded(CellContext sender, EventArgs e)
 		{
 			base.OnEditEnded (sender, e);
@@ -219,10 +197,6 @@ namespace SourceGrid.Cells.Controllers
 	
 
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="e"></param>
 		public override void OnDragDrop(CellContext sender, DragEventArgs e)
 		{
 			base.OnDragDrop (sender, e);
@@ -230,10 +204,7 @@ namespace SourceGrid.Cells.Controllers
 			if (sender.Cell != null && sender.Cell.Controller != null)
 				sender.Cell.Controller.OnDragDrop(sender, e);
 		}
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="e"></param>
+
 		public override void OnDragEnter(CellContext sender, DragEventArgs e)
 		{
 			base.OnDragEnter (sender, e);
@@ -241,10 +212,7 @@ namespace SourceGrid.Cells.Controllers
 			if (sender.Cell != null && sender.Cell.Controller != null)
 				sender.Cell.Controller.OnDragEnter(sender, e);
 		}
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="e"></param>
+
 		public override void OnDragLeave(CellContext sender, EventArgs e)
 		{
 			base.OnDragLeave (sender, e);
@@ -252,10 +220,7 @@ namespace SourceGrid.Cells.Controllers
 			if (sender.Cell != null && sender.Cell.Controller != null)
 				sender.Cell.Controller.OnDragLeave(sender, e);
 		}
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="e"></param>
+
 		public override void OnDragOver(CellContext sender, DragEventArgs e)
 		{
 			base.OnDragOver (sender, e);
@@ -263,10 +228,7 @@ namespace SourceGrid.Cells.Controllers
 			if (sender.Cell != null && sender.Cell.Controller != null)
 				sender.Cell.Controller.OnDragOver(sender, e);
 		}
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="e"></param>
+
 		public override void OnGiveFeedback(CellContext sender, GiveFeedbackEventArgs e)
 		{
 			base.OnGiveFeedback (sender, e);

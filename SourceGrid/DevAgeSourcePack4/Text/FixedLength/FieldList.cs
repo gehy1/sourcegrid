@@ -36,9 +36,6 @@ namespace DevAge.Text.FixedLength
 		/// <summary>
 		/// Adds an element with the specified key and value to this FieldList.
 		/// </summary>
-		/// <param name="key">
-		/// The string key of the element to add.
-		/// </param>
 		/// <param name="value">
 		/// The IField value of the element to add.
 		/// </param>
@@ -65,9 +62,6 @@ namespace DevAge.Text.FixedLength
 		/// <summary>
 		/// Determines whether this FieldList contains a specific key.
 		/// </summary>
-		/// <param name="key">
-		/// The string key to locate in this FieldList.
-		/// </param>
 		/// <returns>
 		/// true if this FieldList contains an element with the specified key;
 		/// otherwise, false.

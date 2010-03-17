@@ -51,7 +51,6 @@ namespace SourceGrid
         /// <summary>
         /// Returns the grid index for the specified DataSource index
         /// </summary>
-        /// <param name="gridRowIndex"></param>
         /// <returns></returns>
         public int DataSourceIndexToGridRowIndex(int dataSourceIndex)
         {

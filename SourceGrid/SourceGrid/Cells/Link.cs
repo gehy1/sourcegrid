@@ -12,7 +12,6 @@ namespace SourceGrid.Cells.Virtual
 		/// <summary>
 		/// Constructor, using VisualModels.Common.LinkStyle and BehaviorModels.Cursor.Default
 		/// </summary>
-		/// <param name="valueModel"></param>
 		public Link()
 		{
 			View = Views.Link.Default;

@@ -36,7 +36,6 @@ namespace SourceGrid
 		/// <summary>
 		/// Returns the index for a given DataColumn. -1 if not valid.
 		/// </summary>
-		/// <param name="column"></param>
 		/// <returns></returns>
 		public int DataSourceColumnToIndex(System.ComponentModel.PropertyDescriptor propertyColumn)
 		{

@@ -14,10 +14,6 @@ namespace SourceGrid.Cells.Controllers
 		/// </summary>
         public readonly static StandardBehavior Default = new StandardBehavior();
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="e"></param>
 		public override void OnKeyDown (CellContext sender, KeyEventArgs e)
 		{
 			base.OnKeyDown(sender, e);
@@ -30,10 +26,6 @@ namespace SourceGrid.Cells.Controllers
 			}
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="e"></param>
 		public override void OnKeyPress (CellContext sender, KeyPressEventArgs e)
 		{
 			base.OnKeyPress(sender, e);
@@ -49,10 +41,6 @@ namespace SourceGrid.Cells.Controllers
 			}
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="e"></param>
 		public override void OnDoubleClick (CellContext sender, EventArgs e)
 		{
 			base.OnDoubleClick(sender, e);
@@ -63,10 +51,6 @@ namespace SourceGrid.Cells.Controllers
 				sender.StartEdit();
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="e"></param>
 		public override void OnClick (CellContext sender, EventArgs e)
 		{
 			base.OnClick(sender, e);
@@ -77,10 +61,6 @@ namespace SourceGrid.Cells.Controllers
 				sender.StartEdit();
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="e"></param>
 		public override void OnFocusEntered(CellContext sender, EventArgs e)
 		{
 			base.OnFocusEntered(sender, e);
@@ -98,10 +78,6 @@ namespace SourceGrid.Cells.Controllers
 				sender.Grid.InvalidateCell(sender.Position);
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="e"></param>
 		public override void OnFocusLeft(CellContext sender, EventArgs e)
 		{
 			base.OnFocusLeft (sender, e);
@@ -114,7 +90,6 @@ namespace SourceGrid.Cells.Controllers
 		/// <summary>
 		/// Fired when the SetValue method is called.
 		/// </summary>
-		/// <param name="e"></param>
 		public override void OnValueChanged(CellContext sender, EventArgs e)
 		{
 			base.OnValueChanged(sender, e);
@@ -126,7 +101,6 @@ namespace SourceGrid.Cells.Controllers
 		/// <summary>
 		/// Fired when editing is ended
 		/// </summary>
-		/// <param name="e"></param>
 		public override void OnEditEnded(CellContext sender, EventArgs e)
 		{
 			base.OnEditEnded (sender, e);

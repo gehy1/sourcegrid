@@ -20,7 +20,6 @@ namespace SourceGrid.Cells.Controllers
 		/// <summary>
 		/// OnValueChanged
 		/// </summary>
-		/// <param name="e"></param>
 		public override void OnValueChanged(CellContext sender, EventArgs e)
 		{
 			base.OnValueChanged (sender, e);
