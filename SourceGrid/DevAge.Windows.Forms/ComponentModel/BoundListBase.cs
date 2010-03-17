@@ -205,7 +205,6 @@ namespace DevAge.ComponentModel
         /// <summary>
         /// Get an item property by name
         /// </summary>
-        /// <param name="name"></param>
         /// <returns></returns>
         public System.ComponentModel.PropertyDescriptor GetItemProperty(string name, StringComparison comparison)
         {

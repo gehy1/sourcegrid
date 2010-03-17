@@ -136,8 +136,6 @@ namespace DevAge.Drawing.VisualElements
         /// <summary>
         /// Calculate the client area where the content can be drawed, usually removing the area used by the background, for example removing a border.
         /// </summary>
-        /// <param name="graphics"></param>
-        /// <param name="backGroundArea"></param>
         /// <returns></returns>
         public RectangleF GetContentRectangle(MeasureHelper measure, RectangleF backGroundArea)
         {
@@ -162,8 +160,6 @@ namespace DevAge.Drawing.VisualElements
         /// <summary>
         /// Calculate the total area used by the backgound and the content, adding the background area to the content area.
         /// </summary>
-        /// <param name="graphics"></param>
-        /// <param name="contentSize"></param>
         /// <returns></returns>
         public SizeF GetExtent(MeasureHelper measure, SizeF contentSize)
         {
@@ -321,9 +317,6 @@ namespace DevAge.Drawing.VisualElements
         /// <summary>
         /// Utility function. Calculates the remaining empty area of a specified area and a given content.
         /// </summary>
-        /// <param name="parentArea"></param>
-        /// <param name="anchor"></param>
-        /// <param name="area"></param>
         /// <returns></returns>
         public static RectangleF CalculateRemainingArea(RectangleF parentArea, AnchorArea contentAnchor, RectangleF contentArea)
         {

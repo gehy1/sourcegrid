@@ -108,8 +108,6 @@ namespace DevAge.Data
         /// <summary>
         /// Format the specified value in a string that can be used inside an expression.
         /// </summary>
-        /// <param name="pParameterValue"></param>
-        /// <param name="valueType"></param>
         /// <returns></returns>
         public static string ExpressionFormat(object p_data)
         {
@@ -168,9 +166,6 @@ namespace DevAge.Data
         /// <summary>
         /// Create an equal expression, automatically calls FormatValueForExpression
         /// </summary>
-        /// <param name="pFieldName"></param>
-        /// <param name="pFieldValue"></param>
-        /// <param name="valueType"></param>
         /// <returns></returns>
         public static string EqualExpression(string pFieldName, object pFieldValue)
         {
@@ -179,9 +174,6 @@ namespace DevAge.Data
         /// <summary>
         /// Create a Not equal expression, automatically calls FormatValueForExpression
         /// </summary>
-        /// <param name="pFieldName"></param>
-        /// <param name="pFieldValue"></param>
-        /// <param name="valueType"></param>
         /// <returns></returns>
         public static string NotEqualExpression(string pFieldName, object pFieldValue)
         {

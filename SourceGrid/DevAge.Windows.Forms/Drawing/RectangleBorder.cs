@@ -113,7 +113,6 @@ namespace DevAge.Drawing
         /// <summary>
         /// Change the width of the current struct instance and return a copy of the modified struct.
         /// </summary>
-        /// <param name="p_Width"></param>
         /// <returns></returns>
         public RectangleBorder SetPadding(int padding)
         {

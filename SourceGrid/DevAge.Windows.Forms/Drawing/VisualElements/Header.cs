@@ -100,8 +100,6 @@ namespace DevAge.Drawing.VisualElements
         /// <summary>
         /// Calculate the client area where the content can be drawed, usually removing the area used by the background, for example removing a border.
         /// </summary>
-        /// <param name="graphics"></param>
-        /// <param name="backGroundArea"></param>
         /// <returns></returns>
         public override RectangleF GetBackgroundContentRectangle(MeasureHelper measure, RectangleF backGroundArea)
         {
@@ -113,8 +111,6 @@ namespace DevAge.Drawing.VisualElements
         /// <summary>
         /// Calculate the total area used by the backgound and the content, adding the background area to the content area.
         /// </summary>
-        /// <param name="graphics"></param>
-        /// <param name="contentSize"></param>
         /// <returns></returns>
         public override SizeF GetBackgroundExtent(MeasureHelper measure, SizeF contentSize)
         {

@@ -218,7 +218,6 @@ namespace DevAge.Windows.Forms
         /// <summary>
         /// Compare this instance with a specified RichText.
         /// </summary>
-        /// <param name="obj"></param>
         /// <returns></returns>
         public int CompareTo(RichText other)
         {
@@ -262,7 +261,6 @@ namespace DevAge.Windows.Forms
         /// <summary>
         /// Convert plain text to rtf with font style
         /// </summary>
-        /// <param name="txt"></param>
         /// <returns></returns>
         public static DevAge.Windows.Forms.RichText StringToRichText(String txt, FontStyle fontStyle)
         {
@@ -296,7 +294,6 @@ namespace DevAge.Windows.Forms
         /// <summary>
         /// Convert rtf to plain text
         /// </summary>
-        /// <param name="txt"></param>
         /// <returns></returns>
         public static String RichTextToString(DevAge.Windows.Forms.RichText rtf)
         {

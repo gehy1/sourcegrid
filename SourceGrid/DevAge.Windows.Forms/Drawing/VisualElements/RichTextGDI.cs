@@ -132,8 +132,8 @@ namespace DevAge.Drawing.VisualElements
         /// </summary>
         /// <param name="measureOnly">If true, only the calculation is performed,
         /// otherwise the text is rendered as well</param>
-        /// <param name="e">The PrintPageEventArgs object from the
-        /// PrintPage event</param>
+        /// <param name="b"></param>
+        /// <param name="rtb"></param>
         /// <param name="charFrom">Index of first character to be printed</param>
         /// <param name="charTo">Index of last character to be printed</param>
         /// <returns>(Index of last character that fitted on the
