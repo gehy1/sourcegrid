@@ -14,7 +14,7 @@ namespace SourceGrid.Cells.Virtual
 		public Image()
 		{
 			Model.AddModel(Models.ValueImage.Default);
-			Editor = new Editors.ImagePicker();
+			Editor = Editors.ImagePicker.Default;
 		}
 	}
 }
@@ -43,7 +43,7 @@ namespace SourceGrid.Cells
 
 			//Then I add a new IImage model that takes the image directly from the value.
 			Model.AddModel(Models.ValueImage.Default);
-			Editor = new Editors.ImagePicker();
+			Editor = Editors.ImagePicker.Default;
 		}
 		#endregion
 	}	

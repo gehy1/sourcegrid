@@ -8,9 +8,11 @@ namespace SourceGrid.Cells.Editors
 	/// <summary>
 	///  A model that use a TextBoxButton for Image editing, allowing to select a source image file. Returns null as DisplayString. Write and read byte[] values.
 	/// </summary>
-    [System.ComponentModel.ToolboxItem(false)]
-    public class ImagePicker : EditorControlBase
+	[System.ComponentModel.ToolboxItem(false)]
+	public class ImagePicker : EditorControlBase
 	{
+		public readonly static ImagePicker Default = new ImagePicker();
+		
 		#region Constructor
 		/// <summary>
 		/// Construct an Editor of type ImagePicker.
@@ -86,9 +88,9 @@ namespace SourceGrid.Cells.Editors
 			return null;
 		}
 
-        protected override void OnSendCharToEditor(char key)
-        {
-            //No implementation
-        }
+		protected override void OnSendCharToEditor(char key)
+		{
+			//No implementation
+		}
 	}
 }
