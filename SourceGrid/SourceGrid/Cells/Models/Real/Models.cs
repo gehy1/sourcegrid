@@ -59,7 +59,7 @@ namespace SourceGrid.Cells.Models
 		/// 
 		/// </summary>
 		/// <param name="cellContext"></param>
-		/// <param name="p_Value">new value of this model</param>
+		/// <param name="newValue">new value of this model</param>
 		public void SetValue(CellContext cellContext, object newValue)
 		{
 			if (IsNewValueEqual(newValue) == true)
@@ -193,8 +193,6 @@ namespace SourceGrid.Cells.Models
 		/// <summary>
 		/// Get the image of the specified cell. 
 		/// </summary>
-		/// <param name="cell"></param>
-		/// <param name="position"></param>
 		/// <returns></returns>
 		public System.Drawing.Image GetImage(CellContext cellContext)
 		{

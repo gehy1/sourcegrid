@@ -120,7 +120,6 @@ namespace QuadTreeLib
 		/// <summary>
 		/// Insert the feature into the QuadTree
 		/// </summary>
-		/// <param name="item"></param>
 		public QuadTree Insert(IEnumerable<Range> items)
 		{
 			foreach (var range in items)

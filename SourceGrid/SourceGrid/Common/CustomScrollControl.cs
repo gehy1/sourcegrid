@@ -244,7 +244,6 @@ namespace SourceGrid
 		/// <summary>
 		/// Load the scrollable area that will affect the maximum scroll values.
 		/// </summary>
-		/// <param name="scrollArea"></param>
 		/// <param name="verticalPage"></param>
 		/// <param name="horizontalPage"></param>
 		protected void LoadScrollArea(int verticalPage, int horizontalPage)

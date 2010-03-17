@@ -408,12 +408,6 @@ namespace SourceGrid
 			}*/
 		}
 		
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="row"></param>
-		/// <param name="col"></param>
-		/// <param name="p_cell">except this cell</param>
 		private void EnsureDestinationSpannedAreaisCompletelyEmpty(int row, int col, int rowSpan, int colSpan)
 		{
 			if (AllowOverlappingCells)
@@ -531,7 +525,6 @@ namespace SourceGrid
 		/// <summary>
 		/// This method converts a Position to the real range of the cell. This is usefull when RowSpan or ColumnSpan is greater than 1.
 		/// </summary>
-		/// <param name="pPosition"></param>
 		/// <returns></returns>
 		public override Range RangeToCellRange(Range range)
 		{

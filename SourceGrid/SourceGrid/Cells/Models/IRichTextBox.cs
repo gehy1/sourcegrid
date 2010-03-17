@@ -26,8 +26,6 @@ namespace SourceGrid.Cells.Models
         /// <summary>
         /// Set color of selected text.
         /// </summary>
-        /// <param name="cellContext"></param>
-        /// <param name="font"></param>
         void SetSelectionColor(CellContext cellContext, Color color);
 
         /// <summary>
@@ -40,8 +38,6 @@ namespace SourceGrid.Cells.Models
         /// <summary>
         /// Set char offset of selected text.
         /// </summary>
-        /// <param name="cellContext"></param>
-        /// <param name="font"></param>
         void SetSelectionCharOffset(CellContext cellContext, int charOffset);
 
         /// <summary>
@@ -54,8 +50,6 @@ namespace SourceGrid.Cells.Models
         /// <summary>
         /// Set horizontal alignment of selected text.
         /// </summary>
-        /// <param name="cellContext"></param>
-        /// <param name="font"></param>
         void SetSelectionAlignment(CellContext cellContext, HorizontalAlignment horAlignment);
 
         /// <summary>

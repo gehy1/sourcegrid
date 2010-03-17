@@ -103,7 +103,6 @@ namespace SourceGrid
 		/// </summary>
 		/// <param name="sourceGrid"></param>
 		/// <param name="sourceRange"></param>
-		/// <param name="startDragPosition">Starting drag position. Used only for calculating drop destination range.</param>
 		/// <param name="cutMode">Cut mode. Can be used to remove the data from the source when pasting it to the destination or immediately.</param>
 		public static RangeData LoadData(GridVirtual sourceGrid, Range sourceRange, CutMode cutMode)
 		{
@@ -175,8 +174,6 @@ namespace SourceGrid
 		/// <summary>
 		/// Write the current loaded array string in the specified grid range. This method use the cell editor to set the value.
 		/// </summary>
-		/// <param name="destinationGrid"></param>
-		/// <param name="destinationRange"></param>
 		public void WriteData(GridVirtual sourceGrid, Position destinationPosition)
 		{
 			int sourceRow = this.SourceValues.GetUpperBound(0) ;
@@ -283,8 +280,6 @@ namespace SourceGrid
         /// Convert an array of strings into a string.
         /// Normally using a tab delimited for columns and a LineFeed for rows.
         /// </summary>
-        /// <param name="values"></param>
-        /// <param name="range"></param>
         /// <returns></returns>
         protected static string StringArrayToString(string[,] values)
         {
@@ -311,8 +306,6 @@ namespace SourceGrid
 		/// <summary>
 		/// Convert a range and an array of string into a string. Normally using a tab delimited for columns and a LineFeed for rows.
 		/// </summary>
-		/// <param name="values"></param>
-		/// <param name="range"></param>
 		/// <returns></returns>
         protected static string[,] DataToStringArray(GridVirtual sourceGrid, Range range)
 		{

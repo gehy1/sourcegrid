@@ -207,7 +207,7 @@ namespace SourceGrid.Cells.Views
 		/// </summary>
 		/// <param name="cellContext"></param>
         /// <param name="graphics">Paint arguments</param>
-		/// <param name="p_ClientRectangle">Rectangle where draw the current cell</param>
+		/// <param name="rectangle">Rectangle where draw the current cell</param>
         public void DrawCell(CellContext cellContext,
             DevAge.Drawing.GraphicsCache graphics,
             RectangleF rectangle)

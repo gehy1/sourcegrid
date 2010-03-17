@@ -12,7 +12,6 @@ namespace SourceGrid
 	/// Look at unit tests for speed comparisons:
 	/// TestSpannedCellRnages_Performance: TestBoth.
 	/// </summary>
-	/// <param name="range"></param>
 	public interface ISpannedRangesCollection
 	{
 		/// <summary>
@@ -26,7 +25,6 @@ namespace SourceGrid
 		/// Searches for an old range. If finds, updates 
 		/// found region. Else throws RangeNotFoundException
 		/// </summary>
-		/// <param name="range"></param>
 		void Update(Range oldRange, Range newRange);
 		
 		/// <summary>

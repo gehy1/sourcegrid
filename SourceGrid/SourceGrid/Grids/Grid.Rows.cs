@@ -58,8 +58,6 @@ namespace SourceGrid
 			/// <summary>
 			/// Insert the specified number of rows at the specified position
 			/// </summary>
-			/// <param name="p_StartIndex"></param>
-			/// <param name="p_Count"></param>
 			public void InsertRange(int startIndex, int count)
 			{
 				RowInfo[] rows = new RowInfo[count];

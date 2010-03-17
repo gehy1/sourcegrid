@@ -170,7 +170,6 @@ namespace QuadTreeLib
 	/// <summary>
 	/// The QuadTreeNode
 	/// </summary>
-	/// <typeparam name="T"></typeparam>
 	public class QuadTreeNode
 	{
 		public int Depth {get;set;}
@@ -187,7 +186,6 @@ namespace QuadTreeLib
 		/// <summary>
 		/// Construct a quadtree node with the given bounds
 		/// </summary>
-		/// <param name="area"></param>
 		public QuadTreeNode(Range bounds, int currentDepth, QuadTree quadTree)
 			:this(bounds)
 		{
@@ -297,7 +295,6 @@ namespace QuadTreeLib
 		/// <summary>
 		/// Query the QuadTree for items that are in the given area
 		/// </summary>
-		/// <param name="queryArea"></pasram>
 		/// <returns></returns>
 		public List<Range> QueryInternal(Range queryArea, bool stopOnFirst)
 		{

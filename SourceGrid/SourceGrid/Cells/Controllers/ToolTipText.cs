@@ -66,7 +66,6 @@ namespace SourceGrid.Cells.Controllers
 		/// <summary>
 		/// Change the cursor with the cursor of the cell
 		/// </summary>
-		/// <param name="e"></param>
 		protected virtual void ApplyToolTipText(CellContext sender, EventArgs e)
 		{
 			Models.IToolTipText toolTip;
@@ -90,7 +89,6 @@ namespace SourceGrid.Cells.Controllers
 		/// <summary>
 		/// Reset the original cursor
 		/// </summary>
-		/// <param name="e"></param>
 		protected virtual void ResetToolTipText(CellContext sender, EventArgs e)
 		{
 			if ( sender.Cell.Model.FindModel(typeof(Models.IToolTipText)) != null)

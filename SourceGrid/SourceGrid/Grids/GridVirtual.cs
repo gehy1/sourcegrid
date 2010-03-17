@@ -882,7 +882,6 @@ namespace SourceGrid
 		/// This method converts a Position to the real range of the cell. This is usefull when RowSpan or ColumnSpan is greater than 1.
 		/// For example suppose to have at grid[0,0] a cell with ColumnSpan equal to 2. If you call this method with the position 0,0 returns 0,0-0,1 and if you call this method with 0,1 return again 0,0-0,1.
 		/// </summary>
-		/// <param name="pPosition"></param>
 		/// <returns></returns>
 		public virtual Range RangeToCellRange(Range range)
 		{

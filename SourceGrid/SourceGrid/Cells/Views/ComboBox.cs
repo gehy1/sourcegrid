@@ -29,7 +29,6 @@ namespace SourceGrid.Cells.Views
         /// Copy constructor. This method duplicate all the reference field (Image, Font, StringFormat) creating a new instance.
         /// </summary>
         /// <param name="p_Source"></param>
-        /// <param name="p_bReadOnly"></param>
         public ComboBox(ComboBox p_Source)
             : base(p_Source)
         {

@@ -68,6 +68,7 @@ namespace SourceGrid
 		/// <param name="y"></param>
 		/// <param name="height"></param>
 		/// <param name="returnsPartial">True to returns also partial rows</param>
+		/// <param name="returnsFixedRows"></param>
 		public List<int> RowsInsideRegion(int y, int height, bool returnsPartial, bool returnsFixedRows)
 		{
 			int bottom = y + height;

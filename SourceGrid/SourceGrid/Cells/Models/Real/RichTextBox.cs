@@ -11,6 +11,7 @@ namespace SourceGrid.Cells.Models
         /// <summary>
         /// Insert a string at the selection
         /// </summary>
+        /// <param name="cellContext"></param>
         /// <param name="s">String to insert</param>
         public void InsertString(CellContext cellContext, string s)
         {

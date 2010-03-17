@@ -118,7 +118,6 @@ namespace SourceGrid
 		/// <summary>
 		/// Constructor
 		/// </summary>
-		/// <param name="currentFocusedRow"></param>
 		public RowCancelEventArgs(int currentFocusedRow, int proposedFocusedRow):base(currentFocusedRow)
 		{
 			m_proposedRow = proposedFocusedRow;
@@ -188,7 +187,6 @@ namespace SourceGrid
 		/// <summary>
 		/// Constructor
 		/// </summary>
-		/// <param name="pColumn"></param>
 		public ColumnCancelEventArgs(int currentFocusedColumn, int proposedFocusedColumn)
 			:base(currentFocusedColumn)
 		{

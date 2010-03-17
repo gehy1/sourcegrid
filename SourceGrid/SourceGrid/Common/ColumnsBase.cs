@@ -58,7 +58,6 @@ namespace SourceGrid
 		/// <summary>
 		/// Autosize column using default auto size mode
 		/// </summary>
-		/// <param name="column"></param>
 		public void AutoSizeColumn(int column, bool useRowHeight)
 		{
 			int minRow = 0;
@@ -194,9 +193,6 @@ namespace SourceGrid
 		/// <summary>
 		/// Gets the columns index inside the specified display area.
 		/// </summary>
-		/// <param name="relativeCol"></param>
-		/// <param name="x"></param>
-		/// <param name="width"></param>
 		/// <returns></returns>
 		public List<int> ColumnsInsideRegion(int x, int width)
 		{
@@ -209,6 +205,9 @@ namespace SourceGrid
 		/// Note that this method returns also invisible rows.
 		/// </summary>
 		/// <param name="returnsPartial">True to returns also partial columns</param>
+		/// <param name="x"></param>
+		/// <param name="width"></param>
+		/// <param name="returnsFixedColumns"></param>
 		/// <returns></returns>
 		public List<int> ColumnsInsideRegion(int x, int width, bool returnsPartial, bool returnsFixedColumns)
 		{
@@ -263,7 +262,6 @@ namespace SourceGrid
 		/// <summary>
 		/// Calculate the Column that have the Left value smaller or equal than the point p_X, or -1 if not found found.
 		/// </summary>
-		/// <param name="relativeCol"></param>
 		/// <param name="x">X Coordinate to search for a column</param>
 		/// <returns></returns>
 		public int? ColumnAtPoint(int x)
