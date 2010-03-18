@@ -16,7 +16,6 @@ namespace SourceGrid
 			this.m_rows = rows;
 		}
 		
-		
 		private int? GetNextVisibleRow(int startFrom)
 		{
 			var i = startFrom + 1;
@@ -60,7 +59,15 @@ namespace SourceGrid
 		public IEnumerable<int> LoopVisibleRows(int scrollBarValue, int numberOfRowsToProduce)
 		{
 			var producedRows = 0;
-			var currentRow = scrollBarValue; //ConvertScrollbarValueToRowIndex(scrollBarValue);
+			var currentRow = scrollBarValue;
+			if (Rows.IsVisible(scrollBarValue) == false)
+			{
+				var next = GetNextVisibleRow(currentRow);
+				if (next == null)
+					yield break;
+				currentRow = next.Value;
+			}
+			
 			
 			// produce speicifc number of visible row indexes
 			while (producedRows < numberOfRowsToProduce + 3)
@@ -76,6 +83,6 @@ namespace SourceGrid
 			}
 			
 		}
-	
+		
 	}
 }
