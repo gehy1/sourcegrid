@@ -416,7 +416,14 @@ namespace SourceGrid
 
 		public List<int> GetVisibleRows(Rectangle displayRectangle, bool returnsPartial)
 		{
-			return Rows.RowsInsideRegion(displayRectangle.Y, displayRectangle.Height, returnsPartial, true);
+			var allRows = Rows.RowsInsideRegion(displayRectangle.Y, displayRectangle.Height, returnsPartial, true);
+			var onlyVisible = new List<int>(allRows.Count);
+			foreach (var index in allRows)
+			{
+				if (Rows.IsVisible(index) == true)
+					onlyVisible.Add(index);
+			}
+			return onlyVisible;
 		}
 
 		public List<int> GetVisibleColumns(bool returnsPartial)

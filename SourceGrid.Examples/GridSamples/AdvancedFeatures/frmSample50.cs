@@ -26,6 +26,7 @@ namespace WindowsFormsSample.GridSamples
             grid1[0, 0] = new SourceGrid.Cells.ColumnHeader("String");
             grid1[0, 1] = new SourceGrid.Cells.ColumnHeader("DateTime");
             grid1[0, 2] = new SourceGrid.Cells.ColumnHeader("CheckBox");
+            grid1.Rows.SuspendLayout();
             for (int r = 1; r < 100; r++)
             {
                 grid1.Rows.Insert(r);
@@ -33,6 +34,7 @@ namespace WindowsFormsSample.GridSamples
                 grid1[r, 1] = new SourceGrid.Cells.Cell(DateTime.Today, typeof(DateTime));
                 grid1[r, 2] = new SourceGrid.Cells.CheckBox(null, true);
             }
+            grid1.Rows.ResumeLayout();
 
             grid1.AutoSizeCells();
         }
@@ -52,10 +54,12 @@ namespace WindowsFormsSample.GridSamples
 
         private void chkFirst40Row_CheckedChanged(object sender, EventArgs e)
         {
+        	grid1.Rows.SuspendLayout();
             for (int r = 1; r < 40; r++)
             {
                 grid1.Rows[r].Visible = chkFirst40Row.Checked;
             }
+            this.grid1.Rows.ResumeLayout();
         }
     }
 }

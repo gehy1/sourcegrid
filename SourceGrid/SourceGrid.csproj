@@ -389,7 +389,6 @@
     <None Include="SourceGrid.Extensions\Res\Delete.ICO" />
     <None Include="SourceGrid.Extensions\Res\Refresh.ico" />
     <None Include="SourceGrid.License.txt" />
-    <None Include="SourceGrid\Cells\Editors\IEditor.cs.orig" />
     <None Include="SourceGrid\Grid.bmp" />
     <None Include="SourceGrid\GridVirtual.bmp" />
     <None Include="SourceGrid\SourceGrid.csproj" />
