@@ -70,7 +70,7 @@ namespace SourceGrid
 			
 			
 			// produce speicifc number of visible row indexes
-			while (producedRows < numberOfRowsToProduce + 3)
+			while (producedRows <= numberOfRowsToProduce)
 			{
 				yield return currentRow;
 				producedRows++;
