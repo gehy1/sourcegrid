@@ -316,5 +316,19 @@ namespace SourceGrid.Tests
 			
 			Assert.AreEqual(new Range(0, 0, 2, 5), grid1.RangeToCellRange(new Range(0, 0, 0, 3)));
 		}
+		
+		[Test]
+		public void RangeToCellRange_WithNullCell()
+		{
+			Grid grid1 = new Grid();
+			grid1.Redim(6, 6);
+			
+			grid1[0, 0] = new SourceGrid.Cells.Cell();
+			grid1[0, 1] = new SourceGrid.Cells.Cell();
+			grid1[1, 0] = new SourceGrid.Cells.Cell();
+			grid1[1, 1] = null;
+			
+			Assert.AreEqual(new Range(0, 0, 1, 1), grid1.RangeToCellRange(new Range(0, 0, 1, 1)));
+		}
 	}
 }

@@ -536,7 +536,10 @@ namespace SourceGrid
 			{
 				for (int y2 = range.Start.Row; y2 <= range.End.Row; y2++)
 				{
-					Range range2 = PositionToCellRange(new Position(y2, x2));
+					var p = new Position(y2, x2);
+					Range range2 = PositionToCellRange(p);
+					if (range2.IsEmpty())
+						range2 = new Range(p, p);
 					if (range2.Start.Column < x)
 						x = range2.Start.Column;
 					if (range2.End.Column > x1)
