@@ -62,10 +62,6 @@ namespace SourceGrid
 			mHScrollBar.ValueChanged += new EventHandler(HScroll_Change);
 			mVScrollBar.ValueChanged += new EventHandler(VScroll_Change);
 
-			//MICK(3)
-			mVScrollBar.Scroll += new ScrollEventHandler(Scroll_Handle);
-			
-
 			mVScrollBar.TabStop = false;
 			mHScrollBar.TabStop = false;
 			mBottomRightPanel.TabStop = false;
@@ -537,35 +533,6 @@ namespace SourceGrid
 		#endregion
 
 		#region ScrollChangeEvent
-
-		//MICK(8)
-		private void Scroll_Handle(Object sender, ScrollEventArgs e)
-		{
-			if (e.Type == ScrollEventType.LargeIncrement)
-			{
-				int correctedValue = GetTopRowPositionForLargeIncr();
-				if (correctedValue != -1) e.NewValue = correctedValue;
-
-			}
-			else
-				if (e.Type == ScrollEventType.LargeDecrement)
-			{
-				int correctedValue = GetTopRowPositionForLargeDecr();
-				if (correctedValue != -1) e.NewValue = correctedValue;
-
-			}
-		}
-
-		//MICK(9)
-		protected virtual int GetTopRowPositionForLargeIncr()
-		{
-			return -1;
-		}
-		//MICK(10)
-		protected virtual int GetTopRowPositionForLargeDecr()
-		{
-			return -1;
-		}
 
 		private int m_OldVScrollValue = 0;
 		private void VScroll_Change(object sender, EventArgs e)

@@ -2781,59 +2781,6 @@ namespace SourceGrid
 		
 		#endregion
 
-		
-		protected override int GetTopRowPositionForLargeIncr()
-		{
-			List<int> rows = GetVisibleRows(false);
-			if (rows.Count != 0)
-			{
-				int NextPage = rows[rows.Count - 1] + 1;
-				int LastTopPosition = GetTopVisibleRowFromBottomRow(Rows.Count - 1);
-				if (NextPage > LastTopPosition) NextPage = LastTopPosition;
-				return NextPage;
-			}
-			else
-			{
-				rows = GetVisibleRows(true);
-				if (rows.Count != 0)
-				{
-					int NextPage = rows[rows.Count - 1] + 1;
-					int LastTopPosition = GetTopVisibleRowFromBottomRow(Rows.Count - 1);
-					if (NextPage > LastTopPosition) NextPage = LastTopPosition;
-					return NextPage;
-				}
-
-			}
-			//we have to finally give up and scroll without any optimization
-			return -1;
-		}
-
-		
-		protected override int GetTopRowPositionForLargeDecr()
-		{
-			List<int> rows = GetVisibleRows(false);
-			if (rows.Count != 0)
-			{
-				int NextPage = GetTopVisibleRowFromBottomRow(rows[ActualFixedRows] - 1);
-				int FirstTopPosition = ActualFixedRows;
-				if (NextPage < FirstTopPosition) NextPage = FirstTopPosition;
-				return NextPage;
-			}
-			else
-			{
-				rows = GetVisibleRows(true);
-				if (rows.Count != 0)
-				{
-					int NextPage = GetTopVisibleRowFromBottomRow(rows[ActualFixedRows] - 1);
-					int FirstTopPosition = ActualFixedRows;
-					if (NextPage < FirstTopPosition) NextPage = FirstTopPosition;
-					return NextPage;
-				}
-
-			}
-			//we have to finally give up and scroll without any optimization
-			return -1;
-		}
 		#endregion
 	}
 }
