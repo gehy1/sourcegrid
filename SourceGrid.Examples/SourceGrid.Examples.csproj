@@ -368,6 +368,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SourceGrid.PingGrid.Backends.DSet\SourceGrid.PingGrid.Backends.DSet.csproj">
+      <Project>{C2B31911-9D3A-47D5-8845-2666B8515EE8}</Project>
+      <Name>SourceGrid.PingGrid.Backends.DSet</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SourceGrid\SourceGrid.csproj">
       <Project>{2A5A1657-DBA8-4117-8E2A-9F1236ACE9E2}</Project>
       <Name>SourceGrid</Name>

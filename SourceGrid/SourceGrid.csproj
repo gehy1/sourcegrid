@@ -233,6 +233,13 @@
     <Compile Include="SourceGrid.Extensions\ListEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="SourceGrid.Extensions\PingGrids\Cells\Cell.cs" />
+    <Compile Include="SourceGrid.Extensions\PingGrids\Cells\CheckBox.cs" />
+    <Compile Include="SourceGrid.Extensions\PingGrids\Cells\Header.cs" />
+    <Compile Include="SourceGrid.Extensions\PingGrids\Cells\ColumnHeader.cs" />
+    <Compile Include="SourceGrid.Extensions\PingGrids\Cells\Image.cs" />
+    <Compile Include="SourceGrid.Extensions\PingGrids\Cells\Link.cs" />
+    <Compile Include="SourceGrid.Extensions\PingGrids\Cells\RowHeader.cs" />
     <Compile Include="SourceGrid.Extensions\PingGrids\EmptyPingSource.cs" />
     <Compile Include="SourceGrid.Extensions\PingGrids\IPingData.cs" />
     <Compile Include="SourceGrid.Extensions\PingGrids\PingGridRowHeaderModel.cs" />
@@ -501,8 +508,10 @@
     <EmbeddedResource Include="SourceGrid.Extensions\PlanningGrid.resx">
       <DependentUpon>PlanningGrid.cs</DependentUpon>
     </EmbeddedResource>
+    <Content Include="SourceGrid.cd" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SourceGrid.Extensions\PingGrids" />
+    <Folder Include="SourceGrid.Extensions\PingGrids\Cells" />
   </ItemGroup>
 </Project>
