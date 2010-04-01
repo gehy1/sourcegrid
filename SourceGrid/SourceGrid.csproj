@@ -383,11 +383,11 @@
     <None Include="DevAge.Windows.Forms\Res\SortDown.ico" />
     <None Include="DevAge.Windows.Forms\Res\SortUp.ico" />
     <None Include="DevAgeSourcePack4\ComponentModel\Validator\ValidatorDiagram.cd" />
-    <None Include="SourceGrid.Extensions\Res\Add.ico" />
-    <None Include="SourceGrid.Extensions\Res\ArrowDown.ICO" />
-    <None Include="SourceGrid.Extensions\Res\ArrowUp.ICO" />
-    <None Include="SourceGrid.Extensions\Res\Delete.ICO" />
-    <None Include="SourceGrid.Extensions\Res\Refresh.ico" />
+    <EmbeddedResource Include="SourceGrid.Extensions\Res\Add.ico" />
+    <EmbeddedResource Include="SourceGrid.Extensions\Res\ArrowDown.ICO" />
+    <EmbeddedResource Include="SourceGrid.Extensions\Res\ArrowUp.ICO" />
+    <EmbeddedResource Include="SourceGrid.Extensions\Res\Delete.ICO" />
+    <EmbeddedResource Include="SourceGrid.Extensions\Res\Refresh.ico" />
     <None Include="SourceGrid.License.txt" />
     <None Include="SourceGrid\Grid.bmp" />
     <None Include="SourceGrid\GridVirtual.bmp" />
@@ -483,8 +483,14 @@
     <EmbeddedResource Include="DevAge.Windows.Forms\Windows\Forms\TextBoxUITypeEditor.resx">
       <DependentUpon>TextBoxUITypeEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SourceGrid.Extensions\DataGrid.resx" />
-    <EmbeddedResource Include="SourceGrid.Extensions\ListEditor.resx" />
-    <EmbeddedResource Include="SourceGrid.Extensions\PlanningGrid.resx" />
+    <EmbeddedResource Include="SourceGrid.Extensions\DataGrid.resx">
+      <DependentUpon>DataGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SourceGrid.Extensions\ListEditor.resx">
+      <DependentUpon>ListEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SourceGrid.Extensions\PlanningGrid.resx">
+      <DependentUpon>PlanningGrid.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
