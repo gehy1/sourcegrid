@@ -214,6 +214,9 @@
     <Compile Include="GridSamples\Performance\frmSample53.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GridSamples\PingGrids\frmSample58.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GridSamples\StandardFeatures\frmSample03.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -369,6 +372,7 @@
       <Project>{2A5A1657-DBA8-4117-8E2A-9F1236ACE9E2}</Project>
       <Name>SourceGrid</Name>
     </ProjectReference>
+    <Folder Include="GridSamples\PingGrids" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -167,6 +167,7 @@ namespace WindowsFormsSample
             LoadCategorySample("SourceGrid - Extensions", linkEvents, types, categoryView, headerView);
             LoadCategorySample("SourceGrid - Generic Samples", linkEvents, types, categoryView, headerView);
             LoadCategorySample("SourceGrid - Performance", linkEvents, types, categoryView, headerView);
+            LoadCategorySample("SourceGrid - PingGrid", linkEvents, types, categoryView, headerView);
 
 			//Stretch only the last column
 			grid1.Columns[0].AutoSizeMode = SourceGrid.AutoSizeMode.EnableAutoSize;
