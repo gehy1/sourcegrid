@@ -89,6 +89,9 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Esent.Collections">
+      <HintPath>..\libs\Esent.Collections.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -214,8 +217,13 @@
     <Compile Include="GridSamples\Performance\frmSample53.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GridSamples\PingGrids\Customer.cs" />
     <Compile Include="GridSamples\PingGrids\frmSample58.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridSamples\PingGrids\frmSample59.cs" />
+    <Compile Include="GridSamples\PingGrids\frmSample59.Designer.cs">
+      <DependentUpon>frmSample59.cs</DependentUpon>
     </Compile>
     <Compile Include="GridSamples\StandardFeatures\frmSample03.cs">
       <SubType>Form</SubType>
@@ -334,6 +342,9 @@
     <EmbeddedResource Include="GridSamples\Performance\frmSample53.resx">
       <DependentUpon>frmSample53.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\PingGrids\frmSample59.resx">
+      <DependentUpon>frmSample59.Designer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GridSamples\SampleData.xml" />
     <EmbeddedResource Include="GridSamples\SampleData2.xml" />
     <None Include="Resources\Star.ico" />
@@ -368,6 +379,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SourceGrid.PingGrid.Backend.Essent\SourceGrid.PingGrid.Backend.Essent.csproj">
+      <Project>{6DD0E786-111A-4670-BF33-9F2164285F82}</Project>
+      <Name>SourceGrid.PingGrid.Backend.Essent</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SourceGrid.PingGrid.Backends.DSet\SourceGrid.PingGrid.Backends.DSet.csproj">
       <Project>{C2B31911-9D3A-47D5-8845-2666B8515EE8}</Project>
       <Name>SourceGrid.PingGrid.Backends.DSet</Name>
