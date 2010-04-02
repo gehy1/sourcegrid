@@ -6,14 +6,28 @@ namespace SourceGrid
 	public class StandardHiddenRowCoordinator : IHiddenRowCoordinator
 	{
 		private RowsBase m_rows = null;
+		private int m_totalHiddenRows = 0;
 		
 		public RowsBase Rows {
 			get { return m_rows; }
 		}
 		
+		public int GetTotalHiddenRows()
+		{
+			return m_totalHiddenRows;
+		}
+		
+		
 		public StandardHiddenRowCoordinator(RowsBase rows)
 		{
 			this.m_rows = rows;
+			rows.RowVisibilityChanged += delegate(object row, bool becameVisible)
+			{
+				if (becameVisible == true)
+					m_totalHiddenRows -= 1;
+				else
+					m_totalHiddenRows += 1;
+			};
 		}
 		
 		private int? GetNextVisibleRow(int startFrom)
@@ -21,7 +35,7 @@ namespace SourceGrid
 			var i = startFrom + 1;
 			while (i < Rows.Count)
 			{
-				if (Rows.IsVisible(i) == true)
+				if (Rows.IsRowVisible(i) == true)
 					return i;
 				i++;
 			}
@@ -60,7 +74,7 @@ namespace SourceGrid
 		{
 			var producedRows = 0;
 			var currentRow = scrollBarValue;
-			if (Rows.IsVisible(scrollBarValue) == false)
+			if (Rows.IsRowVisible(scrollBarValue) == false)
 			{
 				var next = GetNextVisibleRow(currentRow);
 				if (next == null)

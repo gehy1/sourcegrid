@@ -95,7 +95,7 @@ namespace WindowsFormsSample
 			m_custTable= new DataTable("Customers");
 			m_custTable.Columns.Add( "Id", typeof(int) );
 			m_custTable.Columns.Add( "Name", typeof(string) );
-			AddRows(1, 1000);
+			AddRows(1, 1000000);
 			
 			grid.Columns.Add("Id", "Id property", typeof(int));
 			grid.Columns.Add("Name", "Name property", typeof(string));

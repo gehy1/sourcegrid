@@ -336,6 +336,7 @@
     <Compile Include="SourceGrid\Common\Enums.cs" />
     <Compile Include="SourceGrid\Common\Events.cs" />
     <Compile Include="SourceGrid\Common\IHiddenRowCoordinator.cs" />
+    <Compile Include="SourceGrid\Common\IRows.cs" />
     <Compile Include="SourceGrid\Common\LinkedControlsList.cs" />
     <Compile Include="SourceGrid\Common\Position.cs" />
     <Compile Include="SourceGrid\Common\PositionCollection.cs" />

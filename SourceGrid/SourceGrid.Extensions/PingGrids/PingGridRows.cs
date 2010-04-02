@@ -133,12 +133,6 @@ namespace SourceGrid.Extensions.PingGrids
 				mRowHeights.Remove(row.GetHashCode());
 		}
 		
-		public override bool IsVisible(int row)
-		{
-			return GetHeight(row) != 0;
-		}
-		
-		
 		public override int GetHeight(int row)
 		{
 			if (row == 0)

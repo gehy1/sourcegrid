@@ -38,9 +38,20 @@ namespace WindowsFormsSample.GridSamples.PingGrids
 			pingGrid1.DataSource = essentSource;
 			pingGrid1.Columns.StretchToFit();
 			
-			this.toolStripStatusLabel1.Text = string.Format("Total row count : {0}", dict.Count);
+			pingGrid1.VScrollPositionChanged += delegate { UpdateCount(); };
+			toolStripMenuItem1.Click += this.ToolStripMenuItem1Click;
+			
+			UpdateCount();
 		}
-		
+
+		void UpdateCount()
+		{
+			if (pingGrid1.Rows.FirstVisibleScrollableRow == null)
+				return;
+			int row = pingGrid1.Rows.FirstVisibleScrollableRow.Value;
+			this.toolStripStatusLabel1.Text = string.Format("Viewing record {0}/ {1}", row, dict.Count);
+		}
+
 		private void AddRow( int id)
 		{
 			if (dict.ContainsKey(id))
@@ -55,11 +66,20 @@ namespace WindowsFormsSample.GridSamples.PingGrids
 		
 		private void AddRows(int from, int to)
 		{
+			if (dict.Count >= to)
+				return;
 			// add rows
 			for( int id = from; id <= to; id++ )
 			{
 				AddRow(id);
 			}
+		}
+		
+		void ToolStripMenuItem1Click(object sender, EventArgs e)
+		{
+			var max = dict.Count + 1;
+			AddRows(max, max + 100000);
+			UpdateCount();
 		}
 	}
 	

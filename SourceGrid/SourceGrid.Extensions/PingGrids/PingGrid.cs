@@ -46,7 +46,7 @@ namespace SourceGrid.Extensions.PingGrids
 		{
 			SourceGrid.Selection.SelectionBase selObj = base.CreateSelectionObject();
 			
-			selObj.EnableMultiSelection = false;
+			selObj.EnableMultiSelection = true;
 			selObj.FocusStyle = SourceGrid.FocusStyle.RemoveFocusCellOnLeave;
 			selObj.FocusRowLeaving += new RowCancelEventHandler(Selection_FocusRowLeaving);
 			
