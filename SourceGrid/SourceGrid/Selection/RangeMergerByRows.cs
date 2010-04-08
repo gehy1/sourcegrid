@@ -6,7 +6,19 @@ using System.Reflection;
 namespace SourceGrid.Selection
 {
 	/// <summary>
-	/// Returns selected row indexes
+	/// Contains a list of ranges which differ only by row, that is vertically.
+	/// This the reason why the class contains a word "row" in its name.
+	/// 
+	/// "Merger" means that it will merge adjancent ranges into single big range.
+	/// So, for example, if you have 100 ranges from first row to second, that
+	/// equals to one big range from row 1 to 100. If Row 50 is not selected,
+	/// then this class splits one big range into two smaller. One from first row
+	/// to row number 49, and anoter range from row 51 to row 100
+	/// 
+	/// Although some functions work with Range structure, which has also a horizontal 
+	/// span, that information is actually not needed, and used as dummy only.
+	/// 
+	/// 
 	/// </summary>
 	public class RangeMergerByRows
 	{
