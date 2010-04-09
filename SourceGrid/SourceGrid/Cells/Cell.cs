@@ -68,7 +68,7 @@ namespace SourceGrid.Cells
 		{
 			mGrid = p_grid;
 			mRow = Grid.Rows[p_Position.Row];
-			mColumn = Grid.Columns[p_Position.Column] as Grid.GridColumn;
+			mColumn = Grid.Columns[p_Position.Column] as GridColumn;
 		}
 
 		/// <summary>
@@ -91,20 +91,20 @@ namespace SourceGrid.Cells
 			get { return mGrid; }
 		}
 
-		private Grid.GridColumn mColumn;
+		private GridColumn mColumn;
 		/// <summary>
 		/// Gets the column of the specified cell
 		/// </summary>
-		public Grid.GridColumn Column
+		public GridColumn Column
 		{
 			get { return mColumn; }
 		}
 
-		private Grid.GridRow mRow;
+		private GridRow mRow;
 		/// <summary>
 		/// Gets the row of the specified cell
 		/// </summary>
-		public Grid.GridRow Row
+		public GridRow Row
 		{
 			get { return mRow; }
 		}

@@ -420,7 +420,7 @@ namespace SourceGrid
 			var onlyVisible = new List<int>(allRows.Count);
 			foreach (var index in allRows)
 			{
-				if (Rows.IsVisible(index) == true)
+				if (Rows.IsRowVisible(index) == true)
 					onlyVisible.Add(index);
 			}
 			return onlyVisible;
@@ -507,8 +507,8 @@ namespace SourceGrid
 			//Calculate the rows to be scrolled
 			for (int r = Rows.Count - 1; r >= ActualFixedRows; r--)
 			{
-				//if (Rows.IsVisible(r) == false)
-				//	continue;
+				if (Rows.IsRowVisible(r) == false)
+					continue;
 				currentHeight += Rows.GetHeight(r);
 
 				if (currentHeight > displayHeight)
@@ -522,13 +522,14 @@ namespace SourceGrid
 		
 		private int GetTotalHiddenRows(int from)
 		{
-			var hidden = 0;
+			return Rows.HiddenRowsCoordinator.GetTotalHiddenRows();
+			/*var hidden = 0;
 			for (int x = from; x >= ActualFixedRows; x--)
 			{
-				if (Rows.IsVisible(x) == false)
+				if (Rows.IsRowVisible(x) == false)
 					hidden ++;
 			}
-			return hidden;
+			return hidden;*/
 		}
 		
 		
@@ -1544,7 +1545,7 @@ namespace SourceGrid
 				foreach (var r in m_Rows.HiddenRowsCoordinator.LoopVisibleRows(e.DrawingRange.Start.Row, e.DrawingRange.End.Row - e.DrawingRange.Start.Row))
 					//for (int r = e.DrawingRange.Start.Row; r <= e.DrawingRange.End.Row; r++)
 				{
-					if (Rows.IsVisible(r) == false)
+					if (Rows.IsRowVisible(r) == false)
 						throw new SourceGridException("Incorrect internal state. This rows must have been visible");
 					height = Rows.GetHeight(r);
 

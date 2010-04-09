@@ -4,6 +4,12 @@ using System.Text;
 
 namespace SourceGrid.Selection
 {
+	/// <summary>
+	/// Similar to <see cref="RangeMergerByRows"/>, this class merge adjancent
+	/// ranges if they are differ only by row or column count.
+	/// 
+	/// See TestRangeMergerByCells for unit tests, which show how this class works
+	/// </summary>
 	public class RangeMergerByCells
 	{
 		private List<Range> m_ranges = new List<Range>();

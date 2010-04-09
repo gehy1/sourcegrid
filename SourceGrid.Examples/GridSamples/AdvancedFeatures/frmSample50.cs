@@ -48,8 +48,8 @@ namespace WindowsFormsSample.GridSamples
 
         private void chkVisibleRow_CheckedChange(object sender, EventArgs e)
         {
-            grid1.Rows[1].Visible = chkRow1.Checked;
-            grid1.Rows[2].Visible = chkRow2.Checked;
+        	grid1.Rows.ShowRow(1, chkRow1.Checked);
+        	grid1.Rows.ShowRow(2, chkRow2.Checked);
         }
 
         private void chkFirst40Row_CheckedChanged(object sender, EventArgs e)
@@ -57,7 +57,7 @@ namespace WindowsFormsSample.GridSamples
         	grid1.Rows.SuspendLayout();
             for (int r = 1; r < 40; r++)
             {
-                grid1.Rows[r].Visible = chkFirst40Row.Checked;
+            	grid1.Rows.ShowRow(r, chkFirst40Row.Checked);
             }
             this.grid1.Rows.ResumeLayout();
         }
