@@ -114,7 +114,7 @@ namespace WindowsFormsSample
 				grid1[i, 0] = new Cell(i);
 	
 			for (int i = 30; i < 70; i++)
-				grid1.Rows[i].Visible = false;
+				grid1.Rows.ShowRow(i, false); 
 			
 		}
 	

@@ -92,6 +92,8 @@ namespace SourceGrid
 		/// Gets or sets if the row is visible.
 		/// Internally set the height to 0 to hide a row.
 		/// </summary>
+		[Obsolete("Rows visiblity is controlled by rows collection object." +
+		          "this is because some aggregate infromation is needed to be calculated")]
 		public bool Visible
 		{
 			get { return Height > 0; }

@@ -4,13 +4,23 @@ using System.Drawing;
 
 namespace SourceGrid
 {
+	public delegate void RowVisibilityChangedHandler(int rowIndex, bool becameVisible);
+	
 	/// <summary>
 	/// Abstract base class for manage rows informations.
 	/// </summary>
-	public abstract class RowsBase
+	public abstract class RowsBase : IRows
 	{
 		private GridVirtual mGrid;
 		private IHiddenRowCoordinator m_HiddenRowsCoordinator = null;
+		public event RowVisibilityChangedHandler RowVisibilityChanged;
+		
+		protected virtual void OnRowVisibilityChanged(int rowIndex, bool becameVisible)
+		{
+			if (RowVisibilityChanged != null) {
+				RowVisibilityChanged(rowIndex, becameVisible);
+			}
+		}
 		
 		public IHiddenRowCoordinator HiddenRowsCoordinator {
 			get { return m_HiddenRowsCoordinator; }
@@ -33,8 +43,6 @@ namespace SourceGrid
 		{
 			get;
 		}
-		
-		public abstract bool IsVisible(int row);
 		
 		/// <summary>
 		/// Gets the height of the specified row.
@@ -454,17 +462,30 @@ namespace SourceGrid
 		/// <param name="row"></param>
 		public void ShowRow(int row)
 		{
-			if (IsRowVisible(row) == false)
-				SetHeight(row, Grid.DefaultHeight);
+			ShowRow(row, true);
 		}
+		
+		public void ShowRow(int row, bool isVisible)
+		{
+			if (isVisible == true && IsRowVisible(row) == false)
+			{
+				SetHeight(row, Grid.DefaultHeight);
+			}
+			else if (isVisible == false && IsRowVisible(row))
+				SetHeight(row, 0);
+			OnRowVisibilityChanged(row, isVisible);
+		}
+		
+		
 		/// <summary>
 		/// Hide the specified row (set the height to 0)
 		/// </summary>
 		/// <param name="row"></param>
 		public void HideRow(int row)
 		{
-			SetHeight(row, 0);
+			ShowRow(row, false);
 		}
+		
 		/// <summary>
 		/// Returns true if the specified row is visible
 		/// </summary>

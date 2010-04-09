@@ -267,11 +267,6 @@ namespace SourceGrid
 		
 
 		#region RowsBase
-		public override bool IsVisible(int row)
-		{
-			return this[row].Visible;
-		}
-		
 		public override int GetHeight(int row)
 		{
 			return this[row].Height;

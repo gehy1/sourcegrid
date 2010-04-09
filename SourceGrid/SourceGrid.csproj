@@ -4,7 +4,6 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <OutputType>Library</OutputType>
-    <RootNamespace>SourceGrid</RootNamespace>
     <AssemblyName>SourceGrid</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -19,6 +18,7 @@
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <DocumentationFile>bin\Debug\SourceGrid.xml</DocumentationFile>
     <NoWarn>1591</NoWarn>
+    <RootNamespace>SourceGrid</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -233,6 +233,22 @@
     <Compile Include="SourceGrid.Extensions\ListEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="SourceGrid.Extensions\PingGrids\Cells\Cell.cs" />
+    <Compile Include="SourceGrid.Extensions\PingGrids\Cells\CheckBox.cs" />
+    <Compile Include="SourceGrid.Extensions\PingGrids\Cells\Header.cs" />
+    <Compile Include="SourceGrid.Extensions\PingGrids\Cells\ColumnHeader.cs" />
+    <Compile Include="SourceGrid.Extensions\PingGrids\Cells\Image.cs" />
+    <Compile Include="SourceGrid.Extensions\PingGrids\Cells\Link.cs" />
+    <Compile Include="SourceGrid.Extensions\PingGrids\Cells\RowHeader.cs" />
+    <Compile Include="SourceGrid.Extensions\PingGrids\EmptyPingSource.cs" />
+    <Compile Include="SourceGrid.Extensions\PingGrids\IPingData.cs" />
+    <Compile Include="SourceGrid.Extensions\PingGrids\PingGridRowHeaderModel.cs" />
+    <Compile Include="SourceGrid.Extensions\PingGrids\PingGrid.cs" />
+    <Compile Include="SourceGrid.Extensions\PingGrids\PingGridCellController.cs" />
+    <Compile Include="SourceGrid.Extensions\PingGrids\PingGridColumn.cs" />
+    <Compile Include="SourceGrid.Extensions\PingGrids\PingGridColumns.cs" />
+    <Compile Include="SourceGrid.Extensions\PingGrids\PingGridRows.cs" />
+    <Compile Include="SourceGrid.Extensions\PingGrids\PingGridValueModel.cs" />
     <Compile Include="SourceGrid.Extensions\PlanningGrid.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -320,6 +336,7 @@
     <Compile Include="SourceGrid\Common\Enums.cs" />
     <Compile Include="SourceGrid\Common\Events.cs" />
     <Compile Include="SourceGrid\Common\IHiddenRowCoordinator.cs" />
+    <Compile Include="SourceGrid\Common\IRows.cs" />
     <Compile Include="SourceGrid\Common\LinkedControlsList.cs" />
     <Compile Include="SourceGrid\Common\Position.cs" />
     <Compile Include="SourceGrid\Common\PositionCollection.cs" />
@@ -492,5 +509,10 @@
     <EmbeddedResource Include="SourceGrid.Extensions\PlanningGrid.resx">
       <DependentUpon>PlanningGrid.cs</DependentUpon>
     </EmbeddedResource>
+    <Content Include="SourceGrid.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SourceGrid.Extensions\PingGrids" />
+    <Folder Include="SourceGrid.Extensions\PingGrids\Cells" />
   </ItemGroup>
 </Project>
