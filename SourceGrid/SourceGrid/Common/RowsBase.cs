@@ -4,7 +4,7 @@ using System.Drawing;
 
 namespace SourceGrid
 {
-	public delegate void RowVisibilityChangedHandler(object row, bool becameVisible);
+	public delegate void RowVisibilityChangedHandler(int rowIndex, bool becameVisible);
 	
 	/// <summary>
 	/// Abstract base class for manage rows informations.
@@ -15,10 +15,10 @@ namespace SourceGrid
 		private IHiddenRowCoordinator m_HiddenRowsCoordinator = null;
 		public event RowVisibilityChangedHandler RowVisibilityChanged;
 		
-		protected virtual void OnRowVisibilityChanged(object row, bool becameVisible)
+		protected virtual void OnRowVisibilityChanged(int rowIndex, bool becameVisible)
 		{
 			if (RowVisibilityChanged != null) {
-				RowVisibilityChanged(row, becameVisible);
+				RowVisibilityChanged(rowIndex, becameVisible);
 			}
 		}
 		

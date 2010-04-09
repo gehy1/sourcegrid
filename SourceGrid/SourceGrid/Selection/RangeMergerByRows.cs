@@ -43,6 +43,20 @@ namespace SourceGrid.Selection
 			}
 		}
 		
+		
+		/// <summary>
+		/// Loops via all ranges. Ranges are guaranteed to be ordered
+		/// from lowest row to highest.
+		/// </summary>
+		/// <returns></returns>
+		public IEnumerable<Range> LoopAllRanges()
+		{
+			foreach (var row in m_ranges)
+			{
+				yield return row;
+			}
+		}
+		
 		/// <summary>
 		/// Returns a list of selected ranges
 		/// </summary>
@@ -134,6 +148,17 @@ namespace SourceGrid.Selection
 			                 rangeToNormalize.End.Row, m_columnEnd);
 		}
 		
+		/// <summary>
+		/// Add a range to collection. If the range can be added (merged)
+		/// to existing range, it will be added so. This will guarantee
+		/// that the number of different ranges is kept to minimal.
+		/// In theory only if user selects every second row, this would produce
+		/// RowCount / 2 number of ranges. In practice, there are rarely 
+		/// more than 3 - 5 different selection regions
+		/// </summary>
+		/// <param name="rangeToAdd">columns values are ignored, so simply 
+		/// put 0 as start colum and 1 as end column. Only row values matter</param>
+		/// <returns></returns>
 		public RangeMergerByRows AddRange(Range rangeToAdd)
 		{
 			rangeToAdd = NormalizeRange(rangeToAdd);
@@ -177,6 +202,16 @@ namespace SourceGrid.Selection
 			return false;
 		}
 		
+		/// <summary>
+		/// As opposed to Adding a range, this will remove a range.
+		/// It might happend that removing a range is dividing one bigger range into two 
+		/// smaller ones. So practically the number of ranges might increase.
+		/// 
+		/// It might be that this method might carry more exact meaning with "Exclude", instead
+		/// of "RemoveRange"
+		/// </summary>
+		/// <param name="rangeToRemove"></param>
+		/// <returns></returns>
 		public RangeMergerByRows RemoveRange(Range rangeToRemove)
 		{
 			while (RemoveRangeRecursive(rangeToRemove))

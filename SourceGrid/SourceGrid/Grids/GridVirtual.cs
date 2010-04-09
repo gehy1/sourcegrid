@@ -507,8 +507,8 @@ namespace SourceGrid
 			//Calculate the rows to be scrolled
 			for (int r = Rows.Count - 1; r >= ActualFixedRows; r--)
 			{
-				//if (Rows.IsVisible(r) == false)
-				//	continue;
+				if (Rows.IsRowVisible(r) == false)
+					continue;
 				currentHeight += Rows.GetHeight(r);
 
 				if (currentHeight > displayHeight)

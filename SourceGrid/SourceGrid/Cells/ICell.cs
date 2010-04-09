@@ -83,7 +83,7 @@ namespace SourceGrid.Cells
         /// <summary>
         /// Gets the column of the specified cell
         /// </summary>
-        Grid.GridColumn Column
+        GridColumn Column
         {
             get;
         }
@@ -91,7 +91,7 @@ namespace SourceGrid.Cells
         /// <summary>
         /// Gets the row of the specified cell
         /// </summary>
-        Grid.GridRow Row
+        GridRow Row
         {
             get;
         }
