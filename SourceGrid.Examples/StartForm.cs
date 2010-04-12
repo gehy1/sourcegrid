@@ -1,11 +1,15 @@
 using System;
-using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
+
+using Castle.Windsor;
 
 namespace WindowsFormsSample
 {
+
+	
 	/// <summary>
 	/// Summary description for StartForm.
 	/// </summary>
@@ -17,6 +21,7 @@ namespace WindowsFormsSample
 		private System.Windows.Forms.MenuItem mnHelp;
 		private System.Windows.Forms.MenuItem mnAbout;
 		private SourceGrid.Grid grid1;
+		
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -133,6 +138,10 @@ namespace WindowsFormsSample
 			//This is an optional line, used to enable Windows XP theme.
 			//DevAge.Windows.Forms.ThemePainter.CurrentProvider = new DevAge.Windows.Forms.ThemeProviderXP();
 
+			WindsorContainer container = new WindsorContainer();
+			ServiceIntialization.Iinit(container);
+			
+			
 			Application.Run(new StartForm());
 		}
 

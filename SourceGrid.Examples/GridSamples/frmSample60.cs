@@ -50,6 +50,7 @@ MinPoolSize=0;MaxPoolSize=50;Packet Size=8192;ServerType=1;");
 		
 		public frmSample60()
 		{
+			ServiceFactory.GetService<FirebirdEmbeddedPreparer>().EnsureFirebirdReady();
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
 			//
