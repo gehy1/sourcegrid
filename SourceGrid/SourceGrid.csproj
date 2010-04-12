@@ -242,6 +242,7 @@
     <Compile Include="SourceGrid.Extensions\PingGrids\Cells\RowHeader.cs" />
     <Compile Include="SourceGrid.Extensions\PingGrids\EmptyPingSource.cs" />
     <Compile Include="SourceGrid.Extensions\PingGrids\IPingData.cs" />
+    <Compile Include="SourceGrid.Extensions\PingGrids\IPropertyResolver.cs" />
     <Compile Include="SourceGrid.Extensions\PingGrids\PingGridRowHeaderModel.cs" />
     <Compile Include="SourceGrid.Extensions\PingGrids\PingGrid.cs" />
     <Compile Include="SourceGrid.Extensions\PingGrids\PingGridCellController.cs" />
@@ -249,6 +250,7 @@
     <Compile Include="SourceGrid.Extensions\PingGrids\PingGridColumns.cs" />
     <Compile Include="SourceGrid.Extensions\PingGrids\PingGridRows.cs" />
     <Compile Include="SourceGrid.Extensions\PingGrids\PingGridValueModel.cs" />
+    <Compile Include="SourceGrid.Extensions\PingGrids\ReflectionPropertyResolver.cs" />
     <Compile Include="SourceGrid.Extensions\PlanningGrid.cs">
       <SubType>UserControl</SubType>
     </Compile>
