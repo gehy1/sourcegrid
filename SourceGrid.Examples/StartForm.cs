@@ -251,6 +251,8 @@ namespace WindowsFormsSample
 			Type formType = (Type)((SourceGrid.Cells.Cell)cellContext.Cell).Tag;
 			Form form = (Form) Activator.CreateInstance( formType );
 			form.Owner = this;
+			if (form.IsDisposed == true)
+				return;
 			form.Show();
 		}
 

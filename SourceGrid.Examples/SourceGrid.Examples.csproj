@@ -152,6 +152,7 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="EmptyFirebirdDatabasePreparer.cs" />
     <Compile Include="FirebirdEmbeddedPreparer.cs" />
     <Compile Include="GridSamples\AdvancedFeatures\frmSample42.cs">
       <SubType>Form</SubType>
