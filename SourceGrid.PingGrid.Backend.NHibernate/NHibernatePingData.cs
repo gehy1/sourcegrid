@@ -29,6 +29,8 @@ namespace SourceGrid.PingGrid.Backend.NHibernate
 		
 		public NHibernatePingData(ISessionFactory factory)
 		{
+			if (factory == null)
+				throw new ArgumentNullException();
 			this.sessionFactory = factory;
 			PropertyResolver = ReflectionPropertyResolver.SharedInstance;
 		}

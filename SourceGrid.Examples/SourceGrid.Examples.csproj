@@ -232,10 +232,6 @@
     <Compile Include="GridSamples\Extensions\frmSample9.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GridSamples\frmSample60.cs" />
-    <Compile Include="GridSamples\frmSample60.Designer.cs">
-      <DependentUpon>frmSample60.cs</DependentUpon>
-    </Compile>
     <Compile Include="GridSamples\GenericSamples\frmSample01.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -256,6 +252,14 @@
     <Compile Include="GridSamples\PingGrids\frmSample59.Designer.cs">
       <DependentUpon>frmSample59.cs</DependentUpon>
     </Compile>
+    <Compile Include="GridSamples\PingGrids\frmSample60.cs" />
+    <Compile Include="GridSamples\PingGrids\frmSample60.Designer.cs">
+      <DependentUpon>frmSample60.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridSamples\PingGrids\InsertRowsOperation.cs" />
+    <Compile Include="GridSamples\PingGrids\SessionFactoryManager.cs" />
+    <Compile Include="GridSamples\PingGrids\SessionManager.cs" />
+    <Compile Include="GridSamples\PingGrids\TransactionManager.cs" />
     <Compile Include="GridSamples\StandardFeatures\frmSample03.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -290,6 +294,17 @@
     <Compile Include="ServiceIntialization.cs" />
     <Compile Include="StartForm.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Threading\AlreadyRunningException.cs" />
+    <Compile Include="Threading\AsynchroniousOperation.cs" />
+    <Compile Include="Threading\AsyncOperationException.cs" />
+    <Compile Include="Threading\ExecuteWithProgressBar.cs" />
+    <Compile Include="Threading\IProgressBarForm.cs" />
+    <Compile Include="Threading\IProgressCommand.cs" />
+    <Compile Include="Threading\IUpdateStatus.cs" />
+    <Compile Include="Threading\ProgressBarForm.cs" />
+    <Compile Include="Threading\ProgressBarForm.Designer.cs">
+      <DependentUpon>ProgressBarForm.cs</DependentUpon>
     </Compile>
     <None Include="Resources\BackGround.bmp" />
     <None Include="Resources\CalcioSmall.bmp" />
@@ -364,9 +379,6 @@
     <EmbeddedResource Include="GridSamples\Extensions\frmSample9.resx">
       <DependentUpon>frmSample9.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GridSamples\frmSample60.resx">
-      <DependentUpon>frmSample60.Designer.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GridSamples\GenericSamples\frmSample01.resx">
       <DependentUpon>frmSample01.cs</DependentUpon>
     </EmbeddedResource>
@@ -381,6 +393,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GridSamples\PingGrids\frmSample59.resx">
       <DependentUpon>frmSample59.Designer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\PingGrids\frmSample60.resx">
+      <DependentUpon>frmSample60.Designer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GridSamples\SampleData.xml" />
     <EmbeddedResource Include="GridSamples\SampleData2.xml" />
@@ -414,6 +429,9 @@
       <DependentUpon>StartForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Threading\ProgressBarForm.resx">
+      <DependentUpon>ProgressBarForm.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SourceGrid.PingGrid.Backend.Essent\SourceGrid.PingGrid.Backend.Essent.csproj">
@@ -433,6 +451,7 @@
       <Name>SourceGrid</Name>
     </ProjectReference>
     <Folder Include="GridSamples\PingGrids" />
+    <Folder Include="Threading" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

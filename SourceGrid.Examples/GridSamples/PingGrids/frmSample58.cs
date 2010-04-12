@@ -1,19 +1,14 @@
 using System;
-using System.Collections;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Windows.Forms;
 
-using DevAge.Windows.Forms;
-using SourceGrid;
+using SourceGrid.Examples.Threading;
 using SourceGrid.Extensions.PingGrids;
 using SourceGrid.PingGrid.Backends.DSet;
+using WindowsFormsSample.GridSamples.PingGrids;
 
 namespace WindowsFormsSample
 {
-
-	
 	/// <summary>
 	/// Summary description for frmSample3.
 	/// </summary>

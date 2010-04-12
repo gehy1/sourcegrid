@@ -1,5 +1,6 @@
 ﻿using System;
 using Castle.Windsor;
+using WindowsFormsSample.GridSamples.PingGrids;
 
 namespace WindowsFormsSample
 {
@@ -20,6 +21,9 @@ namespace WindowsFormsSample
 			
 			AddService<FirebirdEmbeddedPreparer>();
 			AddService<EmptyFirebirdDatabasePreparer>();
+			AddService<SessionFactoryManager>();
+			AddService<SessionManager>();
+			AddService<TransactionManager>();
 		}
 	}
 }
