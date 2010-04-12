@@ -89,12 +89,18 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\libs\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.MicroKernel">
+      <HintPath>..\libs\Castle.MicroKernel.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\libs\Castle.Windsor.dll</HintPath>
+    </Reference>
     <Reference Include="Esent.Collections">
       <HintPath>..\libs\Esent.Collections.dll</HintPath>
       <Private>True</Private>
-    </Reference>
-    <Reference Include="fbembed">
-      <HintPath>..\libs\fbembed.dll</HintPath>
     </Reference>
     <Reference Include="FirebirdSql.Data.FirebirdClient">
       <HintPath>..\libs\FirebirdSql.Data.FirebirdClient.dll</HintPath>
@@ -146,6 +152,7 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="FirebirdEmbeddedPreparer.cs" />
     <Compile Include="GridSamples\AdvancedFeatures\frmSample42.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -278,6 +285,8 @@
     <Compile Include="SampleAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ServiceFactory.cs" />
+    <Compile Include="ServiceIntialization.cs" />
     <Compile Include="StartForm.cs">
       <SubType>Form</SubType>
     </Compile>
