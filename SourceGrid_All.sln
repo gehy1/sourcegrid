@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SourceGrid.PingGrid.Backend
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SourceGrid.PingGrid.Backend.Essent", "SourceGrid.PingGrid.Backend.Essent\SourceGrid.PingGrid.Backend.Essent.csproj", "{6DD0E786-111A-4670-BF33-9F2164285F82}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SourceGrid.PingGrid.Backend.NHibernate", "SourceGrid.PingGrid.Backend.NHibernate\SourceGrid.PingGrid.Backend.NHibernate.csproj", "{257E9149-DA1D-4770-96FF-CB64B045044C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{6DD0E786-111A-4670-BF33-9F2164285F82}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{6DD0E786-111A-4670-BF33-9F2164285F82}.Release|Any CPU.Build.0 = Release|x86
 		{6DD0E786-111A-4670-BF33-9F2164285F82}.Release|Any CPU.ActiveCfg = Release|x86
+		{257E9149-DA1D-4770-96FF-CB64B045044C}.Debug|Any CPU.Build.0 = Debug|x86
+		{257E9149-DA1D-4770-96FF-CB64B045044C}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{257E9149-DA1D-4770-96FF-CB64B045044C}.Release|Any CPU.Build.0 = Release|x86
+		{257E9149-DA1D-4770-96FF-CB64B045044C}.Release|Any CPU.ActiveCfg = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

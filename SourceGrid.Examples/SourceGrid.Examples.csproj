@@ -35,7 +35,7 @@
     </SccProvider>
     <OldToolsVersion>2.0</OldToolsVersion>
     <SourceAnalysisOverrideSettingsFile>C:\Documents and Settings\ltdda\Application Data\ICSharpCode/SharpDevelop3.0\Settings.SourceAnalysis</SourceAnalysisOverrideSettingsFile>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -91,9 +91,28 @@
   <ItemGroup>
     <Reference Include="Esent.Collections">
       <HintPath>..\libs\Esent.Collections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="fbembed">
+      <HintPath>..\libs\fbembed.dll</HintPath>
+    </Reference>
+    <Reference Include="FirebirdSql.Data.FirebirdClient">
+      <HintPath>..\libs\FirebirdSql.Data.FirebirdClient.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\libs\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\libs\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle">
+      <HintPath>..\libs\NHibernate.ByteCode.Castle.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data">
       <Name>System.Data</Name>
@@ -205,6 +224,10 @@
     <Compile Include="GridSamples\Extensions\frmSample9.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GridSamples\frmSample60.cs" />
+    <Compile Include="GridSamples\frmSample60.Designer.cs">
+      <DependentUpon>frmSample60.cs</DependentUpon>
+    </Compile>
     <Compile Include="GridSamples\GenericSamples\frmSample01.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -246,6 +269,7 @@
     </Compile>
     <Compile Include="GridSamples\StandardFeatures\frmSample56.cs" />
     <Compile Include="GridSamples\StandardFeatures\frmSample57.cs" />
+    <Compile Include="GridSamples\Track.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -330,6 +354,9 @@
     <EmbeddedResource Include="GridSamples\Extensions\frmSample9.resx">
       <DependentUpon>frmSample9.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\frmSample60.resx">
+      <DependentUpon>frmSample60.Designer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GridSamples\GenericSamples\frmSample01.resx">
       <DependentUpon>frmSample01.cs</DependentUpon>
     </EmbeddedResource>
@@ -382,6 +409,10 @@
     <ProjectReference Include="..\SourceGrid.PingGrid.Backend.Essent\SourceGrid.PingGrid.Backend.Essent.csproj">
       <Project>{6DD0E786-111A-4670-BF33-9F2164285F82}</Project>
       <Name>SourceGrid.PingGrid.Backend.Essent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SourceGrid.PingGrid.Backend.NHibernate\SourceGrid.PingGrid.Backend.NHibernate.csproj">
+      <Project>{257E9149-DA1D-4770-96FF-CB64B045044C}</Project>
+      <Name>SourceGrid.PingGrid.Backend.NHibernate</Name>
     </ProjectReference>
     <ProjectReference Include="..\SourceGrid.PingGrid.Backends.DSet\SourceGrid.PingGrid.Backends.DSet.csproj">
       <Project>{C2B31911-9D3A-47D5-8845-2666B8515EE8}</Project>

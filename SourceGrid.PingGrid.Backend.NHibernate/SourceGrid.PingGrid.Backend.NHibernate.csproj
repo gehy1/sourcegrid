@@ -1,11 +1,11 @@
 ﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <ProjectGuid>{6DD0E786-111A-4670-BF33-9F2164285F82}</ProjectGuid>
+    <ProjectGuid>{257E9149-DA1D-4770-96FF-CB64B045044C}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <OutputType>Library</OutputType>
-    <RootNamespace>SourceGrid.PingGrid.Backend.Essent</RootNamespace>
-    <AssemblyName>SourceGrid.PingGrid.Backend.Essent</AssemblyName>
+    <RootNamespace>SourceGrid.PingGrid.Backend.NHibernate</RootNamespace>
+    <AssemblyName>SourceGrid.PingGrid.Backend.NHibernate</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <AppDesignerFolder>Properties</AppDesignerFolder>
   </PropertyGroup>
@@ -30,8 +30,8 @@
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
   <ItemGroup>
-    <Reference Include="Esent.Collections">
-      <HintPath>..\libs\Esent.Collections.dll</HintPath>
+    <Reference Include="NHibernate">
+      <HintPath>..\libs\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -43,7 +43,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EseentPingData.cs" />
+    <Compile Include="NHibernatePingData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

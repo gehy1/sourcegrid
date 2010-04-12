@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-namespace SourceGrid.PingGrid.Backend.Essent
+namespace SourceGrid.Extensions.PingGrids
 {
 	/// <summary>
 	/// An extension point, where users could define their own 

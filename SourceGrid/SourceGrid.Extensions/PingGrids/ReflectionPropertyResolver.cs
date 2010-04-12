@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-namespace SourceGrid.PingGrid.Backend.Essent
+namespace SourceGrid.Extensions.PingGrids
 {
 	public class ReflectionPropertyResolver : IPropertyResolver
 	{
