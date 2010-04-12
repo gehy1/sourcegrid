@@ -16,7 +16,10 @@ namespace WindowsFormsSample
 		{
 			m_container = container;
 			ServiceFactory.Container = container;
+			
+			
 			AddService<FirebirdEmbeddedPreparer>();
+			AddService<EmptyFirebirdDatabasePreparer>();
 		}
 	}
 }

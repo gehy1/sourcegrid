@@ -18,13 +18,17 @@ namespace WindowsFormsSample.GridSamples.PingGrids
 		Random rnd = new Random();
 		ISessionFactory sessionFactory = null;
 		NHibernatePingData<Track> source = null;
-			
+		bool export = false;
+		
+		public FirebirdEmbeddedPreparer FirebirdEmbeddedPreparer {get;set;}
+		public EmptyFirebirdDatabasePreparer EmptyFirebirdDatabasePreparer {get;set;}
+		
 		private ISessionFactory CreateSessionFactory()
 		{
 			var conf = new FluentNHibernate.Cfg.Db.FirebirdConfiguration()
 				.ShowSql()
 				.ConnectionString(@"
-User=SYSDBA;Password=masterkey;Database=..\..\CHINOOK.FDB;
+User=SYSDBA;Password=masterkey;Database=frmSample60.fdb;
 DataSource=localhost; Port=3050;Dialect=3; Charset=UNICODE_FSS;Role=;Connection lifetime=15;Pooling=true;
 MinPoolSize=0;MaxPoolSize=50;Packet Size=8192;ServerType=1;");
 			
@@ -36,7 +40,7 @@ MinPoolSize=0;MaxPoolSize=50;Packet Size=8192;ServerType=1;");
 				.BuildSessionFactory();
 		}
 		
-		private static void BuildSchema(Configuration config)
+		private void BuildSchema(Configuration config)
 		{
 			// delete the existing db on each run
 			//if (File.Exists(DbFile))
@@ -45,16 +49,34 @@ MinPoolSize=0;MaxPoolSize=50;Packet Size=8192;ServerType=1;");
 			// this NHibernate tool takes a configuration (with mapping info in)
 			// and exports a database schema from it
 			new SchemaExport(config)
-				.Create(false, false);
+				.Create(false, export);
 		}
 		
 		public frmSample60()
 		{
-			ServiceFactory.GetService<FirebirdEmbeddedPreparer>().EnsureFirebirdReady();
+			
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
 			//
 			InitializeComponent();
+			
+			ServiceFactory.Init(this);
+			
+			FirebirdEmbeddedPreparer.EnsureFirebirdReady();
+			if (EmptyFirebirdDatabasePreparer.ExistsFile() == false)
+			{
+				var res = MessageBox.Show("FireBird databse not yet created. Do you want to create it now?",
+				                          "Db not exists",
+				                          MessageBoxButtons.YesNo, 
+				                          MessageBoxIcon.Question);
+				if (res == DialogResult.No)
+				{
+					this.Close();
+					return;
+				}
+				EmptyFirebirdDatabasePreparer.Copy();
+				export = true;
+			}
 			
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
