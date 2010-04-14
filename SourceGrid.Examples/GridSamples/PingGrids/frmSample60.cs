@@ -35,45 +35,47 @@ namespace WindowsFormsSample.GridSamples.PingGrids
 			
 			ServiceFactory.Init(this);
 			
-			FirebirdEmbeddedPreparer.EnsureFirebirdReady();
-			if (EmptyFirebirdDatabasePreparer.ExistsFile() == false)
-			{
-				var res = MessageBox.Show("FireBird databse not yet created. Do you want to create it now?",
-				                          "Db not exists",
-				                          MessageBoxButtons.YesNo,
-				                          MessageBoxIcon.Question);
-				if (res == DialogResult.No)
-				{
-					this.Close();
-					return;
-				}
-				EmptyFirebirdDatabasePreparer.Copy();
-				SessionFactoryManager.Export = true;
-			}
-			
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
-			SessionFactoryManager.CreateSessionFactory();
-
+			
+			if (SessionFactoryManager.CreateSessionFactory() == null)
+			{
+				this.Close();
+				return;
+			}
+			
 			source = new NHibernatePingData<Track>(SessionFactoryManager.SessionFactory);
 			
+			AddColumns();
 			
-			
-			pingGrid1.Columns.Add("Composer", "Composer property", typeof(string));
-			pingGrid1.Columns.Add("Name", "Name property", typeof(string));
-			
+			this.toolStripStatusLabel1.Text = "Grid not ready";
 			
 			pingGrid1.DataSource = source;
 			pingGrid1.Columns.StretchToFit();
 			
 			pingGrid1.VScrollPositionChanged += delegate { UpdateCount(); };
-			toolStripMenuItem1.Click += this.ToolStripMenuItem1Click;
+			toolStripMenuItem1.Click += this.AddMoreRowsClicked;
 			
-			//AddRows(1, 10000);
-			UpdateCount();
+			
+			// we must show form prior calling multi-threaded code
+			this.Show();
+			if (pingGrid1.DataSource.Count == 0)
+			{
+				AddRows(0, 5000);
+			}
+			
+			InvalidateGrid();
 		}
 
+		private void AddColumns()
+		{
+			foreach (var prop in typeof(Track).GetProperties())
+			{
+				pingGrid1.Columns.Add(prop.Name, string.Format("{0} property", prop.Name), prop.PropertyType);
+			}
+		}
+		
 		void UpdateCount()
 		{
 			UpdateCountInternal(pingGrid1.DataSource.Count);
@@ -88,17 +90,34 @@ namespace WindowsFormsSample.GridSamples.PingGrids
 		}
 
 		
-		void ToolStripMenuItem1Click(object sender, EventArgs e)
+		private void AddRows(int from, int to)
+		{
+			var operation = new InsertRowsOperation(this, from, to);
+			var form = new ProgressBarForm();
+			var insert = new RowInsertCounter(form);
+			
+			operation.Progress += insert.Add;
+			operation.Cancelled += delegate { InvalidateGrid(); };
+			operation.Completed += delegate { InvalidateGrid(); };
+			operation.Failed += delegate { InvalidateGrid(); };
+			
+			new ExecuteWithProgressBar(operation, form).Run();
+		}
+		
+		void AddMoreRowsClicked(object sender, EventArgs e)
 		{
 			var max = pingGrid1.DataSource.Count + 1;
-			var count = pingGrid1.DataSource.Count;
-			if (count > max )
-				return;
-			new ExecuteWithProgressBar(new InsertRowsOperation(this, max, max + 5000), new ProgressBarForm()).Run();
-			
+			AddRows(max, max + 50000);
+		}
+
+		void InvalidateGrid()
+		{
+			source.Invalidate();
 			UpdateCount();
+			pingGrid1.RecalcCustomScrollBars();
 		}
 	}
 	
+
 
 }

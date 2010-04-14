@@ -23,6 +23,13 @@ namespace SourceGrid.Examples.Threading
 			}
 		}
 		
+		/// <summary>
+		/// Set custom text for the progress bar form
+		/// </summary>
+		public System.Windows.Forms.Label Label {
+			get { return label; }
+		}
+		
 		public System.Windows.Forms.ProgressBar ProgressBar {
 			get { return progressBar1; }
 		}
@@ -40,6 +47,7 @@ namespace SourceGrid.Examples.Threading
 			//
 			InitializeComponent();
 			this.progressBar1.Value = 0;
+			this.label.Text = string.Empty;
 			
 			SetUpCancellHandler();
 		}

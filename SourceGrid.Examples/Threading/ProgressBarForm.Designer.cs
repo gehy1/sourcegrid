@@ -29,9 +29,11 @@ namespace SourceGrid.Examples.Threading
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.progressBar1 = new System.Windows.Forms.ProgressBar();
 			this.buttonCancel = new System.Windows.Forms.Button();
-			this.errorProvider = new System.Windows.Forms.ErrorProvider();
+			this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+			this.label = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -55,22 +57,36 @@ namespace SourceGrid.Examples.Threading
 			this.buttonCancel.Text = "Atšaukti";
 			this.buttonCancel.UseVisualStyleBackColor = true;
 			// 
+			// errorProvider
+			// 
+			this.errorProvider.ContainerControl = this;
+			// 
+			// label
+			// 
+			this.label.Location = new System.Drawing.Point(7, 37);
+			this.label.Name = "label";
+			this.label.Size = new System.Drawing.Size(410, 13);
+			this.label.TabIndex = 2;
+			this.label.Text = "label1";
+			// 
 			// ProgressBarForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(528, 36);
+			this.ClientSize = new System.Drawing.Size(528, 56);
 			this.ControlBox = false;
+			this.Controls.Add(this.label);
 			this.Controls.Add(this.buttonCancel);
 			this.Controls.Add(this.progressBar1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-			this.MaximumSize = new System.Drawing.Size(5000, 70);
+			this.MaximumSize = new System.Drawing.Size(5000, 80);
 			this.Name = "ProgressBarForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Form1";
 			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.Label label;
 		private System.Windows.Forms.Button buttonCancel;
 		private System.Windows.Forms.ProgressBar progressBar1;
 		private System.Windows.Forms.ErrorProvider errorProvider;
