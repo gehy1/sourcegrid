@@ -257,6 +257,7 @@
       <DependentUpon>frmSample60.cs</DependentUpon>
     </Compile>
     <Compile Include="GridSamples\PingGrids\InsertRowsOperation.cs" />
+    <Compile Include="GridSamples\PingGrids\RowInsertCounter.cs" />
     <Compile Include="GridSamples\PingGrids\SessionFactoryManager.cs" />
     <Compile Include="GridSamples\PingGrids\SessionManager.cs" />
     <Compile Include="GridSamples\PingGrids\TransactionManager.cs" />

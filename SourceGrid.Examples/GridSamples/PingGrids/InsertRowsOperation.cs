@@ -66,12 +66,12 @@ namespace WindowsFormsSample
 				{
 					for (var i = from; i < to; i++)
 					{
-						OnProgress(new UpdateStatus(i - from, to - from));
 						// create a couple of Stores each with some Products and Employees
 						var track = new Track{ Name = "SuperMart", Composer = "random composer" };
 						session.Save(track);
 						if (i % 100 == 0)
 						{
+							OnProgress(new UpdateStatus(i - from, to - from));
 							session.Flush();
 							session.Clear();
 						}
