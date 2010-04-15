@@ -465,15 +465,26 @@ namespace SourceGrid
 			ShowRow(row, true);
 		}
 		
+		/// <summary>
+		/// Makes row visible or hidden.
+		/// Fires OnRowVisibilityChanged event only if row visibility is changed
+		/// </summary>
+		/// <param name="row"></param>
+		/// <param name="isVisible"></param>
 		public void ShowRow(int row, bool isVisible)
 		{
 			if (isVisible == true && IsRowVisible(row) == false)
 			{
 				SetHeight(row, Grid.DefaultHeight);
+				OnRowVisibilityChanged(row, isVisible);
 			}
-			else if (isVisible == false && IsRowVisible(row))
+			else 
+				if (isVisible == false && IsRowVisible(row))
+			{
 				SetHeight(row, 0);
-			OnRowVisibilityChanged(row, isVisible);
+				OnRowVisibilityChanged(row, isVisible);
+			}
+			
 		}
 		
 		
