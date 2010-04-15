@@ -6,7 +6,19 @@ using System.Reflection;
 namespace SourceGrid.Selection
 {
 	/// <summary>
-	/// Returns selected row indexes
+	/// Contains a list of ranges which differ only by row, that is vertically.
+	/// This the reason why the class contains a word "row" in its name.
+	/// 
+	/// "Merger" means that it will merge adjancent ranges into single big range.
+	/// So, for example, if you have 100 ranges from first row to second, that
+	/// equals to one big range from row 1 to 100. If Row 50 is not selected,
+	/// then this class splits one big range into two smaller. One from first row
+	/// to row number 49, and anoter range from row 51 to row 100
+	/// 
+	/// Although some functions work with Range structure, which has also a horizontal 
+	/// span, that information is actually not needed, and used as dummy only.
+	/// 
+	/// 
 	/// </summary>
 	public class RangeMergerByRows
 	{
@@ -28,6 +40,20 @@ namespace SourceGrid.Selection
 			foreach (Range range in rangeRegion)
 			{
 				m_ranges.Add(range);
+			}
+		}
+		
+		
+		/// <summary>
+		/// Loops via all ranges. Ranges are guaranteed to be ordered
+		/// from lowest row to highest.
+		/// </summary>
+		/// <returns></returns>
+		public IEnumerable<Range> LoopAllRanges()
+		{
+			foreach (var row in m_ranges)
+			{
+				yield return row;
 			}
 		}
 		
@@ -122,6 +148,17 @@ namespace SourceGrid.Selection
 			                 rangeToNormalize.End.Row, m_columnEnd);
 		}
 		
+		/// <summary>
+		/// Add a range to collection. If the range can be added (merged)
+		/// to existing range, it will be added so. This will guarantee
+		/// that the number of different ranges is kept to minimal.
+		/// In theory only if user selects every second row, this would produce
+		/// RowCount / 2 number of ranges. In practice, there are rarely 
+		/// more than 3 - 5 different selection regions
+		/// </summary>
+		/// <param name="rangeToAdd">columns values are ignored, so simply 
+		/// put 0 as start colum and 1 as end column. Only row values matter</param>
+		/// <returns></returns>
 		public RangeMergerByRows AddRange(Range rangeToAdd)
 		{
 			rangeToAdd = NormalizeRange(rangeToAdd);
@@ -165,6 +202,16 @@ namespace SourceGrid.Selection
 			return false;
 		}
 		
+		/// <summary>
+		/// As opposed to Adding a range, this will remove a range.
+		/// It might happend that removing a range is dividing one bigger range into two 
+		/// smaller ones. So practically the number of ranges might increase.
+		/// 
+		/// It might be that this method might carry more exact meaning with "Exclude", instead
+		/// of "RemoveRange"
+		/// </summary>
+		/// <param name="rangeToRemove"></param>
+		/// <returns></returns>
 		public RangeMergerByRows RemoveRange(Range rangeToRemove)
 		{
 			while (RemoveRangeRecursive(rangeToRemove))

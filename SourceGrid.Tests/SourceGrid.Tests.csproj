@@ -69,6 +69,7 @@
     <Compile Include="Cells\Models\TestValueModel.cs" />
     <Compile Include="Cells\Models\TestValueModel_ValueChange_Events.cs" />
     <Compile Include="ClipBoard\TestClipboard.cs" />
+    <Compile Include="Extensions\PingGrids\TestGrid_Span.cs" />
     <Compile Include="net_2_0\CustomClasses.cs" />
     <Compile Include="net_2_0\TestOverride_With_New.cs" />
     <Compile Include="Performance\RangeCreator.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="Performance\TestRangeRegion_Performance.cs" />
     <Compile Include="Performance\TestSpannedCellRanges_Performance.cs" />
     <Compile Include="QuadTrees\TestProportioanteSizeNodeDivider.cs" />
+    <Compile Include="Rows\TestStandardHiddenRowCoordinator.cs" />
     <Compile Include="Selection\TestSelectionEvents.cs" />
     <Compile Include="TestGridVirtual_Clipboard.cs" />
     <Compile Include="Performance\TestRowSelection_Performance.cs" />
@@ -103,8 +105,10 @@
   <ItemGroup>
     <Folder Include="Cells" />
     <Folder Include="Cells\Models" />
+    <Folder Include="Extensions\PingGrids" />
     <Folder Include="net_2_0" />
     <Folder Include="ClipBoard" />
+    <Folder Include="Extensions" />
     <Folder Include="QuadTrees" />
     <Folder Include="Rows" />
     <Folder Include="Selection" />

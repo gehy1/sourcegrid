@@ -35,7 +35,7 @@
     </SccProvider>
     <OldToolsVersion>2.0</OldToolsVersion>
     <SourceAnalysisOverrideSettingsFile>C:\Documents and Settings\ltdda\Application Data\ICSharpCode/SharpDevelop3.0\Settings.SourceAnalysis</SourceAnalysisOverrideSettingsFile>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -89,8 +89,36 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\libs\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.MicroKernel">
+      <HintPath>..\libs\Castle.MicroKernel.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\libs\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="Esent.Collections">
+      <HintPath>..\libs\Esent.Collections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FirebirdSql.Data.FirebirdClient">
+      <HintPath>..\libs\FirebirdSql.Data.FirebirdClient.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\libs\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\libs\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle">
+      <HintPath>..\libs\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data">
       <Name>System.Data</Name>
@@ -124,6 +152,8 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="EmptyFirebirdDatabasePreparer.cs" />
+    <Compile Include="FirebirdEmbeddedPreparer.cs" />
     <Compile Include="GridSamples\AdvancedFeatures\frmSample42.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,6 +244,23 @@
     <Compile Include="GridSamples\Performance\frmSample53.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GridSamples\PingGrids\Customer.cs" />
+    <Compile Include="GridSamples\PingGrids\frmSample58.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridSamples\PingGrids\frmSample59.cs" />
+    <Compile Include="GridSamples\PingGrids\frmSample59.Designer.cs">
+      <DependentUpon>frmSample59.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridSamples\PingGrids\frmSample60.cs" />
+    <Compile Include="GridSamples\PingGrids\frmSample60.Designer.cs">
+      <DependentUpon>frmSample60.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridSamples\PingGrids\InsertRowsOperation.cs" />
+    <Compile Include="GridSamples\PingGrids\RowInsertCounter.cs" />
+    <Compile Include="GridSamples\PingGrids\SessionFactoryManager.cs" />
+    <Compile Include="GridSamples\PingGrids\SessionManager.cs" />
+    <Compile Include="GridSamples\PingGrids\TransactionManager.cs" />
     <Compile Include="GridSamples\StandardFeatures\frmSample03.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,6 +282,7 @@
     </Compile>
     <Compile Include="GridSamples\StandardFeatures\frmSample56.cs" />
     <Compile Include="GridSamples\StandardFeatures\frmSample57.cs" />
+    <Compile Include="GridSamples\Track.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -243,8 +291,21 @@
     <Compile Include="SampleAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ServiceFactory.cs" />
+    <Compile Include="ServiceIntialization.cs" />
     <Compile Include="StartForm.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Threading\AlreadyRunningException.cs" />
+    <Compile Include="Threading\AsynchroniousOperation.cs" />
+    <Compile Include="Threading\AsyncOperationException.cs" />
+    <Compile Include="Threading\ExecuteWithProgressBar.cs" />
+    <Compile Include="Threading\IProgressBarForm.cs" />
+    <Compile Include="Threading\IProgressCommand.cs" />
+    <Compile Include="Threading\IUpdateStatus.cs" />
+    <Compile Include="Threading\ProgressBarForm.cs" />
+    <Compile Include="Threading\ProgressBarForm.Designer.cs">
+      <DependentUpon>ProgressBarForm.cs</DependentUpon>
     </Compile>
     <None Include="Resources\BackGround.bmp" />
     <None Include="Resources\CalcioSmall.bmp" />
@@ -331,6 +392,12 @@
     <EmbeddedResource Include="GridSamples\Performance\frmSample53.resx">
       <DependentUpon>frmSample53.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\PingGrids\frmSample59.resx">
+      <DependentUpon>frmSample59.Designer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridSamples\PingGrids\frmSample60.resx">
+      <DependentUpon>frmSample60.Designer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GridSamples\SampleData.xml" />
     <EmbeddedResource Include="GridSamples\SampleData2.xml" />
     <None Include="Resources\Star.ico" />
@@ -363,12 +430,29 @@
       <DependentUpon>StartForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Threading\ProgressBarForm.resx">
+      <DependentUpon>ProgressBarForm.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SourceGrid.PingGrid.Backend.Essent\SourceGrid.PingGrid.Backend.Essent.csproj">
+      <Project>{6DD0E786-111A-4670-BF33-9F2164285F82}</Project>
+      <Name>SourceGrid.PingGrid.Backend.Essent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SourceGrid.PingGrid.Backend.NHibernate\SourceGrid.PingGrid.Backend.NHibernate.csproj">
+      <Project>{257E9149-DA1D-4770-96FF-CB64B045044C}</Project>
+      <Name>SourceGrid.PingGrid.Backend.NHibernate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SourceGrid.PingGrid.Backends.DSet\SourceGrid.PingGrid.Backends.DSet.csproj">
+      <Project>{C2B31911-9D3A-47D5-8845-2666B8515EE8}</Project>
+      <Name>SourceGrid.PingGrid.Backends.DSet</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SourceGrid\SourceGrid.csproj">
       <Project>{2A5A1657-DBA8-4117-8E2A-9F1236ACE9E2}</Project>
       <Name>SourceGrid</Name>
     </ProjectReference>
+    <Folder Include="GridSamples\PingGrids" />
+    <Folder Include="Threading" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -1,19 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
+using SourceGrid.Selection;
 
 namespace SourceGrid
 {
 	public class StandardHiddenRowCoordinator : IHiddenRowCoordinator
 	{
 		private RowsBase m_rows = null;
+		private int m_totalHiddenRows = 0;
+		/// <summary>
+		/// This will help us track which rows are hidden, and which are not
+		/// </summary>
+		private RangeMergerByRows m_rowMerger = new RangeMergerByRows();
 		
 		public RowsBase Rows {
 			get { return m_rows; }
 		}
 		
+		public int GetTotalHiddenRows()
+		{
+			return m_totalHiddenRows;
+		}
+		
+		
 		public StandardHiddenRowCoordinator(RowsBase rows)
 		{
 			this.m_rows = rows;
+			
+			rows.RowVisibilityChanged += delegate(int rowIndex, bool becameVisible)
+			{
+				var range = new Range(rowIndex, 0, rowIndex, 1);
+				if (becameVisible)
+					m_rowMerger.RemoveRange(range);
+				else
+					m_rowMerger.AddRange(range);
+			};
+			
+			rows.RowVisibilityChanged += delegate(int rowIndex, bool becameVisible)
+			{
+				if (becameVisible == true)
+					m_totalHiddenRows -= 1;
+				else
+					m_totalHiddenRows += 1;
+				if (m_totalHiddenRows < 0)
+					throw new SourceGridException("Total hidden rows becamse less than 0. This indicates a bug");
+			};
 		}
 		
 		private int? GetNextVisibleRow(int startFrom)
@@ -21,7 +52,7 @@ namespace SourceGrid
 			var i = startFrom + 1;
 			while (i < Rows.Count)
 			{
-				if (Rows.IsVisible(i) == true)
+				if (Rows.IsRowVisible(i) == true)
 					return i;
 				i++;
 			}
@@ -30,7 +61,37 @@ namespace SourceGrid
 		
 		public int ConvertScrollbarValueToRowIndex(int scrollBarValue)
 		{
-			var currentRow = 0;
+			//return scrollBarValue;
+			var processedAllRows = 0;
+			var processedVisibleRows = 0;
+			foreach (var range in m_rowMerger.LoopAllRanges())
+			{
+				var deltaAllRows = range.End.Row - processedAllRows + 1;
+				var deltaVisibleRows = range.Start.Row - processedAllRows;
+				
+				// break if we have enough
+				if (processedVisibleRows > scrollBarValue)
+					break;
+				
+				// cap current range, if we are near our needed range
+				if (processedVisibleRows + deltaVisibleRows > scrollBarValue)
+				{
+					deltaAllRows = deltaVisibleRows - (processedVisibleRows + deltaVisibleRows - scrollBarValue);
+				}
+				
+				processedAllRows += deltaAllRows;
+				processedVisibleRows += deltaVisibleRows;
+			}
+			if (processedVisibleRows < scrollBarValue)
+			{
+				processedAllRows += scrollBarValue - processedVisibleRows;
+			}
+			return processedAllRows;
+			
+				
+				/*
+			var vis = GetNextVisibleRow(-1);
+			var currentRow = vis == null? 0 : vis.Value;
 			// lets find first visible row from scroll bar value
 			for (var i = 0; i < scrollBarValue; i++)
 			{
@@ -39,7 +100,7 @@ namespace SourceGrid
 					break;
 				currentRow = nextRow.Value;
 			}
-			return currentRow;
+			return currentRow;*/
 		}
 		
 		/// <summary>
@@ -60,7 +121,7 @@ namespace SourceGrid
 		{
 			var producedRows = 0;
 			var currentRow = scrollBarValue;
-			if (Rows.IsVisible(scrollBarValue) == false)
+			if (Rows.IsRowVisible(scrollBarValue) == false)
 			{
 				var next = GetNextVisibleRow(currentRow);
 				if (next == null)

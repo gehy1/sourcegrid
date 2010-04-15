@@ -1,19 +1,5 @@
-/*
- * Created by SharpDevelop.
- * User: darius.damalakas
- * Date: 2008-12-10
- * Time: 17:29
- * 
- * To change this template use Tools | Options | Coding | Edit Standard Headers.
- */
-
 using System;
 using NUnit.Framework;
-using SourceGrid;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Windows.Forms;
 using SourceGrid.Selection;
 
 namespace SourceGrid.Tests.Selection

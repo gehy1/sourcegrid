@@ -27,5 +27,8 @@ namespace SourceGrid
 		/// Basically, it says how many visible rows must be scrolled down</param>
 		/// <returns></returns>
 		int ConvertScrollbarValueToRowIndex(int scrollBarValue);
+		
+		int GetTotalHiddenRows();
+		
 	}
 }
