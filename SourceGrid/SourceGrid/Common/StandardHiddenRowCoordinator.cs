@@ -42,6 +42,8 @@ namespace SourceGrid
 					m_totalHiddenRows -= 1;
 				else
 					m_totalHiddenRows += 1;
+				if (m_totalHiddenRows < 0)
+					throw new SourceGridException("Total hidden rows becamse less than 0. This indicates a bug");
 			};
 		}
 		
