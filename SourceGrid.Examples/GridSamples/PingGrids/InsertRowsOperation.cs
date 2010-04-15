@@ -15,6 +15,7 @@ namespace WindowsFormsSample
 		private int to = 0;
 		public SessionManager SessionManager{get;set;}
 		public TransactionManager TransactionManager{get;set;}
+		private Random rand = new Random();
 		
 		protected override void DoWork()
 		{
@@ -66,8 +67,14 @@ namespace WindowsFormsSample
 				{
 					for (var i = from; i < to; i++)
 					{
+						var deleted = rand.Next(0, 2) == 0? false: true;
 						// create a couple of Stores each with some Products and Employees
-						var track = new Track{ Name = "SuperMart", Composer = "random composer" };
+						var track = new Track{ Name = "SuperMart" + i, Composer = "random composer"  +i,
+						IsDeleted = deleted};
+						track.DateCreated = DateTime.Now;
+						track.Price = (decimal)(i * Math.PI);
+						
+						
 						session.Save(track);
 						if (i % 100 == 0)
 						{

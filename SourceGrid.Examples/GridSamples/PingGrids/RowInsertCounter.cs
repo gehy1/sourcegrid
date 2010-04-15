@@ -20,7 +20,7 @@ namespace WindowsFormsSample.GridSamples.PingGrids
 			{
 				var now = DateTime.Now;
 				TimeSpan diff = now - started.Value;
-				var seconds = diff.Seconds;
+				var seconds = diff.Seconds + diff.Minutes * 60 + diff.Hours * 60 * 60;
 				return seconds;
 			}
 		}

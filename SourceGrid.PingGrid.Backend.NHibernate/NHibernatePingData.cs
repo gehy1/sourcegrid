@@ -14,6 +14,8 @@ namespace SourceGrid.PingGrid.Backend.NHibernate
 	{
 		ISessionFactory sessionFactory = null;
 		
+		private Dictionary<int, T> cache = new Dictionary<int, T>();
+		
 		/// <summary>
 		/// Use this to inject some custom performance optimized
 		/// property value reader.
@@ -81,19 +83,51 @@ namespace SourceGrid.PingGrid.Backend.NHibernate
 		/// <returns></returns>
 		public object GetItemValue(int index, string propertyName)
 		{
+			if (cache.ContainsKey(index) == false)
+				InitCache(index);
+			if (cache.ContainsKey(index) == false)
+				return null;
+			
+			var obj = cache[index];
+			
+			return PropertyResolver.ReadValue(obj, propertyName);
+		}
+		
+		private void InitCache(int index)
+		{
+			if (index == 0)
+				return;
+			
+			var from = index - 50;
+			var to = index + 50;
+			
+			if (from < 1)
+				from = 1;
+			if (to > Count)
+				to = Count;
+			
 			using (var session = sessionFactory.OpenStatelessSession())
 			{
-				// populate the database
 				using (var transaction = session.BeginTransaction())
 				{
-					var criteria = session.CreateCriteria(typeof(T))
-						.Add(Restrictions.IdEq(index));
-					var obj = criteria.UniqueResult();
+					var criteria =
+						session.CreateCriteria(typeof(T));
+					var idProp = Projections.Id();
+					criteria
+						.Add(Restrictions.Ge(idProp, from))
+						.Add(Restrictions.Le(idProp, to))
+						.AddOrder(Order.Asc(idProp));
+					
+					var obj = criteria.List<T>();
 					transaction.Commit();
 					if (obj == null)
-						return null;
-					var value = PropertyResolver.ReadValue(obj, propertyName);
-					return value;
+						return;
+					for (int i = from; i < to; i ++)
+					{
+						if (cache.ContainsKey(i))
+							cache.Remove(i);
+						cache.Add(i, obj[i - from]);
+					}
 				}
 			}
 		}
