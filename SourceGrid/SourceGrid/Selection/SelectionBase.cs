@@ -519,16 +519,27 @@ namespace SourceGrid.Selection
 		{
 			return MoveActiveCell(ActivePosition, rowShift, colShift);
 		}
+		
+		public bool MoveActiveCell(int rowShift, int colShift, bool resetSelection)
+		{
+			return MoveActiveCell(ActivePosition, rowShift, colShift, resetSelection);
+		}
 
 		/// <summary>
 		/// Move the active cell (focus), moving the row and column as specified. Returns true if the focus can be moved.
 		/// Returns false if there aren't any cell to move.
 		/// </summary>
-		/// <param name="start"></param>
-		/// <param name="rowShift"></param>
-		/// <param name="colShift"></param>
-		/// <returns></returns>
 		public bool MoveActiveCell(Position start, int rowShift, int colShift)
+		{
+			return MoveActiveCell(start, rowShift, colShift, true);
+		}
+		
+		/// <summary>
+		/// Move the active cell (focus), moving the row and column as specified. Returns true if the focus can be moved.
+		/// Returns false if there aren't any cell to move.
+		/// </summary>
+		/// <returns></returns>
+		public bool MoveActiveCell(Position start, int rowShift, int colShift, bool resetSelection)
 		{
 			Position newPosition = Position.Empty;
 
@@ -570,7 +581,7 @@ namespace SourceGrid.Selection
 			}
 
 			if (newPosition.IsEmpty() == false)
-				return Focus(newPosition, true);
+				return Focus(newPosition, resetSelection);
 			else
 				return false;
 		}

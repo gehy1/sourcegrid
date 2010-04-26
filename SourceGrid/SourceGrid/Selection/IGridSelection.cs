@@ -63,11 +63,20 @@ namespace SourceGrid.Selection
 		/// <summary>
 		/// Move the active cell (focus), moving the row and column as specified. Returns true if the focus can be moved.
 		/// Returns false if there aren't any cell to move.
+		/// Does reset selection
 		/// </summary>
+		/// <returns></returns>
+		bool MoveActiveCell(int rowShift, int colShift);
+		
+		/// <summary>
+		/// Move the active cell (focus), moving the row and column as specified. Returns true if the focus can be moved.
+		/// Returns false if there aren't any cell to move.
+		/// </summary>
+		/// <param name="resetSelection">if false, selection is not reset</param>
 		/// <param name="rowShift"></param>
 		/// <param name="colShift"></param>
 		/// <returns></returns>
-		bool MoveActiveCell(int rowShift, int colShift);
+		bool MoveActiveCell(int rowShift, int colShift, bool resetSelection);
 		
 		/// <summary>
 		/// Returns true if the selection is empty
