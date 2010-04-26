@@ -107,7 +107,7 @@ namespace WindowsFormsSample.GridSamples.PingGrids
 		void AddMoreRowsClicked(object sender, EventArgs e)
 		{
 			var max = pingGrid1.DataSource.Count + 1;
-			AddRows(max, max + 500000);
+			AddRows(max, max + 50000);
 		}
 
 		void InvalidateGrid()
