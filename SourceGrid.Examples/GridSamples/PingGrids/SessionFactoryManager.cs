@@ -1,6 +1,8 @@
 ﻿
 using System;
+using System.IO;
 using System.Windows.Forms;
+
 using FluentNHibernate.Cfg;
 using NHibernate;
 using NHibernate.Cfg;
@@ -70,12 +72,14 @@ namespace WindowsFormsSample.GridSamples.PingGrids
 			}
 			
 			
+			var pathToDB = Path.Combine(Directory.GetCurrentDirectory(), "frmSample60.fdb");
+			
 			var conf = new FluentNHibernate.Cfg.Db.FirebirdConfiguration()
 				.ShowSql()
-				.ConnectionString(@"
-	User=SYSDBA;Password=masterkey;Database=frmSample60.fdb;
-	DataSource=localhost; Port=3050;Dialect=3; Charset=UNICODE_FSS;Role=;Connection lifetime=15;Pooling=true;
-	MinPoolSize=0;MaxPoolSize=50;Packet Size=8192;ServerType=1;");
+				.ConnectionString(string.Format(@"
+	User=SYSDBA;Password=masterkey;Database={0};
+	DataSource=localhost; Port=3050;Dialect=3; Charset=UNICODE_FSS;Role=;Connection lifetime=0;Pooling=true;
+	MinPoolSize=1;MaxPoolSize=50;Packet Size=8192;ServerType=1;", pathToDB));
 			
 			m_factory = Fluently.Configure()
 				.Database(conf)

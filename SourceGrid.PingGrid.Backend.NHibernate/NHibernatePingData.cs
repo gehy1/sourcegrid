@@ -13,6 +13,7 @@ namespace SourceGrid.PingGrid.Backend.NHibernate
 	public class NHibernatePingData<T> : IPingData where T : class
 	{
 		ISessionFactory sessionFactory = null;
+		private Order order = null;
 		
 		private Dictionary<int, T> cache = new Dictionary<int, T>();
 		
@@ -27,6 +28,7 @@ namespace SourceGrid.PingGrid.Backend.NHibernate
 		public void Invalidate()
 		{
 			count = null;
+			cache.Clear();
 		}
 		
 		public NHibernatePingData(ISessionFactory factory)
@@ -60,16 +62,21 @@ namespace SourceGrid.PingGrid.Backend.NHibernate
 		
 		public bool AllowSort {
 			get {
-				throw new NotImplementedException("allowSourt");
+				return true;
 			}
 			set {
-				throw new NotImplementedException("allowSourt");
 			}
 		}
 		
 		public void ApplySort(string propertyName, bool @ascending)
 		{
-			throw new NotImplementedException("sort");
+			var sort = Projections.Property(propertyName);
+			if (ascending == true)
+				order = Order.Asc(sort);
+			else
+				order = Order.Desc(sort);
+			
+			Invalidate();
 		}
 		
 		
@@ -95,14 +102,11 @@ namespace SourceGrid.PingGrid.Backend.NHibernate
 		
 		private void InitCache(int index)
 		{
-			if (index == 0)
-				return;
-			
 			var from = index - 50;
 			var to = index + 50;
 			
-			if (from < 1)
-				from = 1;
+			if (from < 0)
+				from = 0;
 			if (to > Count)
 				to = Count;
 			
@@ -112,11 +116,15 @@ namespace SourceGrid.PingGrid.Backend.NHibernate
 				{
 					var criteria =
 						session.CreateCriteria(typeof(T));
-					var idProp = Projections.Id();
+					//var idProp = Projections.Id();
 					criteria
-						.Add(Restrictions.Ge(idProp, from))
-						.Add(Restrictions.Le(idProp, to))
-						.AddOrder(Order.Asc(idProp));
+						.SetFirstResult(from)
+						.SetMaxResults(to - from);
+					//.Add(Restrictions.Ge(idProp, from))
+					//.Add(Restrictions.Le(idProp, to))
+					//.AddOrder(Order.Asc(idProp))
+					if (order != null)
+						criteria.AddOrder(order);
 					
 					var obj = criteria.List<T>();
 					transaction.Commit();

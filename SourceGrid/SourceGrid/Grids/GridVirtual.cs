@@ -1302,24 +1302,26 @@ namespace SourceGrid
 			#endregion
 
 			#region Navigate keys: arrows, tab and PgDown/Up
+			var shiftPressed = e.Modifiers == Keys.Shift;
+			var resetSelection = shiftPressed == false;
 			if (e.KeyCode == Keys.Down && enableArrows)
 			{
-				Selection.MoveActiveCell(1, 0);
+				Selection.MoveActiveCell(1, 0, resetSelection);
 				e.Handled = true;
 			}
 			else if (e.KeyCode == Keys.Up && enableArrows)
 			{
-				Selection.MoveActiveCell(-1, 0);
+				Selection.MoveActiveCell(-1, 0, resetSelection);
 				e.Handled = true;
 			}
 			else if (e.KeyCode == Keys.Right && enableArrows)
 			{
-				Selection.MoveActiveCell(0, 1);
+				Selection.MoveActiveCell(0, 1, resetSelection);
 				e.Handled = true;
 			}
 			else if (e.KeyCode == Keys.Left && enableArrows)
 			{
-				Selection.MoveActiveCell(0, -1);
+				Selection.MoveActiveCell(0, -1, resetSelection);
 				e.Handled = true;
 			}
 			else if (e.KeyCode == Keys.Tab && enableTab)
