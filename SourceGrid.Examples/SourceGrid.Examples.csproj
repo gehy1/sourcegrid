@@ -282,6 +282,7 @@
     </Compile>
     <Compile Include="GridSamples\StandardFeatures\frmSample56.cs" />
     <Compile Include="GridSamples\StandardFeatures\frmSample57.cs" />
+    <Compile Include="GridSamples\StandardFeatures\frmSample61.cs" />
     <Compile Include="GridSamples\Track.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
