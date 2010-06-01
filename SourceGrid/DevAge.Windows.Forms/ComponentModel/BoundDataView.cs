@@ -156,7 +156,7 @@ namespace DevAge.ComponentModel
 		{
 			get
 			{
-				if ( index >= m_dataView.Table.Rows.Count)
+				if ( index > m_dataView.Table.Rows.Count)
 					throw new ArgumentException(string.Format(
 						"Data table does not have row with given index. It has only {0} number of rows," +
 						"you requested to return row number {1}",
