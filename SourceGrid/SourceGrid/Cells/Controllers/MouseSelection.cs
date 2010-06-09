@@ -32,8 +32,6 @@ namespace SourceGrid.Cells.Controllers
 			var pressed = e.Button & MouseButtons;
 			if (pressed == MouseButtons.None)
 				return;
-			if (sender.Position.Row < sender.Grid.ActualFixedRows || sender.Position.Column < sender.Grid.ActualFixedColumns)
-				return;
 			
 			GridVirtual grid = sender.Grid;
 
