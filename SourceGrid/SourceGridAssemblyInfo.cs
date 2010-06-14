@@ -8,13 +8,13 @@ using System;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
-[assembly: AssemblyCompany("Davide Icardi http://www.devage.com/ ; http://sourcegrid.codeplex.com")]
-[assembly: AssemblyCopyright("Davide Icardi")]
+[assembly: AssemblyCompany("Davide Icardi, Darius Damalakas, http://sourcegrid.codeplex.com, http://bitbucket.org/dariusdamalakas/sourcegrid")]
+[assembly: AssemblyCopyright("Davide Icardi, Darius Damalakas")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]		
 
 //Changed when no more compatible with the previous version
-[assembly: AssemblyVersion("4.22.*")]
+[assembly: AssemblyVersion("4.30.*")]
 
 [assembly: CLSCompliant(true)]
 
