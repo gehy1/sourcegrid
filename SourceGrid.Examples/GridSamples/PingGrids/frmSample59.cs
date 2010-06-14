@@ -78,7 +78,7 @@ namespace WindowsFormsSample.GridSamples.PingGrids
 		void ToolStripMenuItem1Click(object sender, EventArgs e)
 		{
 			var max = dict.Count + 1;
-			AddRows(max, max + 500000);
+			AddRows(max, max + 50000);
 			UpdateCount();
 		}
 	}
