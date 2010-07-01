@@ -1922,6 +1922,16 @@ namespace SourceGrid
 					rect = Rectangle.Round(cell.View.Border.GetContentRectangle(rect));
 
 				control.Bounds = rect;
+				
+				// Hide all linked controls which are not in the fixed area
+				// and fall outside the scrollable area
+				if ( ( linked.Position.Row >= FixedRows ) && ( linked.Position.Column >= FixedColumns ) )
+				{
+					Range scrollableRange = RangeAtArea(CellPositionType.Scrollable );
+					Rectangle scrollableRectangle = RangeToRectangle(scrollableRange);
+
+					control.Visible = !Rectangle.Intersect( rect, scrollableRectangle ).IsEmpty;
+				}
 			}
 			ResumeLayout(false);
 		}
