@@ -9,6 +9,7 @@ namespace SourceGrid
 		bool IsRowVisible(int row);
 		
 		
+		
 		void HideRow(int row);
 		void ShowRow(int row);
 		
