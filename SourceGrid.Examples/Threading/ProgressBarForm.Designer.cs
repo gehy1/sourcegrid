@@ -54,7 +54,7 @@ namespace SourceGrid.Examples.Threading
 			this.buttonCancel.Name = "buttonCancel";
 			this.buttonCancel.Size = new System.Drawing.Size(96, 23);
 			this.buttonCancel.TabIndex = 1;
-			this.buttonCancel.Text = "Atšaukti";
+			this.buttonCancel.Text = "Cancel";
 			this.buttonCancel.UseVisualStyleBackColor = true;
 			// 
 			// errorProvider
