@@ -60,6 +60,10 @@ namespace SourceGrid.Selection
 			{
 				return m_ActivePosition;
 			}
+			protected set 
+			{
+				m_ActivePosition = value;
+			}
 		}
 
 		private bool IsActivePositionValid()

@@ -8,11 +8,13 @@
  */
 
 using System;
-using NUnit.Framework;
-using SourceGrid;
 using System.ComponentModel;
 using System.Data;
 using System.Windows.Forms;
+
+using NUnit.Framework;
+using SourceGrid;
+using SourceGrid.Cells;
 using SourceGrid.Selection;
 
 namespace SourceGrid.Tests.Selection
@@ -22,6 +24,63 @@ namespace SourceGrid.Tests.Selection
 	[TestFixture]
 	public class TestRowSelection
 	{
+		[Test]
+		public void SelectRow_ShouldMaintain_ActivePosition()
+		{
+			// set up special conditions
+			var grid = new Grid();
+			grid.Redim(1, 1);
+			grid[0, 0] = new Cell();
+			
+			var form = new Form();
+			form.Controls.Add(grid);
+			form.Show();
+
+			grid.SelectionMode = GridSelectionMode.Row;
+			grid.Selection.EnableMultiSelection = false;
+			
+			
+			// just assert that we have correct conditions for test, 
+			// active position should not be empty
+			grid.Selection.Focus(new Position(0, 0), true);
+			Assert.AreEqual(new Position(0, 0), grid.Selection.ActivePosition);
+			
+			// this method causes first row to be selected. Should not fail 
+			// it failed once in RowSelection.SelectRow method
+			// As call to ResetSelection asked to maintain focus, a stack overflow was raised
+			grid.Selection.SelectRow(0, true);
+			Assert.AreEqual(new Position(0, 0), grid.Selection.ActivePosition);
+			
+			// destroy
+			form.Close();
+			form.Dispose();
+		}
+		
+		[Test]
+		public void ResetSelection_DoesNotInfiniteLoop()
+		{
+			// set up special conditions
+			var grid = new Grid();
+			grid.Redim(1, 1);
+			grid[0, 0] = new Cell();
+			
+			var form = new Form();
+			form.Controls.Add(grid);
+			form.Show();
+
+			grid.SelectionMode = GridSelectionMode.Row;
+			grid.Selection.EnableMultiSelection = false;
+			
+			// this method causes first row to be selected. Should not fail 
+			// it failed once in RowSelection.SelectRow method
+			// As call to ResetSelection asked to maintain focus, a stack overflow was raised
+			grid.Selection.Focus(new Position(0, 0), false);
+			
+			// destroy
+			form.Close();
+			form.Dispose();
+		}
+		
 		[Test]
 		public void GetSelectionRegion_MergeRanges()
 		{

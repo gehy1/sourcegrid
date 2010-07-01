@@ -49,10 +49,12 @@ namespace SourceGrid.Selection
 			if (select && mList.IsSelectedRow(row) == false)
 			{
 				// if multi selection is false, remove all previously selected rows
+				var activePosition = this.ActivePosition;
 				if (this.EnableMultiSelection == false)
 					this.Grid.Selection.ResetSelection(false);
 				// continue with adding selection
 				mList.AddRange(rowRange);
+				this.ActivePosition = activePosition;
 				OnSelectionChanged(new RangeRegionChangedEventArgs(rowRange, Range.Empty));
 			} else
 				if (!select && mList.IsSelectedRow(row))
