@@ -15,6 +15,7 @@ namespace SourceGrid
 		/// <param name="grid"></param>
 		public RowInfoCollection(GridVirtual grid):base(grid)
 		{
+			m_HiddenRowsCoordinator = new RowInfoCollectoinHiddenRowCoordinator(this);
 		}
 
 		private List<RowInfo> m_List = new List<RowInfo>();
