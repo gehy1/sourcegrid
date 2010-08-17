@@ -6,12 +6,12 @@ namespace SourceGrid
 {
 	public class StandardHiddenRowCoordinator : IHiddenRowCoordinator
 	{
-		private RowsBase m_rows = null;
-		private int m_totalHiddenRows = 0;
+		protected RowsBase m_rows = null;
+		protected int m_totalHiddenRows = 0;
 		/// <summary>
 		/// This will help us track which rows are hidden, and which are not
 		/// </summary>
-		private RangeMergerByRows m_rowMerger = new RangeMergerByRows();
+		protected RangeMergerByRows m_rowMerger = new RangeMergerByRows();
 		
 		public RowsBase Rows {
 			get { return m_rows; }
@@ -21,7 +21,6 @@ namespace SourceGrid
 		{
 			return m_totalHiddenRows;
 		}
-		
 		
 		public StandardHiddenRowCoordinator(RowsBase rows)
 		{

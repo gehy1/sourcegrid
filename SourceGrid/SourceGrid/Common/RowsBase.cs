@@ -12,8 +12,10 @@ namespace SourceGrid
 	public abstract class RowsBase : IRows
 	{
 		private GridVirtual mGrid;
-		private IHiddenRowCoordinator m_HiddenRowsCoordinator = null;
+		protected IHiddenRowCoordinator m_HiddenRowsCoordinator = null;
 		public event RowVisibilityChangedHandler RowVisibilityChanged;
+		
+		
 		
 		protected virtual void OnRowVisibilityChanged(int rowIndex, bool becameVisible)
 		{
