@@ -87,20 +87,6 @@ namespace SourceGrid
 				processedAllRows += scrollBarValue - processedVisibleRows;
 			}
 			return processedAllRows;
-			
-				
-				/*
-			var vis = GetNextVisibleRow(-1);
-			var currentRow = vis == null? 0 : vis.Value;
-			// lets find first visible row from scroll bar value
-			for (var i = 0; i < scrollBarValue; i++)
-			{
-				var nextRow = GetNextVisibleRow(currentRow);
-				if (nextRow == null)
-					break;
-				currentRow = nextRow.Value;
-			}
-			return currentRow;*/
 		}
 		
 		/// <summary>
