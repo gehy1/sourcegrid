@@ -1,8 +1,10 @@
 using System;
-using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
+
+using SourceGrid;
 
 namespace WindowsFormsSample
 {
@@ -51,15 +53,13 @@ namespace WindowsFormsSample
 		{
 			this.grid1 = new SourceGrid.Grid();
 			this.buttonEditCell = new System.Windows.Forms.Button();
-			this.domainUpDownColumnIndex = new System.Windows.Forms.DomainUpDown();
 			this.label1 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.buttonInsertRow = new System.Windows.Forms.Button();
 			this.label3 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
 			this.numericUpDownRowIndex = new System.Windows.Forms.NumericUpDown();
+			this.label4 = new System.Windows.Forms.Label();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownRowIndex)).BeginInit();
@@ -67,9 +67,9 @@ namespace WindowsFormsSample
 			// 
 			// grid1
 			// 
-			this.grid1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-			                                                           | System.Windows.Forms.AnchorStyles.Left)
-			                                                          | System.Windows.Forms.AnchorStyles.Right)));
+			this.grid1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+									| System.Windows.Forms.AnchorStyles.Left) 
+									| System.Windows.Forms.AnchorStyles.Right)));
 			this.grid1.EnableSort = true;
 			this.grid1.Location = new System.Drawing.Point(8, 94);
 			this.grid1.Name = "grid1";
@@ -82,20 +82,12 @@ namespace WindowsFormsSample
 			// 
 			// buttonEditCell
 			// 
-			this.buttonEditCell.Location = new System.Drawing.Point(97, 19);
+			this.buttonEditCell.Location = new System.Drawing.Point(109, 19);
 			this.buttonEditCell.Name = "buttonEditCell";
 			this.buttonEditCell.Size = new System.Drawing.Size(97, 20);
 			this.buttonEditCell.TabIndex = 1;
 			this.buttonEditCell.Text = "Edit cell";
 			this.buttonEditCell.UseVisualStyleBackColor = true;
-			// 
-			// domainUpDownColumnIndex
-			// 
-			this.domainUpDownColumnIndex.Location = new System.Drawing.Point(97, 45);
-			this.domainUpDownColumnIndex.Name = "domainUpDownColumnIndex";
-			this.domainUpDownColumnIndex.Size = new System.Drawing.Size(97, 20);
-			this.domainUpDownColumnIndex.TabIndex = 2;
-			this.domainUpDownColumnIndex.Text = "column index";
 			// 
 			// label1
 			// 
@@ -103,25 +95,15 @@ namespace WindowsFormsSample
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(71, 13);
 			this.label1.TabIndex = 3;
-			this.label1.Text = "Magic button";
-			// 
-			// label2
-			// 
-			this.label2.Location = new System.Drawing.Point(10, 47);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(71, 13);
-			this.label2.TabIndex = 3;
-			this.label2.Text = "Column index";
+			this.label1.Text = "Click to edit";
 			// 
 			// groupBox1
 			// 
 			this.groupBox1.Controls.Add(this.buttonEditCell);
-			this.groupBox1.Controls.Add(this.label2);
 			this.groupBox1.Controls.Add(this.label1);
-			this.groupBox1.Controls.Add(this.domainUpDownColumnIndex);
 			this.groupBox1.Location = new System.Drawing.Point(8, 12);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(200, 76);
+			this.groupBox1.Size = new System.Drawing.Size(212, 76);
 			this.groupBox1.TabIndex = 4;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Edit cell";
@@ -132,16 +114,17 @@ namespace WindowsFormsSample
 			this.groupBox2.Controls.Add(this.label3);
 			this.groupBox2.Controls.Add(this.numericUpDownRowIndex);
 			this.groupBox2.Controls.Add(this.label4);
-			this.groupBox2.Location = new System.Drawing.Point(214, 12);
+			this.groupBox2.Location = new System.Drawing.Point(226, 12);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(200, 76);
+			this.groupBox2.Size = new System.Drawing.Size(238, 76);
 			this.groupBox2.TabIndex = 4;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Insert row";
 			// 
 			// buttonInsertRow
 			// 
-			this.buttonInsertRow.Location = new System.Drawing.Point(97, 19);
+			this.buttonInsertRow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.buttonInsertRow.Location = new System.Drawing.Point(135, 19);
 			this.buttonInsertRow.Name = "buttonInsertRow";
 			this.buttonInsertRow.Size = new System.Drawing.Size(97, 20);
 			this.buttonInsertRow.TabIndex = 1;
@@ -151,26 +134,29 @@ namespace WindowsFormsSample
 			// 
 			// label3
 			// 
+			this.label3.AutoSize = true;
 			this.label3.Location = new System.Drawing.Point(10, 47);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(71, 13);
+			this.label3.Size = new System.Drawing.Size(80, 13);
 			this.label3.TabIndex = 3;
-			this.label3.Text = "Row index";
-			// 
-			// label4
-			// 
-			this.label4.Location = new System.Drawing.Point(10, 25);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(71, 13);
-			this.label4.TabIndex = 3;
-			this.label4.Text = "Magic button";
+			this.label3.Text = "Insert after row:";
 			// 
 			// numericUpDownRowIndex
 			// 
-			this.numericUpDownRowIndex.Location = new System.Drawing.Point(97, 45);
+			this.numericUpDownRowIndex.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.numericUpDownRowIndex.Location = new System.Drawing.Point(135, 45);
 			this.numericUpDownRowIndex.Name = "numericUpDownRowIndex";
 			this.numericUpDownRowIndex.Size = new System.Drawing.Size(97, 20);
 			this.numericUpDownRowIndex.TabIndex = 4;
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(10, 25);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(70, 13);
+			this.label4.TabIndex = 3;
+			this.label4.Text = "Click to insert";
 			// 
 			// frmSample54
 			// 
@@ -184,6 +170,7 @@ namespace WindowsFormsSample
 			this.Load += new System.EventHandler(this.frmSample54_Load);
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox2.ResumeLayout(false);
+			this.groupBox2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownRowIndex)).EndInit();
 			this.ResumeLayout(false);
 		}
@@ -193,9 +180,7 @@ namespace WindowsFormsSample
 		private System.Windows.Forms.Button buttonInsertRow;
 		private System.Windows.Forms.GroupBox groupBox2;
 		private System.Windows.Forms.GroupBox groupBox1;
-		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.DomainUpDown domainUpDownColumnIndex;
 		private System.Windows.Forms.Button buttonEditCell;
 		#endregion
 
@@ -215,6 +200,7 @@ namespace WindowsFormsSample
 			grid1.ColumnsCount = 4;
 			grid1.FixedRows = 1;
 			grid1.Rows.Insert(0);
+			grid1.Selection.FocusStyle = FocusStyle.None;
 
 			cbEditor = new SourceGrid.Cells.Editors.ComboBox(typeof(string));
 			cbEditor.StandardValues = new string[]{"Value 1", "Value 2", "Value 3"};
@@ -232,26 +218,10 @@ namespace WindowsFormsSample
 
 			grid1.AutoSizeCells();
 			
-			// set up column index button
-			for (int i = 0; i < 4; i++)
-				domainUpDownColumnIndex.Items.Add(i);
-			domainUpDownColumnIndex.SelectedIndex = 0;
 			numericUpDownRowIndex.Value = 0;
 			numericUpDownRowIndex.Minimum = 1;
 			numericUpDownRowIndex.Value = 3;
-			buttonEditCell.Click += delegate { StartEdit(new SourceGrid.Position(1, GetColumnIndex())); };
-		}
-		
-		private int GetColumnIndex()
-		{
-			try
-			{
-				return Int32.Parse(domainUpDownColumnIndex.Text);
-			}
-			catch (FormatException)
-			{
-				return 1;
-			}
+			buttonEditCell.Click += delegate { StartEdit(grid1.Selection.ActivePosition); };
 		}
 		
 		public void StartEdit ( SourceGrid.Position Position )
