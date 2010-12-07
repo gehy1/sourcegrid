@@ -63,7 +63,12 @@ namespace SourceGrid.Cells.Controllers
 				grid.Selection.SelectRange(rangeToSelect, true);
 			}
 
-			BeginScrollTracking(grid);
+			// begin scroll tracking only if mouse was clicked
+			// in scrollable area
+			Rectangle scrollRect = grid.GetScrollableArea();
+			if (scrollRect.Contains(e.Location))
+				BeginScrollTracking(grid);
+			
 		}
 
 		public override void OnMouseUp(CellContext sender, MouseEventArgs e)
