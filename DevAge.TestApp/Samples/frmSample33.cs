@@ -3,47 +3,48 @@ using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
+using TestApp.Samples;
 
 namespace DevAge.TestApp
 {
-	/// <summary>
-	/// Summary description for frmDemo2.
-	/// </summary>
-	[Sample("Other controls", 33, "DataSet command builder")]
-	public class frmSample33 : System.Windows.Forms.Form
-	{
-		private System.ComponentModel.IContainer components = null;
+    /// <summary>
+    /// Summary description for frmDemo2.
+    /// </summary>
+    [Sample("Other controls", 33, "DataSet command builder")]
+    public class frmSample33 : System.Windows.Forms.Form
+    {
+        private System.ComponentModel.IContainer components = null;
 
-		public frmSample33()
-		{
-			//
-			// Required for Windows Form Designer support
-			//
-			InitializeComponent();
-		}
+        public frmSample33()
+        {
+            //
+            // Required for Windows Form Designer support
+            //
+            InitializeComponent();
+        }
 
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		protected override void Dispose( bool disposing )
-		{
-			if( disposing )
-			{
-				if(components != null)
-				{
-					components.Dispose();
-				}
-			}
-			base.Dispose( disposing );
-		}
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        protected override void Dispose( bool disposing )
+        {
+            if( disposing )
+            {
+                if(components != null)
+                {
+                    components.Dispose();
+                }
+            }
+            base.Dispose( disposing );
+        }
 
-		#region Windows Form Designer generated code
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{
+        #region Windows Form Designer generated code
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
             this.label1 = new System.Windows.Forms.Label();
             this.txtDatasetDefinition = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -128,46 +129,46 @@ namespace DevAge.TestApp
             this.ResumeLayout(false);
             this.PerformLayout();
 
-		}
-		#endregion
+        }
+        #endregion
 
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TextBox txtDatasetDefinition;
-		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.TextBox txtSqlOutput;
-		private System.Windows.Forms.Button btGenerate;
-		private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtDatasetDefinition;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtSqlOutput;
+        private System.Windows.Forms.Button btGenerate;
+        private System.Windows.Forms.Label label2;
 
-		protected override void OnLoad(EventArgs e)
-		{
-			base.OnLoad (e);
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad (e);
 
-			
-			Samples.TypedDatasetSample dsTest = new Samples.TypedDatasetSample();
-			txtDatasetDefinition.Text = dsTest.GetXmlSchema();
-		}
+            
+            TypedDatasetSample dsTest = new TypedDatasetSample();
+            txtDatasetDefinition.Text = dsTest.GetXmlSchema();
+        }
 
-		private void btGenerate_Click(object sender, System.EventArgs e)
-		{
-			try
-			{
-				System.Data.DataSet ds = new System.Data.DataSet();
+        private void btGenerate_Click(object sender, System.EventArgs e)
+        {
+            try
+            {
+                System.Data.DataSet ds = new System.Data.DataSet();
 
-				using (System.IO.MemoryStream stream = new System.IO.MemoryStream())
-				{
-					System.IO.StreamWriter writer = new System.IO.StreamWriter(stream, System.Text.Encoding.Unicode);
-					writer.Write(txtDatasetDefinition.Text);
-					writer.Flush();
-					stream.Seek(0, System.IO.SeekOrigin.Begin);
-					ds.ReadXmlSchema(stream);
-					writer.Close();
-				}
+                using (System.IO.MemoryStream stream = new System.IO.MemoryStream())
+                {
+                    System.IO.StreamWriter writer = new System.IO.StreamWriter(stream, System.Text.Encoding.Unicode);
+                    writer.Write(txtDatasetDefinition.Text);
+                    writer.Flush();
+                    stream.Seek(0, System.IO.SeekOrigin.Begin);
+                    ds.ReadXmlSchema(stream);
+                    writer.Close();
+                }
 
 
-				System.Text.StringBuilder outText = new System.Text.StringBuilder();
+                System.Text.StringBuilder outText = new System.Text.StringBuilder();
                 outText.Append("--SQL Command builder\r\n");
-				foreach (System.Data.DataTable table in ds.Tables)
-				{
+                foreach (System.Data.DataTable table in ds.Tables)
+                {
                     outText.Append("-- Table : " + table.TableName + "\r\n");
 
                     DevAge.Data.SqlClient.SqlCommandBuilder cmdBuilder = new DevAge.Data.SqlClient.SqlCommandBuilder(table);
@@ -177,17 +178,17 @@ namespace DevAge.TestApp
                     outText.AppendLine(cmdBuilder.GetInsertCommand().CommandText);
 
                     outText.Append("-- ############################################################\r\n");
-				}
+                }
 
                 txtSqlOutput.Text = outText.ToString();
-			}
-			catch(Exception ex)
-			{
-				MessageBox.Show(this, ex.Message);
-			}
-		}
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(this, ex.Message);
+            }
+        }
 
 
-	}
+    }
 
 }

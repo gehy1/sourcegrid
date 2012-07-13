@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using TestApp.Properties;
 
 namespace DevAge.TestApp
 {
@@ -33,7 +34,7 @@ namespace DevAge.TestApp
             txtSize.Value = contentPanel.Size;
             txtMaxSize.Value = new Size(800, 800);
 
-            mContainer.Elements.Add(new DevAge.Drawing.VisualElements.Image(Properties.Resources.SampleSmall1));
+            mContainer.Elements.Add(new DevAge.Drawing.VisualElements.Image(Resources.SampleSmall1));
             mContainer.Elements[0].AnchorArea = new DevAge.Drawing.AnchorArea();
             mContainer.Elements[0].AnchorArea.Left = 5;
             mContainer.Elements.Add(new DevAge.Drawing.VisualElements.TextGDI("Hello!"));
@@ -42,7 +43,7 @@ namespace DevAge.TestApp
             mContainer.Padding = new DevAge.Drawing.Padding(2);
             mContainer.Border = new DevAge.Drawing.RectangleBorder(new DevAge.Drawing.BorderLine(Color.Blue));
 
-            mContainerWithHeader.Elements.Add(new DevAge.Drawing.VisualElements.Image(Properties.Resources.SampleSmall1));
+            mContainerWithHeader.Elements.Add(new DevAge.Drawing.VisualElements.Image(Resources.SampleSmall1));
             mContainerWithHeader.Elements[0].AnchorArea = new DevAge.Drawing.AnchorArea();
             mContainerWithHeader.Elements[0].AnchorArea.Right = 20;
             mContainerWithHeader.Elements.Add(new DevAge.Drawing.VisualElements.TextGDI("Test Header"));
