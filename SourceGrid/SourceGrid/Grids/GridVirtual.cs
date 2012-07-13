@@ -1171,6 +1171,11 @@ namespace SourceGrid
 
 		#region Special Keys and command keys
 		/// <summary>
+		/// Stores the active position when user presses shift
+		/// </summary>
+ 		private Position m_firstCellShiftSelected;
+
+		/// <summary>
 		/// Processes a command key.
 		/// </summary>
 		/// <param name="msg"></param>
@@ -1181,6 +1186,12 @@ namespace SourceGrid
 			Keys keyData
 		)
 		{
+			// if shift pressed, remember which cell is selected
+			if (keyData == (Keys.Shift | Keys.ShiftKey))
+			{
+				m_firstCellShiftSelected = Selection.ActivePosition;
+			}
+
 			if ((keyData == Keys.Enter ||
 			     keyData == Keys.Escape ||
 			     keyData == Keys.Tab ||
@@ -1360,6 +1371,12 @@ namespace SourceGrid
 				
 				e.Handled = true;
 			}
+			if (shiftPressed)
+			{
+				Selection.ResetSelection(true);
+				Selection.SelectRange(new Range(m_firstCellShiftSelected, Selection.ActivePosition), true);
+			}
+
 			#endregion
 
 			#region Clipboard
