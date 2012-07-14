@@ -7,3 +7,4 @@ glob:SourceGrid/Help/
 syntax: glob
 _ReSharper*
 **.user
+*.resources
