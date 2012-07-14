@@ -38,12 +38,26 @@ namespace WindowsFormsSample.GridSamples.PingGrids
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
+		    try
+		    {
+                if (SessionFactoryManager.CreateSessionFactory() == null)
+                {
+                    this.Close();
+                    return;
+                }
+		    }
+		    catch (Exception e)
+		    {
+		        var innerMessage = e.InnerException == null? "" : e.InnerException.Message;
+		        MessageBox.Show(
+		            string.Format(
+		                @"Could not create sessions factory. Did you install FireBird database?
+http://www.firebirdsql.org/. 
+Exception details: {0}, {1}",
+		                e.Message, innerMessage));
+		        return;
+		    }
 			
-			if (SessionFactoryManager.CreateSessionFactory() == null)
-			{
-				this.Close();
-				return;
-			}
 			
 			source = new NHibernatePingData<Track>(SessionFactoryManager.SessionFactory);
 			
