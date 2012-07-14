@@ -6,10 +6,10 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <OutputType>Library</OutputType>
     <AssemblyName>SourceGrid</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <SourceAnalysisOverrideSettingsFile>C:\Documents and Settings\User.YOUR-2F73F42422\Application Data\ICSharpCode/SharpDevelop3.0\Settings.SourceAnalysis</SourceAnalysisOverrideSettingsFile>
-    <SignAssembly>True</SignAssembly>
+    <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>SourceGrid\SourceGrid.snk</AssemblyOriginatorKeyFile>
     <DelaySign>False</DelaySign>
     <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
@@ -39,6 +39,8 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -443,92 +445,47 @@
     <None Include="SourceGrid\GridVirtual.bmp" />
     <None Include="SourceGrid\SourceGrid.csproj" />
     <None Include="SourceGrid\SourceGrid.snk" />
-    <EmbeddedResource Include="DevAge.Windows.Forms\Properties\Resources.resources">
-      <DependentUpon>Resources.Designer.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DevAge.Windows.Forms\Properties\Resources.resx">
       <DependentUpon>Resources.Designer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DevAge.Windows.Forms\Windows\Forms\ButtonMultiSelection.resources">
-      <DependentUpon>ButtonMultiSelection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DevAge.Windows.Forms\Windows\Forms\ButtonMultiSelection.resx">
       <DependentUpon>ButtonMultiSelection.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DevAge.Windows.Forms\Windows\Forms\ColorPicker.resources">
-      <DependentUpon>ColorPicker.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DevAge.Windows.Forms\Windows\Forms\ColorPicker.resx">
       <DependentUpon>ColorPicker.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DevAge.Windows.Forms\Windows\Forms\DevAgeNumericUpDown.resources">
-      <DependentUpon>DevAgeNumericUpDown.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DevAge.Windows.Forms\Windows\Forms\DevAgeNumericUpDown.resx">
       <DependentUpon>DevAgeNumericUpDown.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DevAge.Windows.Forms\Windows\Forms\DevAgeTextBoxButton.resources">
-      <DependentUpon>DevAgeTextBoxButton.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DevAge.Windows.Forms\Windows\Forms\DevAgeTextBoxButton.resx">
       <DependentUpon>DevAgeTextBoxButton.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DevAge.Windows.Forms\Windows\Forms\DropDown.resources">
-      <DependentUpon>DropDown.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DevAge.Windows.Forms\Windows\Forms\DropDown.resx">
       <DependentUpon>DropDown.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DevAge.Windows.Forms\Windows\Forms\DropDownButton.resources">
-      <DependentUpon>DropDownButton.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DevAge.Windows.Forms\Windows\Forms\DropDownButton.resx">
       <DependentUpon>DropDownButton.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DevAge.Windows.Forms\Windows\Forms\EditableControlBase.resources">
-      <DependentUpon>EditableControlBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DevAge.Windows.Forms\Windows\Forms\EditableControlBase.resx">
       <DependentUpon>EditableControlBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DevAge.Windows.Forms\Windows\Forms\ErrorDialog.resources">
-      <DependentUpon>ErrorDialog.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DevAge.Windows.Forms\Windows\Forms\ErrorDialog.resx">
       <DependentUpon>ErrorDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DevAge.Windows.Forms\Windows\Forms\ErrorDialogDetails.resources">
-      <DependentUpon>ErrorDialogDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DevAge.Windows.Forms\Windows\Forms\ErrorDialogDetails.resx">
       <DependentUpon>ErrorDialogDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DevAge.Windows.Forms\Windows\Forms\FormBase.resources">
-      <DependentUpon>FormBase.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DevAge.Windows.Forms\Windows\Forms\FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DevAge.Windows.Forms\Windows\Forms\ImageNavigator.resources">
-      <DependentUpon>ImageNavigator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DevAge.Windows.Forms\Windows\Forms\ImageNavigator.resx">
       <DependentUpon>ImageNavigator.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DevAge.Windows.Forms\Windows\Forms\Line.resources">
-      <DependentUpon>Line.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DevAge.Windows.Forms\Windows\Forms\Line.resx">
       <DependentUpon>Line.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DevAge.Windows.Forms\Windows\Forms\LinkLabel.resources">
-      <DependentUpon>LinkLabel.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DevAge.Windows.Forms\Windows\Forms\LinkLabel.resx">
       <DependentUpon>LinkLabel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DevAge.Windows.Forms\Windows\Forms\TextBoxUITypeEditor.resources">
-      <DependentUpon>TextBoxUITypeEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DevAge.Windows.Forms\Windows\Forms\TextBoxUITypeEditor.resx">
       <DependentUpon>TextBoxUITypeEditor.cs</DependentUpon>
