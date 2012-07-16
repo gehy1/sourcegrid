@@ -94,7 +94,14 @@ namespace DevAge.Drawing.VisualElements
         protected override SizeF OnMeasureContent(MeasureHelper measure, SizeF maxSize)
         {
             if (Application.RenderWithVisualStyles && VisualStyleRenderer.IsElementDefined(GetBackgroundElement()))
-                return GetRenderer(GetBackgroundElement()).GetPartSize(measure.Graphics, ThemeSizeType.True);
+            {
+                var size = GetRenderer(GetBackgroundElement()).GetPartSize(measure.Graphics, ThemeSizeType.True);
+                // in Win-7 machines size is returned as 7
+                // Increase it to 16, so it matches the standard drop-down width
+                if (size.Width < 16)
+                	size.Width = 16;
+                return size;
+            }
             else
                 return mStandardButton.Measure(measure, Size.Empty, maxSize);
         }
