@@ -553,6 +553,8 @@ namespace SourceGrid.Selection
 				newPosition = new Position(0, 0);
 				if (CanReceiveFocus(newPosition))
 					return Focus(newPosition, true);
+				else if (Grid.Rows.Count == 0 || Grid.Columns.Count == 0)
+					return false;
 				else
 				{
 					start = newPosition;
@@ -634,6 +636,8 @@ namespace SourceGrid.Selection
 					newPosition = new Position(0, 0);
 					if (CanReceiveFocus(newPosition))
 						return Focus(newPosition, true);
+					else if (Grid.Rows.Count == 0 || Grid.Columns.Count == 0)
+						return false;
 					else
 						start = newPosition;
 				}
