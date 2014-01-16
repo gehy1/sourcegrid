@@ -1,0 +1,10 @@
+glob:Thumbs.db
+glob:bin
+glob:obj
+glob:*.orig
+glob:SourceGrid/Help/Working/
+glob:SourceGrid/Help/
+syntax: glob
+_ReSharper*
+**.user
+*.resources
