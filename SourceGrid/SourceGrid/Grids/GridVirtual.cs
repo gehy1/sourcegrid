@@ -963,6 +963,97 @@ namespace SourceGrid
 				mDragCellPosition = cell.Position;
 			}
 		}
+		
+		
+        /// <summary>
+        ///Occurs when an object is dragged into the control's bounds.
+        ///this case external control only
+        /// </summary>
+        protected override void OnDragEnter(DragEventArgs e)
+        {
+            base.OnDragEnter(e);
+            //call cell OnDragEnter Controller if exists
+            Position mousePosition = PositionAtPoint(this.PointToClient(new Point(e.X, e.Y)));
+            Cells.ICellVirtual mouseCell = GetCell(mousePosition);
+            Controller.OnDragEnter(new CellContext(this, mousePosition, mouseCell), e);           
+        }
+
+        /// <summary>
+        ///Occurs when a drag-and-drop operation is completed.
+        ///maybe external or internal
+        /// </summary>
+        protected override void OnDragDrop(DragEventArgs e)
+        {
+            base.OnDragDrop(e);
+            //call cell OnDragDrop controller if exists
+            Position mousePosition = PositionAtPoint(this.PointToClient(new Point(e.X, e.Y)));
+            Cells.ICellVirtual mouseCell = GetCell(mousePosition);
+            Controller.OnDragDrop(new CellContext(this, mousePosition, mouseCell), e);
+          
+            //current cell was changed then need MouveLeave, MouseEnter and repaint events
+            if (MouseDownPosition.IsEmpty() == false)
+            {
+                Cells.ICellVirtual mouseDownCell = GetCell(MouseDownPosition);
+                ChangeMouseDownCell(Position.Empty, mousePosition);
+            }
+        }
+
+        /// <summary>
+        ///Occurs when an object is dragged over the control's bounds.
+        ///maybe external or internal
+        /// </summary>
+        protected override void OnDragOver(DragEventArgs e)
+        {
+            base.OnDragOver(e);
+            Position mousePosition = PositionAtPoint(this.PointToClient(new Point(e.X, e.Y)));
+            Cells.ICellVirtual mouseCell = GetCell(mousePosition);
+            //Cell Changed? call Old cell OnDragLeave and New cell OnDragEnter
+            if (DragCellPosition != mousePosition)
+            {
+                ChangeDragCell(new CellContext(this, mousePosition, mouseCell), e);
+            }
+            //Call cell OnDragOver controller if exists            
+            Controller.OnDragOver(new CellContext(this, mousePosition, mouseCell), e);                       
+        }
+
+        /// <summary>
+        ///The DragLeave event is raised when the user drags the cursor out of the control or 
+        ///  the user cancels the current drag-and-drop operation.
+        ///  </summary>
+        protected override void OnDragLeave(EventArgs e)
+        {
+            base.OnDragLeave(e);
+            Position mousePosition = Position.Empty;
+            Cells.ICellVirtual mouseCell = GetCell(mousePosition);            
+            //Cell Changed Call Old cell OnDragLeave
+            if (DragCellPosition != mousePosition)
+            {
+                ChangeDragCell(new CellContext(this, mousePosition, mouseCell), null);
+            }   
+        }
+
+        /// <summary>
+        ///The GiveFeedback event is raised when a drag-and-drop operation is started
+        ///No cell scope, not sure about need this
+        /// </summary>
+        protected override void OnGiveFeedback(GiveFeedbackEventArgs e)
+        {
+            base.OnGiveFeedback(e);            
+            Position mousePosition = Position.Empty;
+            Cells.ICellVirtual mouseCell = GetCell(mousePosition);
+            Controller.OnGiveFeedback(new CellContext(this, mousePosition, mouseCell), e);     
+        }
+
+        /// <summary>
+        ///The QueryContinueDrag event occurs during a drag-and-drop operation and 
+        ///allows the drag source to determine whether the drag-and-drop operation should be canceled
+        ///no event handle in controller for this. Need?
+        /// </summary>
+        protected override void OnQueryContinueDrag(QueryContinueDragEventArgs e)
+        {
+            base.OnQueryContinueDrag(e);            
+        }
+		
 		#endregion
 
 		#region Selection
@@ -1058,7 +1149,7 @@ namespace SourceGrid
 		{
 			if (m_MouseCellPosition != p_Cell)
 			{
-				//se la cella che sta perdento il mouse è anche quella che ha ricevuto un eventuale evento di MouseDown non scateno il MouseLeave (che invece verrà scatenato dopo il MouseUp)
+				//se la cella che sta perdento il mouse ï¿½ anche quella che ha ricevuto un eventuale evento di MouseDown non scateno il MouseLeave (che invece verrï¿½ scatenato dopo il MouseUp)
 				if (m_MouseCellPosition.IsEmpty() == false &&
 				    m_MouseCellPosition != m_MouseDownPosition)
 				{
@@ -1645,7 +1736,7 @@ namespace SourceGrid
 			}
 			else //se non ho nessuna cella attualmente che ha ricevuto un mousedown, l'evento di MouseMove viene segnalato sulla cella correntemente sotto il Mouse
 			{
-				// se non c'è nessuna cella MouseDown cambio la cella corrente sotto il Mouse
+				// se non c'ï¿½ nessuna cella MouseDown cambio la cella corrente sotto il Mouse
 				ChangeMouseCell(mousePosition);//in ogni caso cambio la cella corrente
 
 				if (mousePosition.IsEmpty() == false && mouseCell != null)
@@ -1717,7 +1808,7 @@ namespace SourceGrid
 			Position clickPosition = PositionAtPoint(PointToClient(Control.MousePosition));
 
 			//Se ho precedentemente scatenato un MouseDown su una cella
-			// e se questa corrisponde alla cella sotto il puntatore del mouse (non posso usare MouseCellPosition perchè questa viene aggiornata solo quando non si ha una cella come MouseDownPosition
+			// e se questa corrisponde alla cella sotto il puntatore del mouse (non posso usare MouseCellPosition perchï¿½ questa viene aggiornata solo quando non si ha una cella come MouseDownPosition
 			if (MouseDownPosition.IsEmpty() == false &&
 			    MouseDownPosition == clickPosition)
 			{
