@@ -89,6 +89,7 @@
     <Compile Include="Cells\Models\TestValueModel.cs" />
     <Compile Include="Cells\Models\TestValueModel_ValueChange_Events.cs" />
     <Compile Include="ClipBoard\TestClipboard.cs" />
+    <Compile Include="Exporter\CsvExporterTest.cs" />
     <Compile Include="Extensions\PingGrids\TestGrid_Span.cs" />
     <Compile Include="net_2_0\CustomClasses.cs" />
     <Compile Include="net_2_0\TestOverride_With_New.cs" />

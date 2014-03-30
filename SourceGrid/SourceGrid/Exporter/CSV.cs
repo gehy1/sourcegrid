@@ -1,13 +1,23 @@
 using System;
+using System.Diagnostics;
 
 namespace SourceGrid.Exporter
 {
+    [Obsolete("Please use CsvExporter class instead. This will be removed in future releases")]
+    public class CSV : CsvExporter
+    {
+    }
+
     /// <summary>
     /// An utility class to export a grid to a csv delimited format file.
     /// </summary>
-    public class CSV
+    public class CsvExporter
     {
-        public CSV()
+        private const string QUOTE = "\"";
+        private const string ESCAPED_QUOTE = "\"\"";
+        private static char[] CHARACTERS_THAT_MUST_BE_QUOTED = { ',', '"', '\n' };
+
+        public CsvExporter()
         {
             mFieldSeparator = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ListSeparator;
             mLineSeparator = System.Environment.NewLine;
@@ -28,38 +38,38 @@ namespace SourceGrid.Exporter
 
         public virtual void Export(GridVirtual grid, System.IO.TextWriter stream)
         {
-            for (int r = 0; r < grid.Rows.Count; r++)
+            for (var r = 0; r < grid.Rows.Count; r++)
             {
-                for (int c = 0; c < grid.Columns.Count; c++)
+                for (var c = 0; c < grid.Columns.Count; c++)
                 {
                     if (c > 0)
                         stream.Write(mFieldSeparator);
 
-                    Cells.ICellVirtual cell = grid.GetCell(r, c);
-                    Position pos = new Position(r, c);
-                    CellContext context = new CellContext(grid, pos, cell);
-                    ExportCSVCell(context, stream);
+                    var cell = grid.GetCell(r, c);
+                    var pos = new Position(r, c);
+                    var context = new CellContext(grid, pos, cell);
+                    ExportCsvCell(context, stream);
                 }
-                stream.Write(mLineSeparator);
+                if (IsLastLine(grid, r) == false)
+                    stream.Write(mLineSeparator);
             }
         }
 
-        protected virtual void ExportCSVCell(CellContext context, System.IO.TextWriter stream)
+        private bool IsLastLine(GridVirtual grid, int i)
         {
+            return grid.Rows.Count -1 == i;
+        }
+
+        private void ExportCsvCell(CellContext context, System.IO.TextWriter stream)
+        {
+            var text = string.Empty;
             if (context.Cell != null)
-            {
-                string text = context.DisplayText;
-                if (text == null)
-                    text = string.Empty;
-                text = text.Replace("\r\n", " ");
-                text = text.Replace("\n", " ");
-                text = text.Replace("\r", " ");
-                stream.Write(text);
-            }
-            else
-            {
-                stream.Write("");
-            }
+                text = context.DisplayText ?? string.Empty;
+            if (text.Contains(QUOTE))
+                text = text.Replace(QUOTE, ESCAPED_QUOTE);
+            if (text.IndexOfAny(CHARACTERS_THAT_MUST_BE_QUOTED) > -1)
+                text = QUOTE + text + QUOTE;
+            stream.Write(text);
         }
     }
 

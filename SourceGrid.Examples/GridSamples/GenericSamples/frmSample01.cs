@@ -454,16 +454,16 @@ namespace WindowsFormsSample
         {
             try
             {
-                string l_Path = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "CsvFile.csv");
+                var exportFileName = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "CsvFile.csv");
 
-                using (System.IO.StreamWriter writer = new System.IO.StreamWriter(l_Path, false, System.Text.Encoding.Default))
+                using (var writer = new System.IO.StreamWriter(exportFileName, false, System.Text.Encoding.Default))
                 {
-                    SourceGrid.Exporter.CSV csv = new SourceGrid.Exporter.CSV();
+                    var csv = new SourceGrid.Exporter.CSV();
                     csv.Export(grid1, writer);
                     writer.Close();
                 }
 
-                DevAge.Shell.Utilities.OpenFile(l_Path);
+                DevAge.Shell.Utilities.OpenFile(exportFileName);
             }
             catch (Exception err)
             {
